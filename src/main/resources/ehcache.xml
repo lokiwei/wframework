@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<ehcache> 
+    <diskStore path="java.io.tmpdir"/>
+    <defaultCache 
+           maxElementsInMemory="1000" 
+           eternal="false" 
+           timeToIdleSeconds="120" 
+           timeToLiveSeconds="120" 
+           overflowToDisk="false"/> 
+    <cache name="myCache" 
+           maxElementsOnDisk="20000" 
+           maxElementsInMemory="2000" 
+           eternal="false"
+           timeToIdleSeconds="86400" 
+           timeToLiveSeconds="86400" 
+           overflowToDisk="true" 
+           diskPersistent="true"/>
+	 <cacheManagerPeerProviderFactory  
+        class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"  
+        properties="peerDiscovery=manual,  
+        rmiUrls=//172.19.118.158:9091/myCache" />
+    <cacheManagerPeerListenerFactory  
+    
+		class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"  
+		properties="hostName=localhost, port=9090,  #端口不能和tomcat重复 此端口为本服务器端口 必须未被占用  
+		socketTimeoutMillis=2000"/> 
+	<!--<cacheManagerPeerProviderFactory  
+        class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"  
+        properties="peerDiscovery=manual,  
+        rmiUrls=//localhost:9091/myCache" />
+    <cacheManagerPeerListenerFactory  
+		class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"  
+		properties="hostName=localhost, port=9090,  #端口不能和tomcat重复 此端口为本服务器端口 必须未被占用  
+		socketTimeoutMillis=2000"/> -->
+</ehcache> 

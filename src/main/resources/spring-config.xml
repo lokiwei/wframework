@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+	http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+    http://www.springframework.org/schema/cache
+    http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<description>Spring公共配置文件 </description>
+
+	<!-- 定义受环境影响易变的变量 -->
+	<bean id="commonPropertyPlaceholderConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="order" value="1" />
+		<property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath*:/spring-config-${env}.properties</value>  
+                <value>classpath*:/important${env.important}.properties</value>
+				<value>classpath*:/spring-config-jsf${env.important}.properties</value>
+				
+				<!-- 加载mongodb配置文件 -->
+				<value>classpath*:/spring-mongo-${env}.properties</value>
+            </list>
+        </property>
+	</bean>
+
+	<!-- SpringContextUtils定义 -->
+	<bean id="springContextUtils" class="com.jd.official.core.utils.SpringContextUtils" />
+
+	<!-- 注解探测器 ， 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.jd.official.modules,com.jd.hronline,com.jd.rainbow,com.jd.callcenter">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:annotation-config />
+	
+	<!-- 定义检测执行时间的拦截器 -->
+	<bean id="performanceMonitorInterceptor" class="com.jd.common.springmvc.interceptor.PlatformPerformanceMonitorInterceptor">
+		<property name="maxAllowedTimeMillis" value="5000"></property>
+	</bean>
+	
+	<aop:config>
+		<aop:advisor pointcut="execution(* com.**.service.**.*Service*.*(..))"
+			advice-ref="performanceMonitorInterceptor" />
+	</aop:config>
+	
+	<bean id="PlatformProperties" class="com.jd.official.core.utils.PlatformProperties" scope="singleton">
+		<constructor-arg index="0">  
+            <value>spring-config-${env}</value>  
+        </constructor-arg>
+	</bean>
+	
+	<!-- cache configuration -->
+	
+	<cache:annotation-driven cache-manager="cacheManager"/>
+	<bean id="cacheManagerFactory"
+        class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="configLocation" value="classpath:/ehcache.xml" />
+    </bean>
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+        <property name="cacheManager" ref="cacheManagerFactory" />
+    </bean>
+
+	<import resource="spring-config-datasource.xml" />
+	<import resource="spring-config-exception.xml" />
+	<import resource="spring-config-jdredis.xml"/>
+    <import resource="spring-config-cxf.xml"/>
+<!--     <import resource="spring-config-worker.xml"/> -->
+    <import resource="spring-config-mail.xml"/>
+    <import resource="spring-config-jss.xml"/>
+    <import resource="spring-config-httpclient.xml"/>
+    <!--<import resource="spring-config-jsf-client.xml"/>-->
+	<import resource="spring-config-jsf-consumer.xml"/>
+	<import resource="spring-config-resource.xml"/>
+	<!--<import resource="spring-config-saf-client.xml"/>-->
+	<!-- <import resource="spring-mongo.xml"/> -->
+    <!--<import resource="spring-config-mq-consumer.xml"/>-->
+    
+</beans>
