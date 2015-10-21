@@ -1,4 +1,4 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 
 import java.text.ParseException;
 import java.text.ParsePosition;
@@ -8,10 +8,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import com.jd.official.core.exception.BusinessException;
 
 public class DateUtils {
 
@@ -81,8 +80,8 @@ public class DateUtils {
 	 * @date 2014年11月3日
 	 */
 	public static boolean isVailableDate(String date) {
-		if (StringUtils.isBlank(date))
-			throw new BusinessException("日期为空");
+//		if (StringUtils.isBlank(date))
+//			throw new BusinessException("日期为空");
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		String currentDate = sdf.format(new Date());
 		String cpDate = date.replaceAll("-", "");
@@ -98,7 +97,7 @@ public class DateUtils {
 			c.setTime(sdf.parse(date));
 		} catch (ParseException e) {
 			logger.error(e);
-			throw new BusinessException("业务异常");
+//			throw new BusinessException("业务异常");
 		}
 		c.add(Calendar.DAY_OF_MONTH, -days);
 		return sdf.format(c.getTime());
@@ -111,7 +110,7 @@ public class DateUtils {
 			c.setTime(sdf.parse(date));
 		} catch (ParseException e) {
 			logger.error(e);
-			throw new BusinessException("业务异常");
+//			throw new BusinessException("业务异常");
 		}
 		c.add(Calendar.DAY_OF_MONTH, -days);
 		String newDate = sdf.format(c.getTime());
@@ -141,8 +140,9 @@ public class DateUtils {
 			return sdf.format(tmpDate);
 		} catch (ParseException e) {
 			logger.error(e);
-			throw new BusinessException("业务异常");
+//			throw new BusinessException("业务异常");
 		}
+		return null;
 	}
 	
 	

@@ -1,6 +1,6 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;

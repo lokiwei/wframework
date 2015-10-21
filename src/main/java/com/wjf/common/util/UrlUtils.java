@@ -1,4 +1,4 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.log4j.Logger;
-
-import com.jd.official.core.exception.BusinessException;
 
 public class UrlUtils {
 
@@ -25,8 +23,9 @@ public class UrlUtils {
 	            }
 	        } catch (UnsupportedEncodingException e) {
 	            logger.error("封装姓名出错",e);
-	            throw new BusinessException(e);
+//	            throw new BusinessException(e);
 	        }
+		return null;
 
 	}
 }

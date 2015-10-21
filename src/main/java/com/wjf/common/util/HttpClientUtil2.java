@@ -1,4 +1,4 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,7 +27,7 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.util.EntityUtils;
 
-import com.jd.official.core.exception.BusinessException;
+//import com.jd.official.core.exception.BusinessException;
 
 
 public class HttpClientUtil2 {
@@ -201,9 +201,9 @@ msList
 			}
 
 		} catch (ClientProtocolException e) {
-			throw new BusinessException("HttpClient调用异常", e);
+//			throw new BusinessException("HttpClient调用异常", e);
 		} catch (IOException e) {
-			throw new BusinessException("HttpClient调用异常", e);
+//			throw new BusinessException("HttpClient调用异常", e);
 		}
 		return responseStr;
 	}

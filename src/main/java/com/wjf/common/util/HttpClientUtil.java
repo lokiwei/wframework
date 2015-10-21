@@ -1,4 +1,4 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 
 import java.io.IOException;
 import java.net.URI;
@@ -18,7 +18,6 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.log4j.Logger;
 
-import com.jd.official.core.exception.BusinessException;
 public class HttpClientUtil {
 	
 	
@@ -47,7 +46,7 @@ public class HttpClientUtil {
 //            getMethod.getParams().setParameter(HttpMethodParams.RETRY_HANDLER,new DefaultHttpMethodRetryHandler());
             int  statusCode=httpClient.executeMethod(getMethod);
             if(statusCode!= HttpStatus.SC_OK){
-                throw new BusinessException("服务器返回错误："+getMethod.getStatusLine());
+//                throw new BusinessException("服务器返回错误："+getMethod.getStatusLine());
             }
             return getMethod.getResponseBodyAsString();
         }finally{
@@ -75,7 +74,7 @@ public class HttpClientUtil {
             int statusCode = httpClient.executeMethod(postMethod);
             if(statusCode!= HttpStatus.SC_OK){
             	logger.error("=============statusCode:============"+statusCode);
-                throw new BusinessException("服务器返回错误："+postMethod.getStatusLine());
+//                throw new BusinessException("服务器返回错误："+postMethod.getStatusLine());
             }
             return new String(postMethod.getResponseBodyAsString().getBytes());
         }catch(Exception e){
@@ -96,7 +95,7 @@ public class HttpClientUtil {
             postMethod.setRequestEntity(new StringRequestEntity(json,"application/json","UTF-8"));
             int statusCode = httpClient.executeMethod(postMethod);
             if(statusCode!= HttpStatus.SC_OK){
-                throw new BusinessException("服务器返回错误："+postMethod.getStatusLine());
+//                throw new BusinessException("服务器返回错误："+postMethod.getStatusLine());
             }
             return postMethod.getResponseBodyAsString();
         }finally{

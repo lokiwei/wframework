@@ -1,8 +1,7 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
-import com.jd.rainbow.common.enm.OperationResultEnum;
 
 /**
  * 
@@ -45,17 +44,17 @@ public class JsonResultUtil {
 	 */
 	public JsonResultUtil(boolean operator,String operationCode){
 		if(StringUtils.isNotBlank(operationCode)){
-			OperationResultEnum[] array = OperationResultEnum.values();
-			for(OperationResultEnum enu:array){
-				if(enu.getCode().equals(operationCode.trim().toLowerCase())){
-					if(operator)
-						this.message = enu.getSuccess();
-					else
-						this.message = enu.getFailure();
-					break;
-				}
-				
-			}
+//			OperationResultEnum[] array = OperationResultEnum.values();
+//			for(OperationResultEnum enu:array){
+//				if(enu.getCode().equals(operationCode.trim().toLowerCase())){
+//					if(operator)
+//						this.message = enu.getSuccess();
+//					else
+//						this.message = enu.getFailure();
+//					break;
+//				}
+//				
+//			}
 			if(StringUtils.isBlank(message))
 				this.message = operationCode;
 			this.operationCode = operationCode;

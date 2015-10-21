@@ -1,4 +1,4 @@
-package com.jd.rainbow.common.util;
+package com.wjf.common.util;
 
 import java.lang.reflect.Method;
 import java.util.Collections;
