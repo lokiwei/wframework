@@ -11,98 +11,217 @@
 		<jdk.version>1.6</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-		<org.apache.maven.plugins.maven-compiler-plugin.version>2.3.2
-		</org.apache.maven.plugins.maven-compiler-plugin.version>
-		<org.apache.maven.plugins.maven-resources-plugin.version>2.5
-		</org.apache.maven.plugins.maven-resources-plugin.version>
-		<org.apache.maven.plugins.maven-javadoc-plugin.version>2.7
-		</org.apache.maven.plugins.maven-javadoc-plugin.version>
-		<org.apache.maven.plugins.maven-eclipse-plugin.version>2.8
-		</org.apache.maven.plugins.maven-eclipse-plugin.version>
-		<org.apache.maven.plugins.maven-surefire-plugin.version>2.8.1
-		</org.apache.maven.plugins.maven-surefire-plugin.version>
+		<org.springframework-version>3.2.3.RELEASE</org.springframework-version>
+		<junitversion>3.8.1</junitversion>
+		<org.aspectj-version>1.6.10</org.aspectj-version>  
+        <org.slf4j-version>1.6.6</org.slf4j-version>
+		<!-- org.apache.maven.plugins.maven-compiler-plugin.version>2.3.2</org.apache.maven.plugins.maven-compiler-plugin.version>
+		<org.apache.maven.plugins.maven-resources-plugin.version>2.5</org.apache.maven.plugins.maven-resources-plugin.version>
+		<org.apache.maven.plugins.maven-javadoc-plugin.version>2.7</org.apache.maven.plugins.maven-javadoc-plugin.version>
+		<org.apache.maven.plugins.maven-eclipse-plugin.version>2.8</org.apache.maven.plugins.maven-eclipse-plugin.version>
+		<org.apache.maven.plugins.maven-surefire-plugin.version>2.8.1</org.apache.maven.plugins.maven-surefire-plugin.version -->
 	</properties>
   	<dependencies>
-    	<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.javacsv</groupId>
-			<artifactId>javacsv</artifactId>
-			<version>2.0</version>
-		</dependency>
-		<dependency>
-            <groupId>org.apache.ws.security</groupId>
-        	<artifactId>wss4j</artifactId>
-            <version>1.6.9</version>
+  		<!-- Spring -->
+        <dependency>
+        	<groupId>org.springframework</groupId>
+        	<artifactId>spring-context</artifactId>
+        	<version>${org.springframework-version}</version>
+        	<exclusions>  
+                <!-- Exclude Commons Logging in favor of SLF4j -->  
+                <exclusion>  
+                    <groupId>commons-logging</groupId>  
+                    <artifactId>commons-logging</artifactId>  
+                 </exclusion>  
+            </exclusions>
         </dependency>
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-webmvc</artifactId>  
+            <version>${org.springframework-version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-jdbc</artifactId>  
+            <version>${org.springframework-version}</version>  
+        </dependency>
+        <!-- Spring End -->
         
-        <dependency>
-            <groupId>org.apache.cxf</groupId>
-            <artifactId>cxf-rt-ws-security</artifactId>
-            <version>2.4.1</version>
+        <!-- AspectJ -->  
+        <dependency>  
+            <groupId>org.aspectj</groupId>  
+            <artifactId>aspectjrt</artifactId>  
+            <version>${org.aspectj-version}</version>  
         </dependency>
-		<dependency>
-			<groupId>jd-omdm-client</groupId>
-			<artifactId>jd-omdm-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-        <dependency>
-			<groupId>commons-httpclient</groupId>
-			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>javax.ws.rs-api</artifactId>
-			<version>2.0.1</version>
-		</dependency>
-		<!-- 组织架构缓存机制 -->
-		<dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>2.8.3</version>
+        <!-- AspectJ End -->
+        
+        <!-- Logging -->  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-api</artifactId>  
+            <version>${org.slf4j-version}</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>jcl-over-slf4j</artifactId>  
+            <version>${org.slf4j-version}</version>  
+            <scope>runtime</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.slf4j</groupId>  
+            <artifactId>slf4j-log4j12</artifactId>  
+            <version>${org.slf4j-version}</version>  
+            <scope>runtime</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+            <version>1.2.15</version>  
+            <exclusions>  
+                <exclusion>  
+                    <groupId>javax.mail</groupId>  
+                    <artifactId>mail</artifactId>  
+                </exclusion>  
+                <exclusion>  
+                    <groupId>javax.jms</groupId>  
+                    <artifactId>jms</artifactId>  
+                </exclusion>  
+                <exclusion>  
+                    <groupId>com.sun.jdmk</groupId>  
+                    <artifactId>jmxtools</artifactId>  
+                </exclusion>  
+                <exclusion>  
+                    <groupId>com.sun.jmx</groupId>  
+                    <artifactId>jmxri</artifactId>  
+                </exclusion>  
+            </exclusions>  
+            <scope>runtime</scope>  
         </dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>1.9.13</version>
-		</dependency>
-		<dependency>
-		    <groupId>org.codehaus.jackson</groupId>
-		    <artifactId>jackson-mapper-asl</artifactId>
-		    <version>1.9.13</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-lang</groupId>
-			<artifactId>commons-lang</artifactId>
-			<version>2.6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>1.5</version>
-		</dependency>
-        <dependency>
-			<groupId>net.sf.json-lib</groupId>
-			<artifactId>json-lib</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>19.0-rc2</version>
-		</dependency>
+        <!-- Logging End -->
+        
+        <!-- @Inject -->  
+        <dependency>  
+            <groupId>javax.inject</groupId>  
+            <artifactId>javax.inject</artifactId>  
+            <version>1</version>  
+        </dependency>
+        <!-- @Inject End -->
+        
+        <!-- Servlet -->  
+        <dependency>  
+            <groupId>javax.servlet</groupId>  
+            <artifactId>servlet-api</artifactId>  
+            <version>2.5</version>  
+            <scope>provided</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>javax.servlet.jsp</groupId>  
+            <artifactId>jsp-api</artifactId>  
+            <version>2.1</version>  
+            <scope>provided</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>javax.servlet</groupId>  
+            <artifactId>jstl</artifactId>  
+            <version>1.2</version>  
+        </dependency>
+        <!-- Servlet End -->
+        
+        <!-- mybatis -->  
+        <dependency>  
+            <groupId>org.mybatis</groupId>  
+            <artifactId>mybatis</artifactId>  
+            <version>3.2.1</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.mybatis</groupId>  
+            <artifactId>mybatis-spring</artifactId>  
+            <version>1.2.0</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>mysql</groupId>  
+            <artifactId>mysql-connector-java</artifactId>  
+            <version>5.1.26</version>  
+        </dependency>
+        <!-- mybatis End -->
+        
+        <!-- Test -->  
+        <dependency>  
+            <groupId>junit</groupId>  
+            <artifactId>junit</artifactId>  
+            <version>4.7</version>  
+            <scope>test</scope>  
+        </dependency>  
+        <dependency>  
+            <groupId>com.alibaba</groupId>  
+            <artifactId>druid</artifactId>  
+            <version>0.2.20</version>  
+        </dependency>  
+  
+        <dependency>  
+            <groupId>org.aspectj</groupId>  
+            <artifactId>aspectjweaver</artifactId>  
+            <version>1.7.2</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>com.alibaba</groupId>  
+            <artifactId>fastjson</artifactId>  
+            <version>1.1.34</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-core</artifactId>  
+            <version>2.2.2</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>com.fasterxml.jackson.core</groupId>  
+            <artifactId>jackson-databind</artifactId>  
+            <version>2.2.2</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>commons-fileupload</groupId>  
+            <artifactId>commons-fileupload</artifactId>  
+            <version>1.2.2</version>  
+        </dependency>
+        <!-- Test End -->
   	</dependencies>
   	<build>
+  		<plugins>  
+            <plugin>  
+                <artifactId>maven-eclipse-plugin</artifactId>  
+                <version>2.9</version>  
+                <configuration>  
+                    <additionalProjectnatures>  
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>  
+                    </additionalProjectnatures>  
+                    <additionalBuildcommands>  
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>  
+                    </additionalBuildcommands>  
+                    <downloadSources>true</downloadSources>  
+                    <downloadJavadocs>true</downloadJavadocs>  
+                </configuration>  
+            </plugin>  
+            <plugin>  
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-compiler-plugin</artifactId>  
+                <version>2.5.1</version>  
+                <configuration>  
+                    <source>1.6</source>  
+                    <target>1.6</target>  
+                    <compilerArgument>-Xlint:all</compilerArgument>  
+                    <showWarnings>true</showWarnings>  
+                    <showDeprecation>true</showDeprecation>  
+                </configuration>  
+            </plugin>  
+            <plugin>  
+                <groupId>org.codehaus.mojo</groupId>  
+                <artifactId>exec-maven-plugin</artifactId>  
+                <version>1.2.1</version>  
+                <configuration>  
+                    <mainClass>org.test.int1.Main</mainClass>  
+                </configuration>  
+            </plugin>  
+        </plugins>  
     	<finalName>wframeworkM</finalName>
   	</build>
 </project>
