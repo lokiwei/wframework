@@ -1,0 +1,38 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/operation_add.js"></script>
+
+<div id="addOperation" style="padding: 10px">
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label">操作编码 :</label>
+            <div class="controls">
+                <input type="text" id="operationCode" name="operationCode" size="100px" data-rule="required;"/>
+
+                <p class="help-block"></p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">操作名称 :</label>
+
+            <div class="controls">
+                <input type="text" id="operationName" name="operationName" size="100px" data-rule="required;"/>
+
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">操作描述 :</label>
+
+            <div class="controls">
+                <textarea id="description" cols="50" rows="2"></textarea>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+
+

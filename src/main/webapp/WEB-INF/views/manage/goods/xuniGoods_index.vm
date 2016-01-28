@@ -1,0 +1,63 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/goods/xuniGoods_index.js"></script>
+
+<div id="xuniGoodsSearchform" class="filtrate-wrap">
+<input type="hidden" id="goodsStatus" value="$!{goodsStatus}"/>
+<input type="hidden" id="goodsType" value="xuni"/>
+	<ul class="filtrate columns">
+		<li>
+			<div class="txt">商品名称</div>
+			<div class="con">
+				<input id="currentGoodsTitle" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">商品编号</div>
+			<div class="con">
+				<input id="currentGoodsNo" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">发布时间</div>
+			<div class="con">
+				<input style="width:150PX;" id="createStartTime" type="text" name="createStartTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+            	-
+            	<input style="width:150PX;" id="createEndTime" type="text" name="createEndTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+			</div>
+		</li>
+		#if($!{goodsStatus} == 'my')
+		<li>
+			<div class="txt">商品状态</div>
+			<div class="con">
+				<select id="currentgoodsStatus">
+					<option value="">请选择</option>
+					<option value="1">草拟</option>
+					<option value="2">待售</option>
+					<option value="3">在售</option>
+					<option value="4">下架</option>
+				</select>
+			</div>
+		</li>
+		#end
+		<li class="status row">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="xuniGoodsSearch" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="summary">
+	#if($!{goodsStatus} == 'my')
+	<div class="btn-red add" data-toggle="modal" data-target="#J-modal-plan">新增商品</div>
+	#end
+	#if($!{goodsStatus} == '3')
+	<div class="btn-red cancel" data-toggle="modal" data-target="#J-modal-plan">批量下架</div>
+	#end
+	<div class="clear">&nbsp;</div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="xuniGoodsTable" width="100%">
+	</table>
+</div>

@@ -1,0 +1,202 @@
+#set($layout = "layout/default.vm")
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/resume.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+</head>
+<body>
+
+<!-- 通用顶栏 -->
+#parse("/common/head.vm")
+<!-- 简历头部 -->
+<div class="resume-header">
+	<div class="wrap">
+		<ul class="resume-header-l">
+			<li class="resume-my-application "><a href="/web/resume/resume_index">我的简历</a></li>
+			<li class="seperator">|</li>
+			<li class="resume-my-resume resume-header-selected"><a href="#">我申请的职位</a></li>
+		</ul>
+		<div class="resume-header-r">
+			<div class="resume-progress-bar-wrapper">
+				<div class="resume-progress-bar" style="width: $!{fullAttribute}%;"></div>
+			</div>
+			<div class="resume-progress-percent"><span>$!{fullAttribute}</span>%<b>简历完整度</b></div>
+		</div>
+	</div>
+</div>
+<!-- 主体内容 -->
+<div class="my-jobs-main">
+	<div class="wrap" id="mainDiv">
+		<!-- S 无结果 -->
+		<!-- <div class="no-jobs">当前还没有申请任何职位</div> -->
+		<!-- E 无结果 -->
+
+		<!-- S 有结果 -->
+		<form id="J-my-jobs-form" action="asdad" method="post">
+			<input type="hidden" value="$!{reJobObjective.firstJobInfoId}:$!{reJobObjective.firstJobInfoName}" name="J-jobs-1"/>
+			<input type="hidden" value="$!{reJobObjective.twoJobInfoId}:$!{reJobObjective.twoJobInfoName}" name="J-jobs-2"/>
+			<input type="hidden" value="$!{RTNMSG}" id="rtnmsg"/>
+			<input type="hidden" value="$!{reJobObjective.id}" id="rjoId"/>
+			<input type="hidden" value="$!{reJobObjective.phaseState}" id="phase"/>
+			<input type="hidden" value="$!{reJobObjective.processState}" id="process"/>
+			<input type="hidden" value="$!{reJobObjective.currentJobInfoName}" id="currentJobInfoName"/>
+			
+			#if ($!{reJobObjective} != "null")
+				
+			<!-- S 已选择第二志愿 -->
+			#if ($!{reJobObjective.firstJobInfoId} != 0 && $!{reJobObjective.twoJobInfoId} != 0)
+    			<div class="row">
+    				<span class="jobs-order">第一志愿</span>
+    				<div class="jobs-wrapper">
+    					<span class="jobs-title">$!{reJobObjective.firstJobInfoName}</span>
+    					<span class="jobs-options">
+    						<a href="javascript:;" class="jobs-down J-jobs-move" title="下移"></a>
+    						<a href="javascript:;" class="jobs-del J-jobs-del" title="删除"></a>
+    					</span>
+    				</div>
+    			</div>
+    			<div class="row last-row">
+    				<span class="jobs-order">第二志愿</span>
+    				<div class="jobs-wrapper">
+    					<span class="jobs-title">$!{reJobObjective.twoJobInfoName}</span>
+    					<span class="jobs-options">
+    						<a href="javascript:;" class="jobs-up J-jobs-move" title="上移"></a>
+    						<a href="javascript:;" class="jobs-del J-jobs-del" title="删除"></a>
+    					</span>
+    				</div>
+    			</div>
+			#else 
+				<div class="row">
+    				<span class="jobs-order">第一志愿</span>
+    				<div class="jobs-wrapper">
+    					<span class="jobs-title">$!{reJobObjective.firstJobInfoName}</span>
+    					<span class="jobs-options">
+    						<a href="javascript:;" class="jobs-del J-jobs-del" title="删除"></a>
+    					</span>
+    				</div>
+    			</div>
+    			<div class="row last-row">
+    				<span class="jobs-order">第二志愿</span>
+    				<div class="jobs-wrapper jobs-wrapper-no-bg">
+    					<!--
+    					<a href="#" class="jobs-vacancy"><span></span>继续添加职位</a>
+    					-->
+    					<a href="/web/static/forward?to=jd-run&t=3" class="jobs-vacancy"><span></span>继续添加职位</a>
+    				</div>
+    			</div>
+			#end
+			
+			
+			<div id="funcBtn" class="my-jobs-submit">
+				<a href="javascript:;" id="J-jobs-submit-btn" class="btn-red  disabled">提交申请</a>
+				<p>注:一位候选人只能申请2个职位,我们会优先考虑您提交的第一志愿</p>
+			</div>
+			#end 
+		</form>
+		<!-- E 有结果 -->
+	</div>
+</div>
+
+
+<!-- footer -->
+#parse("/common/footer.vm")
+ <script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+    <script src="#springUrl('/campus/js/libs/jquery.validate.js')"></script>
+    <script type="text/javascript" src="#springUrl('/campus/js/main.js')"></script>
+	<script src="#springUrl('/campus/js/libs/messages_zh.js')"></script>
+    <script src="#springUrl('/campus/js/myjob.js')"></script>
+<script>
+function getShow(val) {
+	var tmp = "" ;
+	if (val.indexOf(":")!= -1) {
+		tmp = val.substring(val.indexOf(":") + 1);
+	}	
+	return tmp ;
+}
+
+var myJobs = {
+	form: $("#J-my-jobs-form"),
+	// 初始
+	myJobsInit: function() {
+		//this.myJobsSubmit();
+		this.myJobsRanking();
+		this.myJobsRemove();
+	},
+	myJobsRanking: function() {
+		var input1 = $('input[name="J-jobs-1"]');
+		var input2 = $('input[name="J-jobs-2"]');
+		$(".jobs-options").on("click", ".J-jobs-move", function() {
+			$('.jobs-title').eq(0).text(getShow(input2.val()));
+			$('.jobs-title').eq(1).text(getShow(input1.val()));
+			var i = input2.val();
+			input2.val(input1.val());
+			input1.val(i);
+		});
+	},
+	myJobsRemove: function() {
+		//var html = '<a href="/web/apply/current?recType=01&t=3" class="jobs-vacancy"><span></span>继续添加职位</a>';
+		var html = '<a href="/web/static/forward?to=jd-run&t=3" class="jobs-vacancy"><span></span>继续添加职位</a>';
+		var input1 = $('input[name="J-jobs-1"]');
+		var input2 = $('input[name="J-jobs-2"]');
+		$(".jobs-options").on("click", ".J-jobs-del", function() {
+			if ($!{reJobObjective.phaseState} == 1 && $!{reJobObjective.processState} == 0) {
+				if($(this).closest('.last-row').length) {
+						$(this).parent().prev().parent().addClass('jobs-wrapper-no-bg').html(html);
+						input2.remove();						
+						var url = "/web/apply/toSubmit?id=$!{reJobObjective.id}&flag=delPart&jobName=twoJobInfoName";
+						jQuery.get(url , function(data){
+	    								if (data.RTNMSG == "toComplete") {
+	    										alert("简历信息不完整，请先完善简历");
+	    								}else {
+	    									alert("成功删除职位申请");							
+	    								}
+	    							},  "json");
+					} else if (!$(this).parents('.row').next().find('.jobs-vacancy').length) {				
+						var nextRow = $(this).parents('.row').next();
+						$(this).prev().hide().
+						parent().prev().text(getShow(input2.val()));
+						nextRow.find('.jobs-wrapper').addClass('jobs-wrapper-no-bg').html(html);
+						input1.val(input2.val());
+						input2.remove();
+						
+						var url = "/web/apply/toSubmit?id=$!{reJobObjective.id}&flag=delPart&jobName=firstJobInfoName";
+						jQuery.get(url , function(data){
+	    								if (data.RTNMSG == "toComplete") {
+	    										alert("简历信息不完整，请先完善简历");
+	    								}else {
+	    									alert("成功删除职位申请");							
+	    								}
+	    							},  "json");
+						
+					} else {
+						if(confirm("确认删除所有的职位申请吗？")){
+							var url = "/web/apply/toSubmit?id=$!{reJobObjective.id}&flag=delAll"; 
+							var noJob = '<div class="no-jobs">当前还没有申请任何职位</div>';
+							$('#J-my-jobs-form').hide().parent().html(noJob);
+    						
+	    					jQuery.get(url , function(data){
+	    								if (data.RTNMSG == "toComplete") {
+	    										alert("简历信息不完整，请先完善简历");
+	    								}else {
+	    									alert("成功删除所有职位申请");							
+	    								}
+	    							},  "json");
+	    					return false;     
+							//location.reload() ;
+						}
+				}
+			}else {
+						alert("您的简历已经经过初始阶段，不能删除简历");		
+					}
+			});
+	}
+}
+myJobs.myJobsInit();
+</script>
+
+</body>
+</html>

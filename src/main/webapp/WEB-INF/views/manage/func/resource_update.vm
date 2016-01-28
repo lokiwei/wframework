@@ -1,0 +1,74 @@
+#set($layout = "layout/null.vm")
+	<script type="text/javascript">
+	var displayStatus = "${resource.displayStatus}";
+	</script>
+	<!-- nice validator -->
+    <script type="text/javascript" src="#springUrl('/static/nvalidator/jquery.validator.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/zh_CN.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/nValidator.js')"></script>
+	<script type="text/javascript" src="#springUrl('')/js/manage/func/resource_update.js">
+	</script>
+
+<form id="inputForm" >
+    <div class="form-horizontal">
+		<input type="hidden" id="id" name="id" value="$!{resource.id}" />
+		<input type="hidden" id="parentId" name="parentId" value="$!{resource.parentId}" />
+		<input type="hidden" id="status" name="status" value="$!{resource.status}" />
+		<input type="hidden" id="displayStatus" name="isDisplay" value="$!{resource.displayStatus}" />
+        <input type="hidden" id="applicationId" name="applicationId" value="$!{resource.applicationId}" />
+		<div class="control-group">
+            <label class="control-label">资源编码：</label>
+            <div class="controls">
+        	  <input type="text" id="resourceCode" name="resourceCode" value="$!{resource.resourceCode}" data-rule="required;"/><span id="isRepeatResourceCode"></span><p class="help-block"></p>
+              <input type="hidden" id="resourceCodeOld" value="$!{resource.resourceCode}"/>
+            </div>
+        </div>
+		<div class="control-group">
+            <label class="control-label">资源名称：</label>
+            <div class="controls">
+        	  <input type="text" id="resourceName" name="resourceName" value="$!{resource.resourceName}" data-rule="required;"/><span id="isRepeatResourceName"></span><p class="help-block"></p>
+              <input type="hidden" id="resourceNameOld" value="$!{resource.resourceName}"/>
+            </div>
+        </div>
+        <div class="control-group">
+	        <label class="control-label">是否显示：</label>
+	        <div class="controls">
+	    	  <select id="displayStatusSelect" name='displayStatus' class="" onchange="selectChange(this)">
+				<option value="true" #if ($!{resource.displayStatus}==true) selected #end>是</option>
+				<option value="false" #if ($!{resource.displayStatus}==false) selected #end>否</option>
+			  </select>
+			</div>
+        </div>
+		<div class="control-group">
+            <label class="control-label">URL：</label>
+            <div class="controls">
+        	  <input type="text" id="resourceUrl" name="resourceUrl" value="$!{resource.resourceUrl}" /><p class="help-block"></p>
+            </div>
+        </div>
+		<div class="control-group">
+            <label class="control-label">排序序号：</label>
+            <div class="controls">
+        	  <input type="text" id="sortNo" name="sortNo" value="$!{resource.sortNo}" data-rule="required;integer" /><p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">资源图标：</label>
+            <div class="controls">
+                <input type="hidden" name="resourceIcon" id="resourceIcon" value="$!{resource.resourceIcon}"/>
+                <ul id="icoUl">
+                    #foreach($!ico in $!{icoList})
+                        <li onclick="icoCheck(this,'$!{ico}')" #if ($ico==$!{resource.resourceIcon}) style="background-color: rgba(255, 0, 0, 0.25);" #end><img  src="/static/admin/skin/icon/$!{ico}" style="width: 16px;height: 16px;"></li>
+                    #end
+                </ul>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+            	<div id="updateResource" class="btn-red btn-lg">保存</div>
+    			<div id="cancelResource" class="btn-cancel btn-lg">取消</div>
+            </div>
+        </div>
+
+    </div>
+</form>
+

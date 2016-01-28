@@ -1,0 +1,164 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/home.css')"/>
+	<style>
+	input{
+    	border: 1px solid black;
+    	outline: none;
+	}
+	input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+    table tbody tr td{
+    	text-align:center;
+    }
+	</style>
+</head>
+<body style="background-color:white;">
+<form action="/web/static/forward/point/point_record_index" id="pointForm" name="pointForm" method="post">
+<table style="margin:0 auto;width:85%;" border="0">
+	<tr>
+		<td style="text-align:left;height:30px;border-bottom:1px solid black;" colspan="5"><h3>搜 索（我的积分）</h3></td>
+	</tr>
+	<tr>
+		<td style="text-align:center;height:10px;" colspan="5">
+			#foreach($prCount in $!{prCounts})
+				{#dictionary('POINTTYPE','out','{isDictType:false}',$!{prCount.POINT_TYPE}),$!{prCount.POINT_COUNT}},
+			#end
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;height:10px;" colspan="5">
+			#foreach($pcCount in $!{pcCounts})
+				{#dictionary('POINTTYPE','out','{isDictType:false}',$!{pcCount.POINT_TYPE}),$!{pcCount.COST_POINT}},
+			#end
+		</td>
+	</tr>
+	<tr>
+	<td></td>
+	</tr>
+	<tr>
+		<td style="text-align:left;">积分类型:
+			<select id="pointType" name="pointType">
+				<option value="">请选择</option>
+				#if($!{operMap.get("pointType")}=="CX")
+				<option value="CX" selected>创新积分</option>
+				#else
+				<option value="CX">创新积分</option>
+				#end
+				#if($!{operMap.get("pointType")}=="HX")
+				<option value="HX" selected>贺喜积分</option>
+				#else
+				<option value="HX">贺喜积分</option>
+				#end
+				#if($!{operMap.get("pointType")}=="JZG")
+				<option value="JZG" selected>价值观积分</option>
+				#else
+				<option value="JZG">价值观积分</option>
+				#end
+				#if($!{operMap.get("pointType")}=="JR")
+				<option value="JR" selected>节日积分</option>
+				#else
+				<option value="JR">节日积分</option>
+				#end
+				#if($!{operMap.get("pointType")}=="SL")
+				<option value="SL" selected>司龄积分</option>
+				#else
+				<option value="SL">司龄积分</option>
+				#end
+			</select>
+		</td>
+		<td style="text-align:left;">变动类型:
+			<select id="pointImportType" name="pointImportType">
+				<option value="">请选择</option>
+				#if($!{operMap.get("pointImportType")}=="1")
+				<option value="1" selected>增加</option>
+				#else
+				<option value="1">增加</option>
+				#end
+				#if($!{operMap.get("pointImportType")}=="2")
+				<option value="2" selected>减少</option>
+				#else
+				<option value="2">减少</option>
+				#end
+				
+			</select>
+		</td>
+		<td style="text-align:left;">开始时间:
+			<input type="text" id="startTime" name="startTime" value="$!{operMap.get("startTime")}" required="true"  minlength="2" chinese="true" class="Wdate"  date="true" onFocus="WdatePicker({skin:'default',minDate:'1960-01-01',maxDate:'#F{$dp.$D(\'endTime\')||\'2020-10-01\'}'})"/>
+		</td>
+		<td style="text-align:left;">结束时间:
+			<input type="text" id="endTime" name="endTime" value="$!{operMap.get("endTime")}" required="true"  minlength="2" chinese="true" class="Wdate"  date="true" onFocus="WdatePicker({skin:'default',minDate:'#F{$dp.$D(\'startTime\')}',maxDate:'2020-10-01'})"/>
+		</td>
+		<td><button type="button" style="height:19.7px;" onclick="searchPoint();">搜索</button></td>
+	</tr>
+	<tr>
+	<td></td>
+	</tr>
+</table>
+<br/>
+</form>
+<table id="orderInfo" border="1" style="width:85%;margin:0 auto;">
+	<tr><th style="width:300px;">积分类型</th><th>变动类型</th><th>积分</th><th>操作时间</th><th>说明</th></tr>
+	#foreach($pointRecord in $!{prList})
+	<tr id='$!{pointRecord.id}'>
+		<td>$!{dictMap.get($!{pointRecord.pointType})}</td>
+		<td>$!{dictIPMap.get($!{pointRecord.pointImportType})}</td>
+		<td>$!{pointRecord.availablePoint}</td>
+		<td>$!date.format('yyyy-MM-dd HH:mm:ss ',$!{pointRecord.createTime.time})</td>
+		<td>$!{pointRecord.detailInfo}</td>
+	</tr>
+	#end
+</table>
+
+<table style="margin:0 auto;width:85%;" border="0">
+#foreach($welfareItem in $!{welfareItemList})
+<tr>
+<td>$!{welfareItem.title}</td>
+</tr>
+#end
+</table>
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/static/jsutils/dateformat.js')"></script>
+<script src="#springUrl('/static/datepicker/WdatePicker.js')"></script>
+<script>
+	$(document).ready(function(){
+		//listPointsByErp();
+	});
+	
+	function searchPoint(){
+		pointForm.submit();
+	}
+	function listPointsByErp(){
+		jQuery.ajax({
+			url:'/web/static/forward/point/pointrecord_list',
+			type:'post',
+			data:{},
+			dataType:'json',
+			success:function(data){
+				var info = '';
+				var header = '<tr><th style="width:300px;">积分类型</th><th>变动类型</th><th>积分</th><th>操作时间</th><th>说明</th></tr>';
+				for(var i = 0;i<data.length;i++){
+					var pointRecord = data[i];
+					info+="<tr id='"+pointRecord.id+"'>"
+						+"	<td>"+pointRecord.pointType+"</td>"
+						+"	<td>"+pointRecord.pointImportType+"</td>"
+						+"	<td>"+pointRecord.availablePoint+"</td>"
+						+"	<td>"+new Date(pointRecord.createTime.time).format('yyyy-MM-dd hh:mm:ss')+"</td>"
+						+"	<td>"+pointRecord.detailInfo+"</td>"
+						+"</tr>";
+				}
+				$('#orderInfo').html(header+info);
+			}
+		});
+	}
+</script>
+</body>
+</html>

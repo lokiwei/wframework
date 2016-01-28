@@ -1,0 +1,103 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datepicker/WdatePicker.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/func/application_edit.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div>
+    <form id="addApplication"  >
+        <input type="hidden" value="$!{application.id}" id="id" name="editid"/>
+        <div class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label"><span class="mustInput">*</span>应用编码：</label>
+                <div class="controls">
+                    <input type="text" id="applicationCode" name="applicationCode"  value="$!{application.applicationCode}" data-rule="required;" />
+                    <span id="isRepeatApplicationCode"></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="mustInput">*</span>应用名称：</label>
+                <div class="controls">
+                    <input type="text" id="applicationName1" name="applicationName"  value="$!{application.applicationName}" data-rule="required;"/>
+                    <span id="isRepeatApplicationName"></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">应用类型：</label>
+                <div class="controls">
+                    <input type="text" id="applicationType" name="applicationType"  value="$!{application.applicationType}"   />
+                    <span id="isRepeatApplicationType"></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">是否开启：</label>
+                <div class="controls">
+                    <select id="isOpen" name='isOpen'  >
+                        <option value="1"  #if($!application.isOpen=='1') selected #end>是</option>
+                        <option value="0"  #if($!application.isOpen=='0') selected #end>否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">开启时间：</label>
+                <div class="controls">
+                    <input id="openDate"
+                           class="input ml0 w80 mr5 Wdate" type="text"
+                           onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd'})" name="openTime"
+                           value="#if($!application.openDate) $dateTool.format("yyyy-MM-dd", $!{application.openDate}) #end"/>
+                    <span id="isRepeatOpenDate"></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">ip地址：</label>
+                <div class="controls">
+                    <input type="text" id="ipAddress" name="ipAddress"  value="$!{application.ipAddress}"  />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">端口：</label>
+                <div class="controls">
+                    <input type="text" id="ipPort" name="ipPort"  value="$!{application.ipPort}"  />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label"><span class="mustInput">*</span>URL：</label>
+                <div class="controls">
+                    <input type="text" id="applicationUrl" name="url"  value="$!{application.url}" data-rule="required;"/>
+                    <span id="isRepeatUrl"></span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">管理员：</label>
+                <div class="controls">
+                    <a id="userName" href="javascript:void(0)">
+                        #if(!$application.realName) 无 #end
+                        #if($application.realName) $!{application.realName} #end</a>
+                    <a id="clear" href="javascript:void(0)" onclick='setUserInfo([{id:"",realName:"无"}]);'>×</a>
+                    <input type="hidden" name="managerId1" value="$!{application.managerId}" />
+                    <input type="hidden" name="realName" value="$!{application.realName}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">管理员角色：</label>
+                <div class="controls">
+                    <select id="applicationRoleId" name='roleId'  >
+                        <option value="">请选择</option>
+                        #foreach($!role in $!{roleList})
+                            <option value="$!{role.Id}"  #if ($application.managerRoleId==$role.Id) selected #end>$!{role.roleName}</option>
+                        #end
+                    </select>
+                    <input type="hidden" name="roleName" value="$!{application.managerRoleId}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">描述：</label>
+                <div class="controls">
+                    <textarea id="description" name="description">$!{application.description} </textarea>
+                </div>
+            </div>
+        </div>
+    </form>

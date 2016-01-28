@@ -1,0 +1,31 @@
+##################################
+## 数据字典-数据类别管理查看页面
+##author：dongjian
+##################################
+#set($layout = "layout/null.vm")
+
+<!-- 数据字典-数据类别管理详情页面JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dicttype_update.js"></script>
+
+<form id="dictTypeForm" method="POST" action="" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="dictTypeName">类别名称:</label>
+            <div class="controls">
+                <input readonly  type="text" id="dictTypeName" name="dictTypeName" value="$!{dictType.dictTypeName}">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dictTypeCode">类别编码:</label>
+            <div class="controls">
+                <input readonly type="text" id="dictTypeCode" name="dictTypeCode" value="$!{dictType.dictTypeCode} " readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dictTypeDesc">类别描述:</label>
+            <div class="controls">
+                <textarea readonly id="description" name="description" class="span8" rows="5">$!{dictType.description}</textarea>
+            </div>
+        </div>
+    </div>
+</form>

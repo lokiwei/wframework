@@ -1,0 +1,58 @@
+##################################
+## 数据字典-数据项详情页面
+##author：dongjian
+##################################
+#set($layout = "layout/submitNew.vm")
+<!-- 数据字典-数据项管理详情页JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dictdata_update.js"></script>
+
+<form id="dictDataForm" method="POST" action="" enctype="multipart/form-data">
+<div id="viewDictdata" style="padding: 10px">
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="dictTypeName">字典类别:</label>
+            <div class="controls">
+                <input type="text" id="dictTypeName" name="dictTypeName" value="$!{dictData.dictTypeName}" disabled/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dictDataCode">数据编码:</label>
+            <div class="controls">
+                <input type="text" id="dictDataCode" name="dictDataCode" value="$!{dictData.dictDataCode}" disabled />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dictDataName">数据名称:</label>
+            <div class="controls">
+                <input type="text" id="dictDataName" name="dictDataName"  value="$!{dictData.dictDataName}" disabled/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="parentName">父编号:</label>
+            <div class="controls">
+                <select name="parentName" id="parentName" disabled>
+                    <option  value="$!{dictData.id}" selected>$!{dictData.parentName}</option>
+                </select>
+            </div>
+        </div>
+		<div class="control-group">
+            <label class="control-label" for="sortNo">显示顺序:</label>
+            <div class="controls">
+                <input type="text" id="sortNo" name="sortNo" value="$!{dictData.sortNo}" disabled/>
+            </div>
+        </div>
+		 <div class="control-group">
+             <label class="control-label" for="modifier">操作人:</label>
+             <div class="controls">
+                <input readonly  type="text" id="modifier" name="modifier" value="$!{dictData.modifier}">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="modifyTime">最后更新:</label>
+            <div class="controls">
+                <input readonly  type="text" id="modifyTime" name="modifyTime" value="$!dateTool.format('yyyy-MM-dd HH:mm:ss',$!{dictData.modifyTime})">
+            </div>
+        </div>
+    </div>
+ </div>
+</form>

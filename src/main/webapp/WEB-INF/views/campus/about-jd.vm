@@ -1,0 +1,215 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>京东招聘</title>
+<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+<style>
+.about-wrap{
+  font-size: 16px;
+  color: #5A5A5A;
+}
+.about-wrap .subtitle {
+  margin-top: 34px;
+  margin-bottom: 50px;
+  line-height: 64px;
+  border-bottom: 1px solid #eef0f3;
+  font-weight: normal;
+  font-size: 24px;
+  color: #5a5a5a;
+}
+.about-wrap .about-item-title{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: #E3393A;
+  font-size: 28px;
+}
+.about-wrap .about-item p{
+  text-indent: 32px;
+  line-height: 32px;
+  margin-bottom: 5px;
+}
+.whole-pic{
+  text-align: center;
+  background-color: #F5F5F5;
+  height: 600px;
+  overflow: hidden;
+  margin: 30px 0;
+}
+.about-wrap .event-list dt, .about-wrap .event-list dd{
+  display: block;
+  height: 20px;
+  line-height: 20px;
+}
+.about-wrap .event-list dt{
+  color: #E6393B;
+  margin-bottom: 10px;
+}
+.about-wrap .event-list dd{
+  height: auto;
+  text-indent: 36px;
+  margin-bottom: 30px;
+  line-height: 30px;
+}
+</style>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+<!-- 主体 -->
+<div class="wrap about-wrap">
+  <h2 class="subtitle">走进京东</h2>
+  <div class="content">
+    <div class="about-pic"><img src="#springUrl('/campus/img/about-jd-1.jpg')" alt=""></div>
+    <div class="about-item">
+      <h3 class="about-item-title">京东介绍</h3>
+      <p>根据第三方市场研究公司艾瑞咨询的数据，京东（JD.com）是中国最大的自营式电商企业，2014年在中国自营式电商市场的占有率为49%。目前，京东集团旗下设有京东商城、京东金融、拍拍网、京东智能及海外事业部。2014年5月，京东在美国纳斯达克证券交易所正式挂牌上市，是中国第一个成功赴美上市的大型综合型电商平台，与腾讯、百度等中国互联网巨头共同跻身全球前十大互联网公司排行榜。2014年，京东市场交易额达到2602亿元，净收入达到1150亿元。京东致力于为消费者提供愉悦的在线购物体验。通过内容丰富、人性化的网站（www.jd.com）和移动客户端，京东以富有竞争力的价格，提供具有丰富品类及卓越品质的商品和服务，以快速可靠的方式送达消费者，并且提供灵活多样的支付方式。</p>
+    </div>
+  </div>
+</div>
+<div class="whole-pic"><img src="#springUrl('/campus/img/about-jd-2.jpg')" alt=""></div>
+<div class="wrap about-wrap">
+  <div class="content">
+    <h3 class="about-item-title">京东大事记</h3>
+    <dl class="event-list">
+		
+		<dt>2015年3月3日</dt>        <dd><p>京东集团发布2014年第四季度交易总额（GMV）达到858亿元人民币。</p> </dd>
+		<dt>2015年2月3日</dt>        <dd><p>与法国经济委员会主席在巴黎共同签署“联合声明”，京东加快国际化步伐。</p> </dd>
+		<dt>2014年12月17日 </dt>      <dd><p> 与英特尔成立“京东英特尔联合创新实验室”。</p> </dd>
+		<dt>2014年12月17日</dt>       <dd><p> 与格莱珉中国战略合作，通过互联网进入农村金融领域。</p> </dd>
+        <dt>2014年11月27日 </dt>      <dd><p> 《京东技术解密》正式出版，首次向外界披露了京东高速发展背后的技术运作。</p> </dd>
+        <dt>2014年11月20日</dt>       <dd><p> 首家服务农村大家电的“京东帮服务店”开业。</p> </dd>		
+        <dt>2014年11月11日 </dt>      <dd><p> 双十一京东订单量超过1400万，移动端下单量达去年同期八倍。</p> </dd>
+        <dt>2014年10月20日</dt>       <dd> <p>上海“亚洲一号”现代化物流中心（一期）物流中心正式投入使用。 </p></dd>
+        <dt>2014年9月24日</dt>       <dd><p> 京东集团发起成立北京京东公益基金会的注册，非公募基金会即将成立。</p> </dd>
+		<dt>2014年8月4日</dt>  <dd><p> 京东宣布向云南鲁甸灾区捐赠物资及现金共计500万元，并直接送往灾区。 </p></dd>
+
+      <dt>2014年2月</dt>
+      <dd>京东推出首个互联网金融信用支付产品：“京东白条”。</dd>
+      <dt>2014年1月</dt>
+      <dd>
+        <p>京东西北大区正式启动运营。</p>
+        <p>京东率先试行新消法。</p>
+      </dd>
+      <dt>2013年12月</dt>
+      <dd>
+        <p>京东成为中国首批虚拟运营商。</p>
+        <p> 京东会员俱乐部上线。</p>
+      </dd>
+      <dt>2013年11月</dt>
+      <dd>
+        <p>发布JDPhone计划，整合产业链为用户打造最佳性价比手机。</p>
+        <p>京东获基金支付牌照。</p>
+        <p>京东正式推出“退换货运费险”，是电商业界首次退换货“双保险”。</p>
+        <p>京东与太原唐久便利店合作上线O2O项目。</p>
+      </dd>
+      <dt>2013年10月</dt>
+      <dd>
+        <p>京东调整会员体系，推出“京豆”。</p>
+        <p>京东首次面向海外招聘国际管培生。</p>
+        <p>京东在自营家电品类率先推出“30天价保，30天只退不换，180天只换不修”特色服务承诺，远超国家三包法规定。</p>
+      </dd>
+      <dt>2013年9月</dt>
+      <dd>京东发布首份企业社会责任报告提出“五为”理念。</dd>
+      <dt>2013年7月</dt>
+      <dd>
+        <p>京东“亚洲一号”上海物流中心（一期）完成建筑结构封顶。</p>
+        <p成功举办京东首届开放平台合作伙伴大会。></p>
+      </dd>
+      <dt>2013年6月</dt>
+      <dd>
+        <p>京东推出电商云的四大解决方案：宙斯、云鼎、云擎、云汇。</p>
+        <p>京东开出中国电子商务领域首张电子发票。</p>
+        <p>京东在北京、沈阳两地成功投放自提柜业务，消费者可24小时随时取货。</p>
+      </dd>
+      <dt>2013年5月</dt>
+      <dd>
+        <p>京东推出 “夜间配”、“极速达”等配送服务，树立电商物流配送的新标杆。</p>
+        <p>京东超市业务上线。</p>
+      </dd>
+      <dt>2013年3月</dt>
+      <dd>
+        <p>京东完成价值观梳理：客户为先、诚信、团队、创新、激情。新企业价值观的核心是“客户为先”。</p>
+        <p>京东域名正式更换为JD.COM，并推出名为“Joy”的吉祥物形象。</p>
+        <p>京东与中国顶级足球赛事中超联赛牵手，成为中超联赛一级合作伙伴。</p>
+      </dd>
+      <dt>2012年11月</dt>
+      <dd>
+        <p>京东上线供应链金融服务“京保贝”，可以实现三分钟向供应商提供融资服务。</p>
+        <p>京东正式开放物流服务系统平台。</p>
+      </dd>
+      <dt>2012年10月</dt>
+      <dd>
+        <p>京东海外站（英文网站）正式上线公测，迈出国际化重要一步。</p>
+        <p>京东完成了对第三方支付公司网银在线的完全收购，正式布局支付体系。</p>
+      </dd>
+      <dt>2012年1月</dt>
+      <dd>京东在线客服正式上线，在网站访客与京东之间搭建起全新的即时沟通渠道。</dd>
+      <dt>2011年11月</dt>
+      <dd>
+        <p>京东进军奢侈品领域，正式推出奢侈品购物网站360Top.com。</p>
+      </dd>
+      <dt>2010年12月</dt>
+      <dd>
+        <p>京东开放平台正式运营。</p>
+      </dd>
+      <dt>2010年11月</dt>
+      <dd>
+        <p>京东图书产品上架销售，实现从3C网络零售商向综合型网络零售商转型。</p>
+      </dd>
+      <dt>2010年6月</dt>
+      <dd>
+        <p>京东开通全国上门取件服务，解决网购的售后之忧。</p>
+      </dd>
+      <dt>2010年3月</dt>
+      <dd>
+        <p>京东推出“211限时达”极速配送，引领并建立了中国B2C行业的全新标准。</p>
+      </dd>
+      <dt>2009年10月</dt>
+      <dd>
+        <p>京东呼叫中心由分布式管理升级为集中式管理，且由北京总部搬迁至江苏省宿迁市。</p>
+      </dd>
+      <dt>2009年2月</dt>
+      <dd>
+        <p>京东获得国家商务部发放的“家电下乡”零售商牌照，成为首个承担家电下乡任务的电子商务企业。</p>
+      </dd>
+      <dt>2008年6月</dt>
+      <dd>
+        <p>京东上线电视、空调、冰洗等大家电产品线，完成了3C产品的全线搭建。</p>
+      </dd>
+      <dt>2007年10月</dt>
+      <dd>
+        <p>京东在北京、上海、广州三地启用移动POS上门刷卡服务，开创了中国电子商务的先河。</p>
+      </dd>
+      <dt>2007年7月</dt>
+      <dd>
+        <p>京东建成北京、上海、广州三大物流体系。</p>
+      </dd>
+      <dt>2007年6月</dt>
+      <dd>
+        <p>京东正式启动全新域名www.360buy.com，并成功改版，正式更名为京东商城。</p>
+      </dd>
+      <dt>2007年5月</dt>
+      <dd>
+        <p>京东全力开拓华南市场，在广州成立华南分公司。</p>
+      </dd>
+      <dt>2006年1月</dt>
+      <dd>
+        <p>京东宣布进军上海，成立上海全资子公司。</p>
+      </dd>
+      <dt>2004年1月</dt>
+      <dd>
+        <p>京东涉足电子商务领域，京东多媒体网正式开通，启用域名www.jdlaser.com。</p>
+      </dd>
+	
+    </dl>
+  </div>
+</div>
+
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+</body>
+</html>

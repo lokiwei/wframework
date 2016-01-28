@@ -1,0 +1,113 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>京东招聘平台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <link href="http://www.360buy.com/favicon.ico" rel="shortcut icon">
+	<link href="#springUrl('/static/bootstrap/css/bootstrap.css')" rel="stylesheet" type="text/css"/>
+	<link href="#springUrl('/static/loading/loading.css')" rel="stylesheet" type="text/css"/>
+    <link href="#springUrl('/static/datatables/css/TableTools.css')" rel="stylesheet" type="text/css"/>
+    <link href="#springUrl('/static/datatables/css/jquery.dataTables.bootstrap.css')" rel="stylesheet" type="text/css"/>
+    <link href="#springUrl('/static/nvalidator/jquery.validator.css')" rel="stylesheet" type="text/css"/>
+   <link rel="stylesheet" type="text/css" href="#springUrl('/static/admin/skin/css/bootstrap-admin.css')" media="all" />
+    <link rel="stylesheet" type="text/css" href="#springUrl('/static/admin/skin/css/style.css')" media="all" />
+
+    <script type="text/javascript" src="#springUrl('/static/jquery/jquery.1.8.2.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootstrap.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootbox.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/bootstrap/js/Dialog.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/TableTools.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.bootstrap.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/jsutils/json2.js')"></script>
+##    <script type="text/javascript" src="#springUrl('/static/datatables/js/jquery-ui-1.9.2.js')"></script>
+##    <script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.rowReordering.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/ColReorderWithResize.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/jsutils/dateformat.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/datepicker/WdatePicker.js')"></script>
+
+    <!-- nice validator -->
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/jquery.validator.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/zh_CN.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/nValidator.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/jquery/draggable.js')"></script>
+
+    <SCRIPT type="text/javascript">
+    var springUrl = "#springUrl('')";   //路径全局变量
+
+	$(function(){
+	 $("#left").load("#springUrl('')/manage/left?applicationId=1");
+	 $("#top").load("#springUrl('')/manage/header");
+     loadUrl("#springUrl('')/manage/resume/count_index");
+	
+  	 $("#seperator").toggle(function(event){
+            $("#leftDiv").hide();
+			$("#leftimg").attr("src","#springUrl('/static/admin/skin/img/tabs_rightarrow.png')");
+            var index = $(".dataTables_scrollHeadInner").length;
+
+            if(index>0){
+                $(".dataTables_scrollHeadInner").css("width","100%");
+                $(".dataTables_scrollHeadInner").children("table").css("width","100%")
+            }
+        },function(event){
+			$("#leftDiv").show();
+			$("#leftimg").attr("src","#springUrl('/static/admin/skin/img/tabs_leftarrow.png')");
+
+        });
+        
+   });
+
+    function changeAppPath(path){
+        $("#breadcrumb").html(path);
+	}
+    function loadUrl(url){
+       $("#workPanel").load(url);
+    }
+
+
+
+ 
+
+</SCRIPT>
+</head>
+
+<body>
+<div class="margin-row-none" id="mainPanel">
+	<div id="top" class="margin-row-none"></div>
+	<div class="margin-row-none" style="margin-top: 5px">
+        <div style="width:100%;float:left;overflow:hidden; display: none;" id="nullDiv" >
+            #parse('error/authority_null.vm')
+         </div>
+		<div style="width:100%;float:left;overflow:hidden;" id="mainDiv">
+			<div id="leftDiv" class="page-left" style="margin-right:0;float:left">
+                <div title="招聘管理系统" class="application_title">招聘管理系统</div>
+            <div  id="left"></div>
+			</div>
+            <div id="seperator">
+                <div id="" style="position: absolute; display: block; padding: 0px; margin: 0px; overflow: hidden; text-align: center; font-size: 1px; cursor: pointer; z-index: 1; background: none repeat scroll 0% 0% rgb(170, 170, 170); visibility: visible; height: 50px; width: 6px; top: 45%;" class="ui-layout-toggler ui-layout-toggler-west ui-layout-toggler-open ui-layout-toggler-west-open" title="Close"></div>
+            </div>
+			<div id="outercontent" class="page-right" style="margin-left:0; width: auto">
+
+        		<div id="content-frame" style="margin-left: 5px;margin-right:5px;margin-bottom:8px;">
+                         <div id="breadcrumb" style="float: left;width: 99.9%;margin-bottom:5px;"> </div>
+                                               
+					 <div id="workPanel" style="width: 99%;padding:5px;min-height:680px;">
+					 </div>
+                   
+                </div>
+                <div id="bottom" class="row-fluid">
+                    #parse('layout/footer.vm')
+                </div>
+			</div>
+		</div>
+    </div>
+
+</div>
+<script type="text/javascript" src="#springUrl('/static/loading/loading.js')"></script>
+</body>
+</html>

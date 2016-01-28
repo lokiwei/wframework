@@ -1,0 +1,40 @@
+#set($layout = "layout/default.vm")
+
+<form id="parameterView"  >
+    <div class="form-horizontal">
+	<div class="control-group">
+        <label class="control-label">参数编码：</label>
+        <div class="controls">
+    	  <input type="text" id="parameterCode" name="parameterCode" disabled value="$!{parameter.parameterCode}" />
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">参数名称：</label>
+        <div class="controls">
+    	  <input type="text" id="parameterName" name="parameterName" disabled value="$!{parameter.parameterName}" />
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">参数值：</label>
+        <div class="controls">
+            <input type="text" id="parameterValue" name="parameterValue" disabled value="$!{parameter.parameterValue}"   />
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <label class="control-label">状态：</label>
+        <div class="controls">
+         <input type="text" id="status" name="status" disabled value="#if ($parameter.status==1) 启用 #end#if ($parameter.status==0) 删除#end"   />
+        </div>
+    </div>
+        
+        
+    <div class="control-group">
+        <label class="control-label">描述：</label>
+        <div class="controls">
+            <textarea  disabled id="description" name="description">$!{parameter.description} </textarea>
+        </div>
+    </div>
+</div>
+</form>

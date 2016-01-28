@@ -1,0 +1,18 @@
+#set($layout = "layout/empty.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/group_update.js"></script>
+<div id="editRole">
+	 <input type="hidden"  id="editGroupId"  value="${group.id}"  />
+	 <input type="hidden" id="parentId" name="parentId" value="$!{group.parentId}" />
+	 <input type="hidden" id="editGroupFullname" name="groupFullname" value="$!{group.groupFullname}" />
+    <div class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">工作组名称</label>
+        <div class="controls">
+          <input type="text" id="editGroupName" name="groupName" value="${group.groupName}"  data-rule="required;"/>
+        </div>
+      </div>
+    </div>
+</div>
+  
+
+

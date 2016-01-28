@@ -1,0 +1,100 @@
+#set($layout = "layout/default.vm")
+<script type="text/javascript" charset="utf-8">
+var table;
+$(document).ready(function() {
+var options={
+		pageUrl:"page",
+		useCheckbox:true,
+		defaultSort:[[1,"asc"],[2,"desc"]],
+		isPaging:true,
+		sendData:function ( sSource, aoData, fnCallback ) {
+			var erp_count=$("input#erp_count").val();
+			if(erp_count==null) erp_count="";
+			aoData.push( { "name": "erp_count", "value":erp_count } );
+			jQuery.ajax( {
+	                    type: "POST", 
+	                    url:sSource, 
+	                    dataType: "json",
+	                    data: aoData, 
+	                    success: function(resp) {
+							Table.currentPage=resp.current_page;
+	                            fnCallback(resp);
+	                    },
+						error:function(data){}
+		    });
+		},
+		columns: [
+            { "mDataProp": "code","sTitle":"code","bSortable":true,"bVisible":true,"sWidth":50},
+            { "mDataProp": "name","sTitle":"name","sClass": "my_class"},
+			{"bSortable":false,"sTitle":"操作","fnRender":function(obj){
+					return '<a href="#" class="btn btn-mini btn-success" onclick="Dialog.openRemote(\'标题\',\'application_add\');">编辑</a>&nbsp;&nbsp;'
+					+'<a href="#" class="btn btn-mini btn-success" onclick="Dialog.del(\'123\',{\'id\':'+obj.aData.name+'},\'123\');">删除</a>';
+			}}
+        ],
+		btns:[
+			{
+					    "sExtends":    "text",
+					    "sButtonText": "新增",
+						"sToolTip": "",
+						"fnClick": function ( nButton, oConfig, oFlash ) {
+							Dialog.openRemote('新增','application_add');
+					    }
+			},
+			{
+					    "sExtends":    "text",
+					    "sButtonText": "修改",
+						"sToolTip": "",
+						"fnClick": function ( nButton, oConfig, oFlash ) {
+							var datas=Table.getSelectedRows(table);
+							if(datas.length==0){
+								Dialog.alert("消息提示","没有选中项","确定");
+							}else if(datas.length>1){
+								Dialog.alert("消息提示","修改操作不支持多项","确定");
+							}else{
+								Dialog.openRemote('修改','application_add');
+							}
+					    }
+			},
+			{
+					    "sExtends":    "text",
+					    "sButtonText": "删除",
+						"sButtonClass": "btn btn-success",
+						"sToolTip": "",
+						"fnClick": function ( nButton, oConfig, oFlash ) {
+							var ids=Table.getSelectedRowsIDs(table);
+							if(ids.length==0){
+								Dialog.alert("消息提示","没有选中项","确定");
+							}else{
+								Dialog.del('application_del',{'id':ids},'123');
+							}
+					    }
+			}
+			]
+}
+table=Table.dataTable("hello",options);
+$('#search').click(function() {Table.render(table); } );
+});
+</script>
+
+    <div class="navbar">
+          <div class="navbar-inner">
+             <div class="nav-collapse collapse navbar-responsive-collapse">
+                       <form class="navbar-form pull-left">
+            			   <ul class="nav">
+            				   <li><a href="#">帐号:</a></li>
+            				   <li><input id="erp_count" type="text" class="input-medium"></li>
+                               <li><a href="#">部门:</a></li>
+            				   <li><select id="u_dept" class="">
+    								<option value="">1</option>
+    								<option value="">2</option>
+    							   </select>
+    						   </li>
+    						   <li>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            				   <li><button id="search" type="button" class="btn">搜索</button></li>
+            			   </ul>
+                       </form>
+              </div>
+       </div>
+    </div>
+    <table cellpadding="0"  cellspacing="0" border="0" class="table table-striped table-bordered display" id="hello" width="100%">
+    </table>

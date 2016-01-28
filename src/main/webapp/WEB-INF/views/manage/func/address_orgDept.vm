@@ -1,0 +1,19 @@
+#set($layout = "layout/default.vm")
+	<!-- CSS -->
+    <link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyle.css')" rel="stylesheet" type="text/css" />
+    <link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeIcons.css')" rel="stylesheet" type="text/css" />
+    <link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyleCustomer.css')" rel="stylesheet" type="text/css" />
+    <!-- JavaScript -->
+    <script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.all-3.5.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.core-3.5.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.excheck-3.5.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exedit-3.5.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exhide-3.5.js')"></script>
+	<script>
+		var baseUrl = "#springUrl('')";
+		var isMulti = ${isMulti};
+	</script>
+
+	<script type="text/javascript" src="#springUrl('')/js/manage/func/address_orgDept.js"></script>
+<ul id="orgTree" class="ztree" style="overflow:visible; "></ul>
+

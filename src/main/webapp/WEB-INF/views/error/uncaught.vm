@@ -1,0 +1,19 @@
+##<h1 >
+##		自定义处理异常!<br />
+##</h1>
+##信息如下:$!{exception.localizedMessage}
+##<!-- $!{exception.messageStack} -->
+
+
+Access denied.<br/>
+#if($exception)
+You need following privileges:
+    #foreach($code in $!exception.code)
+    <li>${code}</li>
+    #end
+cause:${exception.cause}
+#end
+
+#if($ex)
+cause:${ex.cause}
+#end

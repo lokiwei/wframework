@@ -1,0 +1,39 @@
+#set($layout = "layout/null.vm")
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.js')"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#relogin").click(function() {
+                var param= "$!exception.requestUrl"+"?param="+(new Date()).getMilliseconds();
+                $.ajax({
+                    type:'post',
+                    url:"#springUrl('/relogin')",
+                    data:'',
+                    dataType:'text',
+                    cache:false,
+                    success:function(msg){
+                        window.location.href=param;
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<div>
+    $!exception.printMessage<br/>
+    <input id = "relogin" type="submit" value="重新登录" name="relogin" style="color: rgb(255,255,0); font-size: 9pt; background-color: rgb(0,128,128)">
+</div>
+
+</body>
+</html>

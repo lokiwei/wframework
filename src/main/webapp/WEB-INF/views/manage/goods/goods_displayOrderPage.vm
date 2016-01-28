@@ -1,0 +1,17 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/goods/goods_setDisplayOrder.js"></script>
+
+<input type="hidden" id="id" value="${goods.id}"/>
+<div id="setGoodsDisplayOrder">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">显示顺序</span>
+					<input type="text" id="displayOrderAdd" name="displayOrderAdd" style="width:150px;" value="${goods.displayOrder}"
+						required data-rule="required; integer; range[0~]"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

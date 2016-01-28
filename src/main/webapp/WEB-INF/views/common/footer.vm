@@ -1,0 +1,14 @@
+#set($layout = "layout/null.vm")
+<div class="mod_footer">
+	<div class="mod_inner">
+    	<p class="dongdong">
+          	在线咨询：<a class="sbmit" href="javascript:;" userid="xcmm1">薪酬美美</a><a class="sbmit" href="javascript:;" userid="xcmm">薪酬梅梅</a>
+          	<a class="sbmit" userid="xiaomei6" href="javascript:;">社保小妹</a><a class="sbmit" userid="shebaoxiaomei" href="javascript:;">社保小美</a>
+        </p>
+        <p class="copyright">Copyright © 2004-2015 JD.COM 京东 版权所有</p>
+        <p class="author">
+          	Power by<span> 职能研发部 <a href="mailto:it@jd.com" style="color:#f24f44">it@jd.com</a></span>
+          	<span>Design by <a href="http://jdc.jd.com" target="_blank"><img src="#springUrl('static/fuli/gb/images/jdc_logo.png')" alt="JDC"></a></span>
+        </p>
+	</div>
+</div>

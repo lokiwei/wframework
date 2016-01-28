@@ -1,0 +1,33 @@
+#set($layout = "layout/null.vm")
+<div class="sidebar">
+    <ul >
+        ${menu}
+    </ul>
+</div>
+<script  type="text/javascript">
+$(function(){
+    $(".parentId").bind("click",function(event){
+        $("DIV.sidebar LI.active").removeClass("active");
+        var obj = $(this).addClass("active"),menu = obj.children().first();
+        if(obj.hasClass("submenu") && obj.toggleClass("closed").hasClass("closed")) {
+            return false;
+        }
+        var path='<a>'+$(this).find(">div").html()+'</a>';
+        changeAppPath(path);
+        var url =$(this).find(">div").attr("data-link");
+        if(url!="")
+            loadUrl(url);
+        return false;
+    });
+    $(".childerId").click(function(){
+        var path='<a > '+$(this).parent().prev().html()+'</a>'+
+                ' <a style="z-index: 1;padding-left: 20px;" class="current">'+$(this).find(">div").html()+'</a>';
+        changeAppPath(path);
+        var url =$(this).find(">div").attr("data-link");
+        if(url!="")
+           $("#workPanel").load(url);
+        return false;
+    });
+
+});
+</script>

@@ -1,0 +1,3 @@
+#set($layout = "layout/null.vm")
+<img class="avatar" src="#springUrl()/campus/img/buddy-1.png" style="cursor:pointer;width:50px" width="50" height="50" alt="头像">
+<em>欢迎您, $!{displayName}</em><span><a href="#springUrl('/manage/logout')">退出</a></span>

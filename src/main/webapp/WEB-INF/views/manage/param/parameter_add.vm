@@ -1,0 +1,42 @@
+#set($layout = "layout/default.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/param/parameter_add.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div id="addParameter">
+    <div class="form-horizontal">
+      <div id="parameterCodeDiv" class="control-group ">
+        <label class="control-label"><span class="mustInput">*</span>参数编码</label>
+        <div class="controls">
+          <input type="text" id="parameter_Code" name="parameterCode" data-rule="required;length[~100]" />
+        </div>
+      </div> 
+      <div id="parameterNameDiv" class="control-group ">
+        <label class="control-label"><span class="mustInput">*</span>参数名称</label>
+        <div class="controls">
+          <input type="text" id="parameter_Name" name="parameterName" data-rule="required;length[~100]" />
+        </div>
+      </div>
+      
+	  <div class="control-group">
+	        <label class="control-label"><span class="mustInput">*</span>参数值</label>
+	        <div class="controls">
+	    	  <input type="text" id="parameterValue" name="parameterValue" data-rule="required;length[~100]" />
+	        </div>
+	   </div>
+	   
+	   <div class="control-group">
+	        <label class="control-label">项目描述</label>
+	        <div class="controls">
+	    	  <textarea id="description" name="description"></textarea>
+	        </div>
+	   </div>
+	   
+    </div>
+</div>
+  
+
+

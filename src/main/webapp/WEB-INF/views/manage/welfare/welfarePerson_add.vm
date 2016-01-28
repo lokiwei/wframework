@@ -1,0 +1,59 @@
+#set($layout = "layout/submitNew.vm")
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/kindeditor.js')"></script>
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/lang/zh_CN.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/typeahead.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfarePerson_add.js"></script>
+
+<div id="addWelfarePersonInfo">
+
+ <input type="hidden" id="WelfareIdAdd" name="WelfareIdAdd"  value="${welfare.id}" >
+	<div class="content">
+		
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">ERP</span>
+					<input type="text" id="addErp" name="addErp"  data-rule="required;" class="title">
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">邮箱</span>
+					<input type="text" id="email" name="email" data-rule="required;" />
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">姓名</span>
+					<input type="text" id="realName" name="realName" data-rule="required;" class="title" />
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">员工编号</span>
+					<input type="text" id="userCode" name="userCode" data-rule="required;" />
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">手机</span>
+					<input type="text" id="mobile" name="mobile" data-rule="required;" />
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

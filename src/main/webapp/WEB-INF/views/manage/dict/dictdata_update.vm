@@ -1,0 +1,52 @@
+##################################
+## 数据字典-数据项修改页面
+##author：dongjian
+##################################
+#set($layout = "layout/submitNew.vm")
+<!-- 数据字典-数据项管理修改页JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dictdata_update.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div id="updateDictdata">
+	<div class="modal-form">
+		<form id="dictDataForm" method="POST" action="" enctype="multipart/form-data">
+			<div class="form-row">
+    			<span class="form-tag">字典类别</span>
+        		<input class="form-input-short" type="text" id="dictTypeName" name="dictTypeName" value="$!{dictType.dictTypeName}" disabled/>
+        		<input type="hidden" id="dictTypeId" name="dictTypeId" value="$!{dictType.dictTypeId}" />
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">数据编码</span>
+        		<input class="form-input-short" type="text" id="dictDataCode" name="dictDataCode" value="$!{dictData.dictDataCode}" disabled />
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">数据名称</span>
+        		<input class="form-input-short" type="text" id="dictDataName2" name="dictDataName" value="$!{dictData.dictDataName}" required data-rule="required;length[~100]"/>
+        		<input type="hidden" id="dictDataNameOld" value="$!{dictData.dictDataName}"/>
+        		<span id="isRepeatDictDataName"></span>
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">父编号</span>
+    			<select name="parentName" id="parentName">
+                    <option value="">-=请选择=-</option>
+                    #foreach($!{parentData} in $!{parentDictDatalist})
+                        #if($!{dictData.parentName} == $!{parentData.dictDataName})
+                            <option  value="$!{parentData.id}" selected>$!{parentData.dictDataName}</option>
+                        #else
+                            <option  value="$!{parentData.id}" >$!{parentData.dictDataName}</option>
+                        #end
+                    #end
+                </select>
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">显示顺序</span>
+    			<input type="hidden" id="id" name="id" value="$!{dictData.id}"/>
+    			<input class="form-input-short" type="number" min='1' id="sortNo" name="sortNo" value="$!{dictData.sortNo}" required data-rule="required; integer; range[0~]" />
+    		</div>
+		</form>
+	</div>
+</div>

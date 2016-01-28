@@ -1,0 +1,45 @@
+#set($layout = "layout/default.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/param/parameter_update.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div id="editParameter">
+	 <input type="hidden"  id="editParameterId"  value="${parameter.id}"  />
+    <div class="form-horizontal">
+    
+      <div class="control-group">
+        <label class="control-label"><span class="mustInput">*</span>参数编码</label>
+        <div class="controls">
+          <input type="text" id="editParameterCode" name="parameterCode" value="${parameter.parameterCode}"  data-rule="required;"/>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label class="control-label"><span class="mustInput">*</span>参数名称</label>
+        <div class="controls">
+          <input type="text" id="editParameterName" name="parameterName" value="${parameter.parameterName}"  data-rule="required;"/>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <label class="control-label"><span class="mustInput">*</span>参数值</label>
+        <div class="controls">
+          <input type="text" id="editParameterValue" name="parameterValue" value="${parameter.parameterValue}"  data-rule="required;"/>
+        </div>
+      </div>
+ 
+	  <div class="control-group">
+        <label class="control-label">项目描述</label>
+        <div class="controls">
+       	 <textarea id="description" name="description">$!{parameter.description} </textarea>
+        </div>
+      </div>
+      
+    </div>
+</div>
+  
+
+

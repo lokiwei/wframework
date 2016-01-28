@@ -1,0 +1,47 @@
+##################################
+## 数据字典-数据项新建页面
+##author：dongjian
+##################################
+#set($layout = "layout/submitNew.vm")
+<!-- 数据字典-数据项新增页JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dictdata_add.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div id="addDictdata">
+	<div class="modal-form">
+		<form id="dictDataForm" method="POST" action="" enctype="multipart/form-data">
+			<div class="form-row">
+    			<span class="form-tag">字典类别</span>
+        		<input class="form-input-short" type="text" id="dictTypeName" name="dictTypeName" value="$!{dictType.dictTypeName}" disabled/>
+        		<input type="hidden" id="dictTypeId" name="dictTypeId" value="$!{dictType.dictTypeId}" />
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">数据编码</span>
+    			<input class="form-input-short" type="text" id="dictDataCode1" name="dictDataCode" required data-rule="required;nochineseandspecial;length[~32];"/>
+        		<span id="isRepeatDictDataCode"></span>
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">数据名称</span>
+    			<input class="form-input-short" type="text" id="dictDataName1" name="dictDataName" required data-rule="required;length[~100]" />
+        		<span id="isRepeatDictDataName"></span>
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">父编号</span>
+    			<select name="parentName" id="parentName">
+                    <option value="">-=请选择=-</option>
+                    #foreach($!{parentData} in $!{parentDictDatalist})
+                        <option  value="$!{parentData.id}" >$!{parentData.dictDataName}</option>
+                    #end
+                </select>
+    		</div>
+    		<div class="form-row">
+    			<span class="form-tag">显示顺序</span>
+        		<input class="form-input-short" type="text"  id="sortNo" name="sortNo" required data-rule="required; integer; range[0~]" />
+    		</div>
+		</form>
+	</div>
+</div>

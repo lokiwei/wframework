@@ -1,0 +1,43 @@
+#set($layout = "layout/defaultNew.vm")
+<div id="J-search" class="search">
+	<div class="grid grid-4">
+		<div class="col" style="width:100%;">
+				<div class="col-con">
+					<span class="txt">导出数据类型：</span>
+					<font color="red" size="+1">订单记录</font>
+				</div>
+			</div>
+		<div class="col" style="width:100%; padding-top:20px;">
+        	<div class="col-con">
+            	<span class="txt">导出数据量：</span>
+             	<font color="red" size="+1">${dataCount}</font>条
+          	</div>
+         </div>
+         <input type="hidden" id="customerErp" value="${customerErp}"/>
+         <input type="hidden" id="goodsNo" value="${goodsNo}"/>
+         <input type="hidden" id="goodsTitle" value="${goodsTitle}"/>
+         <input type="hidden" id="orderNo" value="${orderNo}"/>
+		 <input type="hidden" id="exchangeStartTime" value="${exchangeStartTime}"/>
+		 <input type="hidden" id="exchangeEndTime" value="${exchangeEndTime}"/>
+	</div>
+	#if(${dataCount}>0)
+	<div class="grid grid-4" style="padding-top:20px;">
+		<div class="col" style="width:100%;">
+        	<div class="col-con">
+            	<span class="txt" ><font color="red">提示 : 系统按每个excel文件 5000条 数据切分，共分为  ${pageCount}个 文件，请点击下面链接逐个下载</font></span>
+          	</div>
+        </div>
+	</div>
+	<div class="grid grid-4" style="padding-top:20px;">
+		<div class="col" style="width:100%;">
+        	<div class="col-con">
+            	<span class="txt" >
+				#foreach($page in $pages)
+					<a href="/manage/order/exportOrderForFace?customerErp=${customerErp}&goodsNo=${goodsNo}&goodsTitle=${goodsTitle}&orderNo=${orderNo}&exchangeStartTime=${exchangeStartTime}&exchangeEndTime=${exchangeEndTime}&page=$page" target="_blank" >【$page】</a>&nbsp;&nbsp;
+				#end
+				</span>
+          	</div>
+        </div>
+	</div>
+	#end
+</div>

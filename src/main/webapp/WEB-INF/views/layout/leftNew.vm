@@ -1,0 +1,24 @@
+#set($layout = "layout/null.vm")
+<div class="nav">
+	<ul >
+        ${menu}
+    </ul>
+</div>
+<script  type="text/javascript">
+$(function(){
+    $(".childerId").click(function(){
+    	var proHtml = $(this).parent().prev().html();
+    	proHtml = proHtml.toString();
+    	var parentHtml = proHtml.substring(proHtml.lastIndexOf('>')+1);
+    	var thisHtml = $(this).html();
+    	thisHtml = thisHtml.toString();
+    	var path = '<span>当前位置：</span>'+parentHtml+'>'+thisHtml;
+        changeAppPath(path);
+        var url = $(this).attr("data-link");
+        if(url!="")
+           $("#workPanel").load(url);
+        return false;
+    });
+
+});
+</script>

@@ -1,0 +1,1364 @@
+#set($layout = "layout/null.vm")
+<div class="welfare_mod_slider">
+	      <ul id='j_welfare_mslider_ctn_img' class="welfare_mslider_ctn">
+	        <li class="on">
+	          <a href='javascript:;' title='福利平台, 我们只为你照相. '>
+	            <div class='welfare_mslider_txt'>
+	              <h2>福利平台</h2>
+	              <h3>我们只替你着想</h3>
+	              <p>
+	                【福利平台全新上线】
+	                <br> 福利平台是京东人力资源部-福利
+	                <br> 设计部门为大家准备的一个以福利
+	                <br> 为目的的积分商城
+	              </p>
+	            </div>
+	            <img src="#springUrl('/static/fuli/images/welfare_mod_slider_img03.png')">
+	          </a>
+	        </li>
+	        <li>
+	          <a href='javascript:;' title='福利平台, 我们只为你照相. '>
+	            <img src="#springUrl('/static/fuli/images/welfare_mod_slider_img03.png')">
+	          </a>
+	        </li>
+	        <li>
+	          <a href='javascript:;' title='福利平台, 我们只为你照相. '>
+	            <div class='welfare_mslider_txt'>
+	              <h2>福利平台</h2>
+	              <h3>我们只替你招降</h3>
+	              <p>
+	                【福利平台全新上线】
+	                <br> 福利平台是京东人力资源部-福利
+	                <br> 设计部门为大家准备的一个以福利
+	                <br> 为目的的积分商城
+	              </p>
+	            </div>
+	            <img src="#springUrl('/static/fuli/images/welfare_mod_slider_img03.png')">
+	          </a>
+	        </li>
+	        <li>
+	          <a href='javascript:;' title='福利平台, 我们只为你照相. '>
+	            <div class='welfare_mslider_txt'>
+	              <h2>福利平台</h2>
+	              <h3>我们只替你找翔</h3>
+	              <p>
+	                【福利平台全新上线】
+	                <br> 福利平台是京东人力资源部-福利
+	                <br> 设计部门为大家准备的一个以福利
+	                <br> 为目的的积分商城
+	              </p>
+	            </div>
+	            <img src=#springUrl('/static/fuli/images/welfare_mod_slider_img03.png')">
+	          </a>
+	        </li>
+	        <li>
+	          <a href='javascript:;' title='福利平台, 我们只为你照相. '>
+	            <div class='welfare_mslider_txt'>
+	              <h2>福利平台</h2>
+	              <h3>我们只替你赵巷</h3>
+	              <p>
+	                【福利平台全新上线】
+	                <br> 福利平台是京东人力资源部-福利
+	                <br> 设计部门为大家准备的一个以福利
+	                <br> 为目的的积分商城
+	              </p>
+	            </div>
+	            <img src="#springUrl('/static/fuli/images/welfare_mod_slider_img03.png')">
+	          </a>
+	        </li>
+	      </ul>
+	      <ul id='j_welfare_mslider_ind_img' class="welfare_mslider_ind">
+	        <li class="on"></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	      </ul>
+	    </div>
+	
+	    <div class="idx_info">
+	      <div class="idx_info_avatar">
+	        <img src="#springUrl('/static/fuli/images/avatar.png')">
+	      </div>
+	      <span>
+	                $!{realName}，您的剩余积分还有: 
+	                <strong>$!{pointCount}</strong>
+	                ，欢迎剁手兑换
+	            </span>
+	    </div>
+	
+	    <div class="welfare_mod_floor">
+	      <h3>
+	        虚拟商品
+	        <span>可用于京东商城，参考东券使用规则</span>
+	        <div id='j_welfare_mfloor_btn_ticket' class="welfare_mfloor_btn">
+	            <a class="welfare_mfloor_btnl j_welfare_mfloor_btnl" href='javascript:;'></a>
+	            <a class="welfare_mfloor_btnr j_welfare_mfloor_btnr" href='javascript:;'></a>
+	        </div>
+	    </h3>
+	      <ul id='j_welfare_mfloor_slider_ticket' class="welfare_mfloor_slider welfare_mfloor_slider_ticket">
+	        <li class="on j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_ticket'>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_red">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					10
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>1000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_green">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					10
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>1000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_yellow">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					10
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>1000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_green">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					10
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>1000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_red">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					10
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>1000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	          </ul>
+	
+	        </li>
+	        <li class="j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_ticket'>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_red">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					20
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>2000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_green">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					20
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>2000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_yellow">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					20
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>2000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_green">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					20
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>2000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_red">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					20
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>2000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	          </ul>
+	
+	        </li>
+	        <li class="j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_ticket'>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_red">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					30
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>3000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_green">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					30
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>3000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_yellow">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					30
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>3000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_green">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					30
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>3000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	            <li class="welfare_mod_ticket_item welfare_mod_ticket_item_red">
+	              <div class="welfare_mticket_hd">
+	                <a href='http://www.jd.com'>
+	                  <h4>
+					<span>&yen;</span>
+					30
+				</h4>
+	                  <p class='welfare_mticket_hd_desc'>
+	                    消费满 50元 可用
+	                  </p>
+	                  <p class='welfare_mticket_hd_date'>
+	                    有效期：2015-12-31
+	                  </p>
+	                </a>
+	              </div>
+	              <p class='welfare_mticket_txt'>
+	                积分: <span>3000</span>
+	                <a href='javascript:;'>兑换</a>
+	              </p>
+	            </li>
+	          </ul>
+	
+	        </li>
+	      </ul>
+	      <ul id='j_welfare_mfloor_slider_ind_ticket' class='welfare_mfloor_ind'>
+	        <li class="on"></li>
+	        <li></li>
+	        <li></li>
+	      </ul>
+	    </div>
+	
+	    <div class="welfare_mod_floor">
+	      <h3>
+	        生活服务
+	        <span></span>
+	        <div id='j_welfare_mfloor_btn_service' class="welfare_mfloor_btn">
+	            <a class="welfare_mfloor_btnl j_welfare_mfloor_btnl" href='javascript:;'></a>
+	            <a class="welfare_mfloor_btnr j_welfare_mfloor_btnr" href='javascript:;'></a>
+	        </div>
+	    </h3>
+	      <ul id='j_welfare_mfloor_slider_service' class="welfare_mfloor_slider welfare_mfloor_slider_service">
+	        <li class="on j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_service'>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>学生儿童住院费用补偿医疗保险、学生儿童意外伤害费用补偿医疗保险、学生儿童重大疾病保险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item welfare_mservice_item_sold">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>倒车镜、车灯单独损坏险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>18888888888888888888</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母的儿子养的狗上过的那只猫的女主人</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_mod_service_01.png')">
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>1000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	          </ul>
+	
+	        </li>
+	        <li class="j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_service'>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>学生儿童住院费用补偿医疗保险、学生儿童意外伤害费用补偿医疗保险、学生儿童重大疾病保险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item welfare_mservice_item_sold">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>倒车镜、车灯单独损坏险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>28888888888888888888</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母的儿子养的狗上过的那只猫的女主人</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_02.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>2000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	          </ul>
+	
+	        </li>
+	        <li class="j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_service'>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>学生儿童住院费用补偿医疗保险、学生儿童意外伤害费用补偿医疗保险、学生儿童重大疾病保险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item welfare_mservice_item_sold">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>倒车镜、车灯单独损坏险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>38888888888888888888</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母的儿子养的狗上过的那只猫的女主人</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	            <li class="welfare_mservice_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mservice_img">
+	                  <img src='images/welfare_mod_service_03.png'>
+	                </div>
+	                <p class='welfare_mservice_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	                <div class='welfare_mservice_desc'>
+	                  <p class='welfare_mservice_desc_cost'>积分: <span>3000</span></p>
+	                  <p class='welfare_mservice_desc_people'>受众: <span>父母</span></p>
+	                </div>
+	              </a>
+	            </li>
+	          </ul>
+	
+	        </li>
+	      </ul>
+	      <ul id='j_welfare_mfloor_slider_ind_service' class='welfare_mfloor_ind'>
+	        <li class="on"></li>
+	        <li></li>
+	        <li></li>
+	      </ul>
+	    </div>
+	
+	    <div class="welfare_mod_floor">
+	      <h3>
+	        员工特惠
+	        <span></span>
+	        <div id='j_welfare_mfloor_btn_good' class="welfare_mfloor_btn">
+	            <a class="welfare_mfloor_btnl j_welfare_mfloor_btnl" href='javascript:;'></a>
+	            <a class="welfare_mfloor_btnr j_welfare_mfloor_btnr" href='javascript:;'></a>
+	        </div>
+	    </h3>
+	      <ul id='j_welfare_mfloor_slider_good' class="welfare_mfloor_slider welfare_mfloor_slider_good">
+	        <li class="on j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_good'>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>学生儿童住院费用补偿医疗保险、学生儿童意外伤害费用补偿医疗保险、学生儿童重大疾病保险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src="#springUrl('/static/fuli/images/welfare_good_01.png')">
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	          </ul>
+	
+	        </li>
+	        <li class="j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_good'>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>学生儿童住院费用补偿医疗保险、学生儿童意外伤害费用补偿医疗保险、学生儿童重大疾病保险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_02.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	          </ul>
+	
+	        </li>
+	        <li class="j_welfare_mfloor_slider_item">
+	
+	          <ul class='welfare_mod_good'>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>学生儿童住院费用补偿医疗保险、学生儿童意外伤害费用补偿医疗保险、学生儿童重大疾病保险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	            <li class="welfare_mgood_item">
+	              <a href='javascript:;'>
+	                <div class="welfare_mgood_img">
+	                  <img src='images/welfare_good_03.png'>
+	                </div>
+	                <p class='welfare_mgood_title'>住院医疗险 住院医疗险 住院医疗险</p>
+	              </a>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <ul id='j_welfare_mfloor_slider_ind_good' class='welfare_mfloor_ind'>
+	        <li class="on"></li>
+	        <li></li>
+	        <li></li>
+	      </ul>
+	    </div>
+	</div>
+	<script>
+    ! function() {
+      var saveFlow = function(func, to) {
+        var lock = false;
+        return function() {
+          if (!lock) {
+            lock = true, func.apply(null, arguments);
+            setTimeout(function() {
+              lock = false;
+            }, to);
+          }
+        }
+      };
+      var jQuery_ctn = jQuery('#j_welfare_mslider_ctn_img'),
+        jQuery_ctns = jQuery('li', jQuery_ctn),
+        jQuery_ind = jQuery('#j_welfare_mslider_ind_img'),
+        jQuery_inds = jQuery('li', jQuery_ind),
+        _idx,
+        _now,
+        _len,
+        _timeout,
+        _next;
+      _len = jQuery_ctns.length;
+      _rollTo = function(page) {
+        jQuery_inds.eq(_now).removeClass('on');
+        jQuery_inds.eq(page).addClass('on');
+        jQuery_ctns.eq(_now).stop().fadeOut(200, function() {
+          jQuery(this).removeClass('on');
+        });
+        jQuery_ctns.eq(page).stop().fadeIn(200, function() {
+          jQuery(this).addClass('on');
+        });
+        _now = page;
+        clearTimeout(_timeout);
+        _next();
+      }
+      _next = function() {
+        _timeout = setTimeout(function() {
+          _idx = (_now + 1) % _len;
+          _rollTo(_idx);
+        }, 4000);
+      };
+      _now = 0;
+      jQuery_ind.on('mousemove', saveFlow(function(evt) {
+        _idx = jQuery_inds.index(evt.target);
+        if (_idx !== -1 && _now !== _idx) {
+          _rollTo(_idx);
+        }
+      }, 10));
+      _next();
+    }()
+  </script>
+  <script>
+    ! function() {
+      var saveFlow = function(func, to) {
+        var lock = false;
+        return function() {
+          if (!lock) {
+            lock = true, func.apply(null, arguments);
+            setTimeout(function() {
+              lock = false;
+            }, to);
+          }
+        }
+      };
+      var jQuery_ctn = jQuery('#j_welfare_mfloor_slider_ticket'),
+        jQuery_ctns = jQuery('.j_welfare_mfloor_slider_item', jQuery_ctn),
+        jQuery_ind = jQuery('#j_welfare_mfloor_slider_ind_ticket'),
+        jQuery_inds = jQuery('li', jQuery_ind),
+        jQuery_btn = jQuery('#j_welfare_mfloor_btn_ticket'),
+        jQuery_btnl = jQuery('.j_welfare_mfloor_btnl', jQuery_btn),
+        jQuery_btnr = jQuery('.j_welfare_mfloor_btnr', jQuery_btn),
+        _now,
+        _idx,
+        _len,
+        _disable,
+        _rollTo;
+      _now = 0;
+      _len = jQuery_ctns.length;
+      _disable = function() {
+        jQuery_btnl.removeClass('welfare_mfloor_btn_disabled');
+        jQuery_btnr.removeClass('welfare_mfloor_btn_disabled');
+        if (_now === _len - 1) {
+          jQuery_btnr.addClass('welfare_mfloor_btn_disabled');
+        } else if (_now === 0) {
+          jQuery_btnl.addClass('welfare_mfloor_btn_disabled');
+        }
+      };
+      _disable();
+      _rollTo = function(page) {
+        jQuery_inds.eq(_now).removeClass('on');
+        jQuery_inds.eq(page).addClass('on');
+        jQuery_ctns.eq(_now).stop().fadeOut(200, function() {
+          jQuery(this).removeClass('on');
+        });
+        jQuery_ctns.eq(page).stop().fadeIn(200, function() {
+          jQuery(this).addClass('on');
+        });
+        _now = page;
+        _disable();
+      };
+      jQuery_ind.on('mousemove', saveFlow(function(evt) {
+        _idx = jQuery_inds.index(evt.target);
+        if (_idx !== -1 && _now !== _idx) {
+          _rollTo(_idx);
+        }
+      }, 150));
+      jQuery_btn.on('click', saveFlow(function(evt) {
+        if (jQuery(evt.target).hasClass('welfare_mfloor_btn_disabled')) {
+          return;
+        }
+        if (jQuery(evt.target).hasClass('j_welfare_mfloor_btnl')) {
+          _idx = _now - 1;
+          _rollTo(_idx);
+          return;
+        }
+        if (jQuery(evt.target).hasClass('j_welfare_mfloor_btnr')) {
+          _idx = _now + 1;
+          _rollTo(_idx);
+          return;
+        }
+      }, 150));
+    }()
+  </script>
+  <script>
+    ! function() {
+      var saveFlow = function(func, to) {
+        var lock = false;
+        return function() {
+          if (!lock) {
+            lock = true, func.apply(null, arguments);
+            setTimeout(function() {
+              lock = false;
+            }, to);
+          }
+        }
+      };
+      var jQuery_ctn = jQuery('#j_welfare_mfloor_slider_service'),
+        jQuery_ctns = jQuery('.j_welfare_mfloor_slider_item', jQuery_ctn),
+        jQuery_ind = jQuery('#j_welfare_mfloor_slider_ind_service'),
+        jQuery_inds = jQuery('li', jQuery_ind),
+        jQuery_btn = jQuery('#j_welfare_mfloor_btn_service'),
+        jQuery_btnl = jQuery('.j_welfare_mfloor_btnl', jQuery_btn),
+        jQuery_btnr = jQuery('.j_welfare_mfloor_btnr', jQuery_btn),
+        _now,
+        _idx,
+        _len,
+        _disable,
+        _rollTo;
+      _now = 0;
+      _len = jQuery_ctns.length;
+      _disable = function() {
+        jQuery_btnl.removeClass('welfare_mfloor_btn_disabled');
+        jQuery_btnr.removeClass('welfare_mfloor_btn_disabled');
+        if (_now === _len - 1) {
+          jQuery_btnr.addClass('welfare_mfloor_btn_disabled');
+        } else if (_now === 0) {
+          jQuery_btnl.addClass('welfare_mfloor_btn_disabled');
+        }
+      };
+      _disable();
+      _rollTo = function(page) {
+        jQuery_inds.eq(_now).removeClass('on');
+        jQuery_inds.eq(page).addClass('on');
+        jQuery_ctns.eq(_now).stop().fadeOut(200, function() {
+          jQuery(this).removeClass('on');
+        });
+        jQuery_ctns.eq(page).stop().fadeIn(200, function() {
+          jQuery(this).addClass('on');
+        });
+        _now = page;
+        _disable();
+      };
+      jQuery_ind.on('mousemove', saveFlow(function(evt) {
+        _idx = jQuery_inds.index(evt.target);
+        if (_idx !== -1 && _now !== _idx) {
+          _rollTo(_idx);
+        }
+      }, 150));
+      jQuery_btn.on('click', saveFlow(function(evt) {
+        if (jQuery(evt.target).hasClass('welfare_mfloor_btn_disabled')) {
+          return;
+        }
+        if (jQuery(evt.target).hasClass('j_welfare_mfloor_btnl')) {
+          _idx = _now - 1;
+          _rollTo(_idx);
+          return;
+        }
+        if (jQuery(evt.target).hasClass('j_welfare_mfloor_btnr')) {
+          _idx = _now + 1;
+          _rollTo(_idx);
+          return;
+        }
+      }, 150));
+    }()
+  </script>
+  <script>
+    ! function() {
+      var saveFlow = function(func, to) {
+        var lock = false;
+        return function() {
+          if (!lock) {
+            lock = true, func.apply(null, arguments);
+            setTimeout(function() {
+              lock = false;
+            }, to);
+          }
+        }
+      };
+      var jQuery_ctn = jQuery('#j_welfare_mfloor_slider_good'),
+        jQuery_ctns = jQuery('.j_welfare_mfloor_slider_item', jQuery_ctn),
+        jQuery_ind = jQuery('#j_welfare_mfloor_slider_ind_good'),
+        jQuery_inds = jQuery('li', jQuery_ind),
+        jQuery_btn = jQuery('#j_welfare_mfloor_btn_good'),
+        jQuery_btnl = jQuery('.j_welfare_mfloor_btnl', jQuery_btn),
+        jQuery_btnr = jQuery('.j_welfare_mfloor_btnr', jQuery_btn),
+        _now,
+        _idx,
+        _len,
+        _disable,
+        _rollTo;
+      _now = 0;
+      _len = jQuery_ctns.length;
+      _disable = function() {
+        jQuery_btnl.removeClass('welfare_mfloor_btn_disabled');
+        jQuery_btnr.removeClass('welfare_mfloor_btn_disabled');
+        if (_now === _len - 1) {
+          jQuery_btnr.addClass('welfare_mfloor_btn_disabled');
+        } else if (_now === 0) {
+          jQuery_btnl.addClass('welfare_mfloor_btn_disabled');
+        }
+      };
+      _disable();
+      _rollTo = function(page) {
+        jQuery_inds.eq(_now).removeClass('on');
+        jQuery_inds.eq(page).addClass('on');
+        jQuery_ctns.eq(_now).stop().fadeOut(200, function() {
+          jQuery(this).removeClass('on');
+        });
+        jQuery_ctns.eq(page).stop().fadeIn(200, function() {
+          jQuery(this).addClass('on');
+        });
+        _now = page;
+        _disable();
+      };
+      jQuery_ind.on('mousemove', saveFlow(function(evt) {
+        _idx = jQuery_inds.index(evt.target);
+        if (_idx !== -1 && _now !== _idx) {
+          _rollTo(_idx);
+        }
+      }, 150));
+      jQuery_btn.on('click', saveFlow(function(evt) {
+        if (jQuery(evt.target).hasClass('welfare_mfloor_btn_disabled')) {
+          return;
+        }
+        if (jQuery(evt.target).hasClass('j_welfare_mfloor_btnl')) {
+          _idx = _now - 1;
+          _rollTo(_idx);
+          return;
+        }
+        if (jQuery(evt.target).hasClass('j_welfare_mfloor_btnr')) {
+          _idx = _now + 1;
+          _rollTo(_idx);
+          return;
+        }
+      }, 150));
+    }()
+  </script>

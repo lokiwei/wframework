@@ -1,0 +1,55 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/order/orderManage_index.js"></script>
+
+<div id="orderManageSearchform" class="filtrate-wrap">
+	<ul class="filtrate columns">
+		<li>
+			<div class="txt">员工ERP</div>
+			<div class="con">
+				<input id="currentErp" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">商品编号</div>
+			<div class="con">
+				<input id="currentGoodsNo" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">商品名称</div>
+			<div class="con">
+				<input id="currentGoodsTitle" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">订单编号</div>
+			<div class="con">
+				<input id="currentOrderNo" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">兑换时间</div>
+			<div class="con">
+				<input style="width:150PX;" id="exchangeStartTime" type="text" name="exchangeStartTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+            	-
+            	<input style="width:150PX;" id="exchangeEndTime" type="text" name="exchangeEndTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+			</div>
+		</li>
+		<li class="status row">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="orderManageSearch" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="summary">
+	<div class="btn-red export" data-toggle="modal" data-target="#J-modal-plan">导出订单记录</div>
+	<div class="clear">&nbsp;</div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="orderManageTable" width="100%">
+	</table>
+</div>
+

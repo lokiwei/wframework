@@ -1,0 +1,194 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+<!-- 主体内容 -->
+<div>
+	<div class="wrap">
+		<div class="position-wrapper">
+			<h2 class="position-applicants">国际人才</h2>
+			<div class="position-top-banner-wrapper position-top-banner-imt">
+				<div class="position-top-banner-img"><img src="#springUrl('/campus/img/imt.png')" alt="国际人才"></div>
+				<!-- edit by willhu 0317 -->
+				<!--<a href="http://www.letv.com/ptv/vplay/20757670.html" target="_blank" class="position-top-banner-video"><img src="../img/video.png" alt=""></a>-->
+				<p class="position-top-banner-text">If you are interested in us, please submit your resume to <a href="mailto:recruiting@jd.com">recruiting@jd.com</a> and titled with “Program + Name + Degree + University”.</p>
+				<div class="position-top-banner-apply-btn"><a href="mailto:recruiting@jd.com">立即申请</a></div>
+			</div>
+			<!-- edit by willhu 0317 -->
+			<div class="position-top-banner-video-wrap">
+				<a href="http://www.letv.com/ptv/vplay/20757670.html" target="_blank" class="position-top-banner-video-l" title="IMT国际人才项目宣传片"><img src="#springUrl('/campus/img/videos1.jpg')" alt="" width="480"/></a>
+				<a href="http://www.letv.com/ptv/vplay/22231773.html" target="_blank" class="position-top-banner-video-r" title="Jumpstart you dream"><img src="#springUrl('/campus/img/videos2.jpg')" alt="" width="480"/></a>
+			</div>
+			<div class="position-program-intro-wrapper">
+				<h1>About <b>IMT</b> Program</h1>
+				<div class="position-program-intro-l">
+					<p>The International Management Talent Program are full-time management talent positions designed for graduating MBAs from top business schools around the world. Each selected IMT will undergo a 10-month rotation in core business units of JD. With CXO and Vice Presidents as mentors, the IMTs are groomed to become the next generation of leaders in our company.</p>
+				</div>
+				<div class="position-program-intro-r">
+					<img src="#springUrl('/campus/img/photo/imt-img-1.png')" alt="">
+					<span>IMT1 with CHO&GC Rain Long</span>
+				</div>
+			</div>
+			<div class="position-program-member-wrapper imt-position">
+				<h1>JD IMT Members</h1>
+				<div class="position-program-member-item-wrapper">
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph01.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">Tony Qiu</div>
+							<div class="position-program-member-college">MIT</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph02.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">Qingfei Xu</div>
+							<div class="position-program-member-college">Wharton</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph03.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">Ken Lin</div>
+							<div class="position-program-member-college">LBS</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph04.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">Crystal Hong</div>
+							<div class="position-program-member-college">INSEAD</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph05.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">Louis Li</div>
+							<div class="position-program-member-college">UC Berkeley</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph06.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">Belinda Chen</div>
+							<div class="position-program-member-college">Wharton</div>
+						</div>
+					</div>
+				</div>
+				<div class="position-program-member-detail-wrapper">
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph01.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>Tony Qiu</h4>
+							<em>/ MIT</em>
+							<div>
+								<p>Working within JD has a strong sense of challenge, personal growth and self-fulfillment. Since my joining, I’ve been offered ample opportunities where my knowledge and skills learned from business school can be applied to real, exciting and innovative projects that change people’s way of everyday living. In this young, vibrant and creative company, learning never stops. Everyday you are exposed to new people, new ideas, new concepts and new experiences that will inspire you to improve and enrich all aspects of your life. JD is probably more than a company, but an institution that teaches about real-life learning. </p>
+								<p>Inside and outside of my MBA curriculum, I heard too many success stories of others. JD is the place where I feel I can make one myself and I’m glad I made the move.</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph02.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>Qingfei Xu</h4>
+							<em>/ Wharton</em>
+							<div>
+								<p>It’s been two months since my first day on board; however, it’s still like yesterday when I picked up my first customer service call in our Call Center. This front line is so pure that each and every one is doing their best to achieve the one and only goal of the highest customer experience. Every one is fighting with our mission and vision, and our core value. Back to the rear at our Headquarter, I find out this is actually another battle field. All attempts and innovations including expansion of product line and extension of service are for the sake of demand fulfillment for end users, which is taking place on a daily basis not only in core business segments but supporting functions. I am witnessing fancy dreams come true at JD speed in this vigorous industry and prosperous market. JD has a strong and passionate ecosphere around our core business, which makes what we are striving to all of historic importance and all about working miracle. We are not simply an e-commerce company, but a trustworthy and almighty enterprise that go beyond imagination around the platform of internet. I very much look forward to learning, growing and contributing during my next year’s rotation and future career path with JD. Just dance, just dream, just do, JD.</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph03.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>Ken Lin</h4>
+							<em>/ LBS</em>
+							<div>
+								<p>Several months ago, I was honored to be invited to the JD IPO event at NASDAQ. In the auditorium the IMT team was surrounded by dozens of journalists and we were asked our reasons for joining JD. For me, it wasn't because I wanted a job. Rather, I wanted to join a cause that I believed in. Not only does JD afford me the potential for an amazing career, but we are changing the world with our ambitious dreams. Since I had the privilege of joining JD, I am delighted to see both Richard’s and the senior management’s global vision and foresight. JD is ready for its globalization initiative, including an international style of management. I have no doubt that at JD Speed, JD will take the lead in global e-commerce business over the next decade. I am grateful that I get to play a small part in this historic journey.</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph04.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>Crystal Hong</h4>
+							<em>/ INSEAD</em>
+							<div>
+								<p>After joining the company for a few weeks, I feel that JD International Management Talent Program is a very prestigious program. Since the company has a really high hiring bar for IMTs, once you are in, they bet and invest heavily on you. We have lots of opportunities to meet and talk to senior leaders within the company and strategic partners outside the company. When I had my rotation in phone department, I even had the opportunity to attend Samsung Note 4 Beijing Launch Party. We are absolutely entrusted with more opportunity and responsibility than our peers. Last but not least, you don’t need to worry even if you come from a non-ecommerce background. I am from management consulting industry, but I was blended in very quickly through the well-designed rotation program. </p>
+								<p>If you are talented people and look to make a fast and exciting career, you should definitely join us! You will be guaranteed to succeed at JD speed. WE ARE WAITING FOR YOU!</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph05.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>Louis Li</h4>
+							<em>/ UC Berkeley</em>
+							<div>
+								<p>I’m sure you all MBAs will get a lot of fantastic career choices. I chose JD.com because of its leading position in the China online retail market and its rapid growth. Having spent two months here, I realized JD has garnered a US$40 billion market capitalization not just because it’s in the right market at the right time – it’s JD’s relentless pursuit of customer happiness that differentiates us from competitors. I have seen colleagues from sales to IT to logistics spending days brainstorming and debating solutions to make ordering on our website one step easier for customers. Joining a company that has a hard-to-replicate competitive edge in the world’s biggest, fastest-growing online retail market will bring you unimaginable possibilities.</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph06.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>Belinda Chen</h4>
+							<em>/ Wharton</em>
+							<div>
+								<p>The International Management Trainee program is a great opportunity for those who want to jumpstart their careers at JD speed. You will be able to learn the core business functions and interact with senior management on a regular basis. You will also be able to take on responsibilities from day one. More importantly, you will find yourself inspired by those around you – their passion, their dedication, and their success. JD = Jumpstart your Dream.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="position-apply-now-wrapper">
+				<h1>Jumpstart your Dream with us!</h1>
+				<!--<a href="#" class="btn-red position-apply-now-btn">立即申请</a>-->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script type="text/javascript" src="#springUrl('/campus/js/applyment_result.js')"></script>
+<script>
+// 测试用脚本
+
+</script>
+
+</body>
+</html>

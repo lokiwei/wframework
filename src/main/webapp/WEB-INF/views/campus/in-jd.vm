@@ -1,0 +1,65 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+<!-- 主体内容 -->
+<div class="wrap">
+	<div class="position-wrapper position-mg-sml">
+		<h2 class="position-applicants">高管寄语</h2>
+		<div class="position-program-member-wrapper">
+			<h1><img src="#springUrl('/campus/img/header-in-jd2.png')" alt=""></h1>
+			<div class="position-executives-item">
+				<div class="position-executives-photo">
+					<img src="#springUrl('/campus/img/RichardLiu.jpg')" width="275" height="250" alt=""/>
+					<div class="position-executives-info">
+						<h2>刘强东</h2>
+						<strong>Richard Liu</strong>
+						<p>京东商城创始人</p>
+						<p>董事会主席兼首席执行官</p>
+					</div>
+				</div>
+				<div class="position-executives-word">
+					<p>第一：<br />要想成功，就得比别人多流一滴汗；</p>
+					<p>第二：<br />要正确看待困难和失败，要不怕挫折，相信一时的得失并不代表什么；</p>
+					<p>第三：<br />诚信是立人之本，坚持诚信，短期内可能会吃亏，但是长远来看，却具有不可估量的价值。</p>
+				</div>
+			</div>
+			<div class="position-executives-item">
+				<div class="position-executives-photo">
+					<img src="#springUrl('/campus/img/RainLong.jpg')" width="275" height="250" alt=""/>
+					<div class="position-executives-info">
+						<h2>隆雨</h2>
+						<strong>Rain Long</strong>
+						<p>京东集团首席人力资源官&<br />首席法律顾问</p>
+					</div>
+				</div>
+				<div class="position-executives-word">
+					<p class="ti2">管培生，公司的目标是希望把你们每个人都培养成公司的管理人员，管理人员的职责是什么，从我们军训的角度来讲，有三个方面是一致的：</p>
+					<p>第一，管理人员必须让你的下属，你的团队知道我们目标在哪儿；</p>
+					<p>第二，让你的团队知道我们的方向在哪儿，知道我们通过哪条路能到达我们的终点；</p>
+					<p>第三，就是步伐一致，协调一致，团队作战。</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script>
+// 测试用脚本
+
+</script>
+
+</body>
+</html>

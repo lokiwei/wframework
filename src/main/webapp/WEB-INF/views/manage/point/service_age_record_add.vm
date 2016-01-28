@@ -1,0 +1,30 @@
+#set($layout = "layout/submitJqNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/point/service_age_record_add.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/typeahead.js"></script>
+
+<div id="addServiceAgeRecord">
+	<input type="hidden" id="accountId" value="$!{accountId}"/>
+	<div class="modal-form">
+		<div class="form-row">
+    		<span class="form-tag">调整积分数量</span>
+        	<input class="form-input" type="text" id="point" data-rule="required;digits;">
+        	<p class="help-block"></p>
+    	</div>
+    	<div class="form-row">
+            <span class="form-tag form-tag-float">调整类型</span>
+            <div class="form-checkbox">
+              #dictionary('POINT_IMPORT_TYPE ','select','{isDictType:false,attributes:{id:"pointImportType",name:"pointImportType"}}')
+            </div>
+        </div>
+        <div class="form-row">
+            <span class="form-tag form-tag-float">所属日期</span>
+            <div class="form-checkbox">
+              <input id="dateAdjustStr" type="text" data-rule="required;" onfocus="WdatePicker({dateFmt:'yyyy-MM'})" class="beginTime"/>
+            </div>
+        </div>
+        <div class="form-row">
+        	<span class="form-tag">说明</span>
+         	<textarea id="detailInfo" class="form-textarea" data-rule="required;"></textarea>
+        </div> 
+	</div>
+</div>

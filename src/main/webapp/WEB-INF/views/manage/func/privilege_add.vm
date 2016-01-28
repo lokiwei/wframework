@@ -1,0 +1,46 @@
+#set($layout = "layout/defaultNew.vm")
+<head>
+	<script type="text/javascript" >
+		var baseUrl = "#springUrl('')";
+		var resourceId = "${resourceId}";
+		var resourceCode = "${resourceCode}";
+		var resourceName = "${resourceName}";
+	</script>
+	<!-- nice validator -->
+    <script type="text/javascript" src="#springUrl('/static/nvalidator/jquery.validator.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/zh_CN.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/nvalidator/nValidator.js')"></script>
+	<script type="text/javascript" src="#springUrl('')/js/manage/func/privilege_add.js"></script>
+</head>
+
+<div id="addPrivilege">
+	<div class="modal-form">
+		<div class="form-row">
+    		<span class="form-tag">操作名称</span>
+        	${selectOperation}
+        	<p class="help-block"></p>
+    	</div>
+    	<div class="form-row">
+    		<span class="form-tag">操作编码</span>
+        	<input class="form-input-short" type="text" id="operationCode" disabled name="operationCode" data-rule="required;" />
+        	<p class="help-block"></p>
+    	</div>
+    	<div class="form-row">
+    		<span class="form-tag">权限编码</span>
+        	<input class="form-input-short" type="text" id="privilegeCode" name="privilegeCode" data-rule="required;" />
+        	<p class="help-block"></p>
+    	</div>
+    	<div class="form-row">
+    		<span class="form-tag">权限名称</span>
+        	<input class="form-input-short" type="text" id="privilegeName" name="privilegeName" data-rule="required;" />
+        	<p class="help-block"></p>
+    	</div>
+    	<div class="form-row">
+        	<span class="form-tag">url</span>
+        	<textarea id="url" name="url" class="form-textarea">${url}</textarea>
+          	<p class="help-block"></p>
+        </div> 
+	</div>
+	<input type="hidden" id="operationId" name="operationId" value="" />
+    <input type="hidden" id="id" name="id" value="" />
+</div>

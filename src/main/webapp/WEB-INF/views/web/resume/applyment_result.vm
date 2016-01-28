@@ -1,0 +1,95 @@
+	#set($layout = "layout/null.vm")
+	
+	<input type="hidden" id="companyCode" value="$!{companyCode}"> 
+	<input type="hidden" id="jobCategoryCode" value="$!{jobCategoryCode}"> 
+	<input type="hidden" id="workingPlace" value="$!{workingPlace}"> 
+	<input type="hidden" id="iDisplayLength" value="$!{iDisplayLength}"> 
+	<input type="hidden" id="cNum" value="$!{cNum}"> 
+	<input type="hidden" id="totalCount" value="$!{totalPageCount}"> 
+	
+<!-- 页面主体 -->
+	    <script type="text/javascript">
+			$("#cNum").val($!{cNum});	
+			var rtn = $!{result} ;
+			var SHOWPAGES = 6 ;
+			var pageCount = $!{totalPageCount};
+			##alert($!{result}.iTotalDisplayRecords);
+			var rList = rtn.aaData;
+			var recordsCount = rtn.iTotalDisplayRecords ;
+			var con = "" ;
+			
+			var numStr = "" ;
+			
+			for (var i=0 ; i < rList.length; i++ ) {
+				numStr = rList[i].requireNum ;
+				if (numStr == 0) {
+					numStr = "若干";	
+				}
+				con += '<div class="position-detail-wrapper">'
+                			+'<div class="position-detail-item-wrapper">'
+                				+'<a class="position-detail-apply-btn btn-red" onclick="toApply(' + rList[i].id + ', \''+ rList[i].jobName +'\')" href="javascript:void(0);">立即申请</a>'
+                				+'<div class="position-detail">'
+                					+'<h5 class="position-detail-title">' + rList[i].jobName + '</h5>'
+                					+'<div class="position-detail-location">工作地点：<span>'+ rList[i].workingPlaceName+'</span></div>'
+                					+'<div class="position-detail-opening">招聘人数：<span>' + numStr + '</span>人</div>'
+                					+'<div class="position-detail-desc position-detail-collapsed">'
+                						+'<b>岗位描述：</b>'
+                						+'<span><span>' + rList[i].description + '</span></span>'
+                						+'<em></em>'
+                					+'</div>'
+                				+'</div>'
+                			+'</div>'
+            			+'</div>';
+			}
+			$("#jobList").html(con);
+			
+			$("#pageDiv").empty();
+			if (pageCount > 0) {
+    			var page = '<div class="navigation">' + 
+                            '<a class="next" onclick="toPageSearch('+ $!{cPreNum} +')" href="javascript:void(0);">上一页</a>' + 
+    						'<span id="pageSpan">' ;
+    			if ($!{cNum} > SHOWPAGES) {
+    				var z = Math.ceil($!{cNum}/SHOWPAGES) ;
+    				var len = z * SHOWPAGES ;
+    				if (len > pageCount) {
+    					for (var i = 1 ; i <= pageCount ; i++) {
+        					page = page + '<a onclick="toPageSearch(' + i + ')" href="javascript:void(0);">' + i + '</a>' ;
+        				}
+    				}else {
+    					for (var i = 1 ; i < len + 1 ; i++) {
+        					page = page + '<a onclick="toPageSearch(' + i + ')" href="javascript:void(0);">' + i + '</a>' ;
+        				}
+    					page = page + '<span><a onclick="expand(' + (len + 1) + ')" href="javascript:void(0);">...</a></span>' ;
+    				}
+    			}else {
+    				if (pageCount > SHOWPAGES ) {
+    					for (var i = 1 ; i < SHOWPAGES + 1 ; i++) {
+        					page = page + '<a onclick="toPageSearch(' + i + ')" href="javascript:void(0);">' + i + '</a>' ;
+        				}
+        				page = page + '<span><a onclick="expand(' + (SHOWPAGES + 1) + ')" href="javascript:void(0);">...</a></span>' ;
+        			}else {
+        				var pStr = "" ;
+        				for (var j=0 ; j < pageCount; j++) {
+        					pStr += '<a onclick="toPageSearch(' + (j+1) + ')" href="javascript:void(0);">' + (j+1) + '</a>' ;
+        				}
+        				page = page + pStr ;
+        			}
+    			}
+    						
+    			 
+    			page = page + '</span>' + 
+                '<a class="next" onclick="toPageSearch('+ $!{cNextNum} +')" href="javascript:void(0);">下一页</a>' + 
+                '</div>' ;
+			}else {
+				page = '' ;
+			}
+			
+			$("#pageDiv").html(page);
+		</script>
+	<div id="jobList"></div>
+	<div id="pageDiv"></div>
+	
+
+##	由于动态添加结点，所以将这个JS脚本放到最下边才能响应，勿动！
+	<script type="text/javascript" src="#springUrl('/campus/js/main.js')"></script>
+	<script type="text/javascript" src="#springUrl('/campus/js/applyment_result.js')"></script>

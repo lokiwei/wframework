@@ -1,0 +1,102 @@
+#set($layout = "layout/null.vm")
+ <SCRIPT type="text/javascript">
+    var springUrl = "#springUrl('')";   //路径全局变量
+</SCRIPT>
+<script type="text/javascript" src="#springUrl('/static/webuploader/webuploader.js')"></script>
+<!--S 上传附件 -->
+<div id="J-upload-file" class="resume-part">
+    <div class="resume-main-tit">
+        上传附件 <span>（<i class="resume-required">*</i>必填）</span>
+    </div>
+    <div class="resume-file-list" style="display: none;">
+        <ul>
+            <li><i class="icon-file"></i>
+                <a href="javascript:void(0);" class="btn-delete"><i class="icon-delete"></i></a></li>
+        </ul>
+    </div>
+    <div class="resume-main-content" id="resume_jss_div_id">        
+        <form  action="/web/resume/saveAttachment" method="post">
+            <div class="row">
+                <span class="resume-tag" style="width:50px;">成绩单</span>
+                <a href="javascript:;" id="J-upload-report">上传文件</a>
+                <span class="resume-intro">最大500KB，支持pdf,ppt,pptx,jpg,png,rar,doc,docx,xlsx,xls或zip格式</span>
+                <div id="reportExistDiv" name="reportExistDiv">
+	            </div>
+                <div id="reportDiv" style="display:none">
+                    <div style="margin-top:20px;">
+                        <table id="reportList" style="clear:none; width: 500px;">
+                            <tbody style="font-size: 12px;">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <span class="resume-tag" style="width:50px;">证书</span>
+                <a href="javascript:;" id="J-upload-certificate">上传文件</a>
+                <span class="resume-intro">最大500KB，支持pdf,ppt,pptx,jpg,png,rar,doc,docx,xlsx,xls或zip格式</span>
+                 <div id="certificateExistDiv" name="certificateExistDiv">
+	            </div>
+                <div id="certificateDiv" style="display:none">
+                    <div style="margin-top:20px;">
+                        <table id="certificateList" style="clear:none; width: 500px;">
+                            <tbody style="font-size: 12px;">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <span class="resume-tag" style="width:50px;">作品</span>
+                <a href="javascript:;" id="J-upload-works">上传文件</a>
+                <span class="resume-intro">最大50M，支持pdf,ppt,pptx,jpg,png,rar,doc,docx,xlsx,xls或zip格式</span>
+                 <div id="worksExistDiv" name="worksExistDiv">
+	            </div>
+                <div id="worksDiv" style="display:none" >
+                    <div style="margin-top:20px;">
+                        <table id="worksList" style="clear:none; width: 500px;">
+                            <tbody style="font-size: 12px;">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="resume-note" style="margin-left:20px;">注：作品设计类岗位需上传</div>
+            </div>
+			 <div class="row">
+                <div id="msg_div" class="resume-note" style="height:20px;margin-left:20px;"></div>
+            </div>
+            <div class="row resume-submit" style="padding-top:30px;">
+                <span class="resume-tag">&nbsp;</span>
+                <a href="javascript:;" class="btn-red btn-save-next">保存</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="#springUrl('')/static/jquery/jquery.cookie.js"></script>
+<script type="text/javascript" src="#springUrl('')/static/Juicer/juicer-min.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/web/resume/upload_report.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/web/resume/upload_certificate.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/web/resume/upload_works.js"></script>
+
+<table style="display:none">
+    <tbody id="template_file_message">
+    <tr id="${template_file_id}">
+        <td width="60%" id="name_${template_file_id}" class="dbclick_edit" title="${template_file_title}">${template_file_title}</td>
+        <td width="20%" id="operation_${template_file_id}">
+            <a id="delete_up_file_${template_file_id}" href="javascript:void(0);" class="mr10 delete_up_file" style="color:red" fileId="${template_file_id}">删除</a>
+            <input type="hidden" id="hidden_key_${template_file_id}"/>
+        </td>
+        <td id="status_${template_file_id}" style="color:red">
+            上传中
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!--E 上传附件 -->

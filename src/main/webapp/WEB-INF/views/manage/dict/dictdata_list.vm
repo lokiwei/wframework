@@ -1,0 +1,57 @@
+##################################
+## 数据字典-数据项管理列表页面
+##author：dongjian
+##################################
+#set($layout = "layout/defaultNew.vm")
+
+<!-- 数据字典-数据项管理列表JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dictdata_list.js"></script>
+
+<input type="hidden" id="parentId" value="$!{parentId}">
+<div class="filtrate-wrap">
+	<ul class="filtrate">
+		<li class="row">
+			<div class="txt">数据名称</div>
+			<div class="con">
+				<input class="title" type="text" id="dictDataName" name="dictDataName">
+				<input type="hidden" id="dictDataCode" name="dictDataCode" value=""/>
+			</div>
+		</li>
+		<li class="row status">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="searchDictData" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="summary">
+	<div class="btn-red add" data-toggle="modal" data-target="#J-modal-plan">新建</div>
+	<div class="btn-gray dele">删除</div>
+	<div class="clear"></div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="dictData" width="100%">
+	</table>
+</div>
+
+<!--
+<input type="hidden" id="parentId" value="$!{parentId}">
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+            <form class="navbar-form pull-left">
+                <ul class="nav">
+                    <li><a href="#" >数据名称:</a></li>
+                    <li><input type="text" id="dictDataName" name="dictDataName" maxlength="100" class="input-medium span11"></li>
+                    <li><button id="searchDictData" type="button" class="btn">搜索</button></li>
+					<li><input type="hidden" id="dictDataCode" name="dictDataCode" value=""/></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <table cellpadding="0"  cellspacing="0" border="0" class="table table-striped table-bordered display" id="dictData" width="100%"></table>
+</div>
+-->

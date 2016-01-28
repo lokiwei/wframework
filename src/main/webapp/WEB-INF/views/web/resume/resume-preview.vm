@@ -1,0 +1,530 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+            <title>京东招聘</title>
+            <style>
+/*reset*/
+html{-webkit-text-size-adjust:100%;}/*chrome font-size<12px */
+body {font:14px "Microsoft YaHei","SimSun",arial,helvetica,clean,sans-serif;color:#333;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,img{margin:0;}
+ul,li {padding:0; list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+select,input,button,textarea {font-family:"Microsoft YaHei","SimSun",arial,helvetica,clean,sans-serif; font-size:12px;}
+a{color:#333; text-decoration: none;}
+a:hover{text-decoration: underline; color:#CA1622;}
+a,a:visited,a:hover,a:active,a:focus{-moz-outline:none;outline:none;}
+img{border:0px; vertical-align: top;}
+button {border:0 none; margin:0;}
+em{font-style:normal;}
+input{outline:none;}
+input[type=button]::-moz-focus-inner{border:none;}
+* {outline: none;}
+:focus {outline: 0;}
+img{vertical-align: top;}
+.clearfix:after {visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0;}
+.clearfix { display: inline-block; }
+
+/*main*/
+.wrap{width: 1000px; margin: 0 auto; color: #5A5A5A; font-size: 16px;}
+/*preview*/
+.preview{padding: 40px 0 100px;}
+.preview h1, .preview h2{color: #E3393C; font-weight: normal;}
+.preview h1{font-size: 36px; margin-bottom: 30px;}
+.preview h2{font-size: 22px;}
+
+.preview-item{padding-bottom: 20px;}
+.preview-item h2{border-bottom: 1px solid #E6EAED; height: 45px; line-height: 40px;}
+.preview-item .content{position: relative;}
+.content .name{font-size: 24px; padding: 20px 0;}
+.content .avatar{position: absolute; right: 0; top: 40px;}
+.content h3{ font-weight: bold; font-size: 16px; margin-bottom: 10px; padding-top: 10px;}
+.info-list{ margin-bottom: 15px;}
+.content .gap{display: inline-block; padding: 0 5px; font-size: 16px; font-family: Arial; }
+.content .appraisal{line-height: 28px; width: 820px;}
+
+/*content-list*/
+.content-list{}
+.content-list dt, .content-list dd{display: block;}
+.content-list dt{font-weight: bold; padding-top: 30px;}
+.content-list dd{margin-bottom: 20px; margin-top: 10px; margin-left: 20px;}
+.content-list dd p{min-height: 30px; line-height: 30px;}
+.content .sub-title{padding-top: 20px; margin-bottom: -10px;}
+
+.upload-list{margin-bottom: 20px; padding-top: 20px;}
+.upload-list li{min-height: 35px; line-height: 35px; position: relative; padding-left: 120px; margin-bottom: 20px;}
+.upload-list .upload-title{width: 110px; text-align: right; position: absolute; left: 0; top: 0; display: block;}
+.upload-list .upload-item{display: inline-block; border: 1px solid #E6EAED; text-align: center; width: 260px; height: 35px; line-height: 35px; text-decoration: none; margin-bottom: 10px;}
+</style>
+</head>
+<body>
+    <div class="wrap preview">
+        <h1>简历预览 $!{resumeBaseInfo.resumeNo} </h1>
+        <!-- 个人信息 -->
+        <div class="preview-item">
+            <h2>个人信息 </h2>
+            <div class="content">
+                <div class="name">$!{resumeBaseInfo.name}</div>
+                #if($!{resumeBaseInfo.photoUrl}!="null"&&$!{resumeBaseInfo.photoUrl}!="")
+                    <div class="avatar">
+                        <img src="$!{resumeBaseInfo.photoUrl}"  width="100" alt=""></div>
+                        #else
+                            <div class="avatar">
+                                <img src="#springUrl('/campus/img/default-user.gif')"  width="100" alt=""></div>
+                #end
+                <div class="info">
+                    <p class="info-list">
+                        <span>
+                            #if($!{resumeBaseInfo.sex} == 'male')
+                                男
+                                #else
+                                    女
+                            #end
+                        </span>
+                        <i class="gap">|</i>
+                        <span>$dateTool.format("yyyy-MM-dd",$!{resumeBaseInfo.birthday})</span>
+                        <i class="gap">|</i>
+                        <span>$!{resumeBaseInfo.country}</span>
+                        <i class="gap">|</i>
+                        <span>#dictionary('ZJLX','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.idType})									
+                         $!{resumeBaseInfo.idNo}</span>
+                        <i class="gap">|</i>
+                        <span>#dictionary('MZ','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.nationality})</span>
+                    </p>
+                    <p class="info-list">
+                        #if($!{resumeBaseInfo.height}!=""&&$!{resumeBaseInfo.height})
+                            <span>$!{resumeBaseInfo.height}cm</span>
+                            <i class="gap">|</i>
+                        #end
+                        #if($!{resumeBaseInfo.weight}!=""&&$!{resumeBaseInfo.weight})
+                            <span>$!{resumeBaseInfo.weight}kg</span>
+                            <i class="gap">|</i>
+                        #end
+                        <span>#dictionary('HYZK','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.maritalStatus})									
+                        </span>
+                            #if($!{resumeBaseInfo.politicsStatus}!=""&&$!{resumeBaseInfo.politicsStatus})
+                                <i class="gap">|</i>
+                                <span>#dictionary('ZZMM','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.politicsStatus})									
+                                </span>
+                            #end
+                            #if($!{resumeBaseInfo.city}!=""&&$!{resumeBaseInfo.city})
+                                <i class="gap">|</i>
+                                <!--   <span>#dictionary('XX','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.school})</span>
+                                <i class="gap">|</i>
+                                <span>#dictionary('zy','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.professionType})-
+                                #dictionary($!{resumeBaseInfo.professionType},'text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.profession})</span>
+                                <i class="gap">|</i>
+                                -->
+                                <span>#dictionary('CS','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{resumeBaseInfo.city})</span>
+                            #end
+                    </p>
+                    #if($!{resumeBaseInfo.mobile}!=""&&$!{resumeBaseInfo.mobile})
+                        <p class="info-list">手机号：$!{resumeBaseInfo.mobile}</p>
+                    #end
+                    #if($!{resumeBaseInfo.email}!=""&&$!{resumeBaseInfo.email})
+                        <p class="info-list">邮箱：$!{resumeBaseInfo.email}</p>
+                    #end
+                    #if($!{resumeBaseInfo.emergencyContactPerson}!=""&&$!{resumeBaseInfo.emergencyContactPerson})
+                        <p class="info-list">紧急联系人：$!{resumeBaseInfo.emergencyContactPerson}</p>
+                    #end
+                    #if($!{resumeBaseInfo.emergencyContract}!=""&&$!{resumeBaseInfo.emergencyContract})
+                        <p class="info-list">紧急联系方式：$!{resumeBaseInfo.emergencyContract}</p>
+                    #end
+                    #if($!{resumeBaseInfo.selfEvaluation}!=""&&$!{resumeBaseInfo.selfEvaluation})
+                        <h3>个人评价</h3>
+                        <div class="appraisal">
+                            $!{resumeBaseInfo.selfEvaluation}
+                        </div>
+                    #end
+                </div>
+                            </div>
+                    </div>
+                    <!-- 教育信息 -->
+                    #if($!{resumeBaseInfo.educationInfos.size()}>0)
+                        <div class="preview-item">
+                            <h2>教育信息</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #foreach($!educationInfo in $!{resumeBaseInfo.educationInfos})
+                                        <dt>
+                                            <span>$dateTool.format("yyyy.MM",$!{educationInfo.startDate})-$dateTool.format("yyyy.MM",$!{educationInfo.endDate})</span>
+                                            <i class="gap">|</i>
+                                            <span>$!{educationInfo.schoolName}</span>
+                                            <i class="gap">|</i>
+                                            <span>#dictionary('XL','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{educationInfo.educationBackground})</span>
+                                            <i class="gap">|</i>
+                                            <span>#dictionary('zy','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{educationInfo.professionType})
+                                                -#dictionary($!{educationInfo.professionType},'text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{educationInfo.profession})
+                                                -$!{educationInfo.professionName}</span>
+                                        </dt>
+                                        <dd>
+                                            #if($!{educationInfo.majorCourse}!=""&&$!{educationInfo.majorCourse})
+                                                <p>主修课程：</p>
+                                                <p>$!{educationInfo.majorCourse}</p>
+                                            #end
+                                            #if($!{educationInfo.certifier}!=""&&$!{educationInfo.certifier}
+                                                &&$!{educationInfo.certifierContactInfo}!=""&&$!{educationInfo.certifierContactInfo})
+                                                <p>证明人及联系方式：$!{educationInfo.certifier}&nbsp;&nbsp;$!{educationInfo.certifierContactInfo}</p>
+                                                #elseif($!{educationInfo.certifier}!=""&&$!{educationInfo.certifier})
+                                                    <p>证明人及联系方式：$!{educationInfo.certifier}</p>
+                                                    #elseif($!{educationInfo.certifierContactInfo}!=""&&$!{educationInfo.certifierContactInfo})
+                                                        <p>证明人及联系方式：$!{educationInfo.certifierContactInfo}</p>
+                                            #end	
+                                            <p>海外学习经验：#dictionary('ISORNOT','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{educationInfo.overseasExperience})
+												</p>
+                                        </dd>
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    <!-- 专业证书 -->
+                    #if($!{resumeBaseInfo.resumeCertificates.size()}>0)
+                        <div class="preview-item">
+                            <h2>专业证书</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #foreach($!resumeCertificate in $!{resumeBaseInfo.resumeCertificates})
+                                        <dd>
+                                            <p>证书名称 ：$!{resumeCertificate.certificateTitle}</p>
+                                            #if($!{resumeCertificate.acquisitionTime}!=""&&$!{resumeCertificate.acquisitionTime})
+                                                <p> 获奖时间 ：$dateTool.format("yyyy.MM",$!{resumeCertificate.acquisitionTime})</p>
+                                            #end
+                                            #if($!{resumeCertificate.certificateDesc}!=""&&$!{resumeCertificate.certificateDesc})
+                                                <p>证书描述：</p>
+                                                <p>$!{resumeCertificate.certificateDesc}</p>
+                                            #end
+                                        </dd>
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    #if( $!{resumeBaseInfo.englishAbilitys.size()}>0|| $!{resumeBaseInfo.foreignLanguages.size()}>0)
+                        <!-- 语言能力 -->
+                        <div class="preview-item">
+                            <h2>语言能力</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #if( $!{resumeBaseInfo.englishAbilitys.size()}>0)
+                                        <dt>英语</dt>
+										#set($i=0)
+                                        #foreach($!englishAbility in $!{resumeBaseInfo.englishAbilitys})
+											#if($i==0)
+                                            <dd>
+                                                #if($!{englishAbility.englishScore}!=""&&$!{englishAbility.englishScore})
+                                                    <p>英语等级及分数：#dictionary('yy','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{englishAbility.englishLevel})
+                                                        <i class="gap">|</i>
+                                                        $!{englishAbility.englishScore}分</p>
+                                                #end
+                                                #if($!{englishAbility.toefl}!=""&&$!{englishAbility.toefl})
+                                                    <p>TOEFL：$!{englishAbility.toefl}分</p>
+                                                #end
+                                                #if($!{englishAbility.gre}!=""&&$!{englishAbility.gre})
+                                                    <p>GRE：$!{englishAbility.gre}分</p>
+                                                #end
+                                                #if($!{englishAbility.gmat}!=""&&$!{englishAbility.gmat})
+                                                    <p>GMAT：$!{englishAbility.gmat}分</p>
+                                                #end
+                                                #if($!{englishAbility.ielts}!=""&&$!{englishAbility.ielts})
+                                                    <p>IELTS：$!{englishAbility.ielts}分</p>
+                                                #end
+                                                #if($!{englishAbility.toeic}!=""&&$!{englishAbility.toeic})
+                                                    <p>TOEIC：$!{englishAbility.toeic}分</p>
+                                                #end
+                                                #if($!{englishAbility.sat}!=""&&$!{englishAbility.sat})
+                                                    <p>SAT：$!{englishAbility.sat}分</p>
+                                                #end
+                                            </dd>
+											#end
+											 #set($i=$i+1)
+                                        #end
+                                    #end
+                                    #if($!{resumeBaseInfo.foreignLanguages.size()}>0)
+                                        #foreach($!foreignLanguage in $!{resumeBaseInfo.foreignLanguages})
+                                            #if($!{foreignLanguage.foreignLanguage}!=""&&$!{foreignLanguage.foreignLanguage})
+                                                <dt>#dictionary('wy','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{foreignLanguage.foreignLanguage})
+                                                </dt>
+                                            #end
+                                            <dd>
+                                                #if($!{foreignLanguage.foreignLanguage}!=""&&$!{foreignLanguage.foreignLanguage})
+                                                    <p>证书：$!{foreignLanguage.certificate}</p>
+                                                #end
+                                                <p>
+                                                    #if($!{foreignLanguage.literacy}!=""&&$!{foreignLanguage.literacy})
+                                                        读写能力#dictionary('NL','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{foreignLanguage.literacy})                           								
+                                                        ;
+                                                    #end
+                                                    #if($!{educationInfo.listeningSpeakingAbility}!=""&&$!{educationInfo.listeningSpeakingAbility})															
+                                                        听说能力#dictionary('NL','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{educationInfo.listeningSpeakingAbility})
+                                                    #end	
+                                                </p>
+                                            </dd>
+                                        #end
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    #if( $!{resumeBaseInfo.rewardRecords.size()}>0|| $!{resumeBaseInfo.bursarys.size()}>0)
+                        <!-- 奖励活动 -->
+                        <div class="preview-item">
+                            <h2>奖励活动</h2>
+                            <div class="content">
+                                #if( $!{resumeBaseInfo.rewardRecords.size()}>0)
+                                    <h3 class="sub-title">担任班级学生会干部：
+                                        #foreach($!rewardRecord in $!{resumeBaseInfo.rewardRecords})
+                                            #if($!{rewardRecord.studentUnion}!=""&&$!{rewardRecord.studentUnion})
+                                                #dictionary('GB','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{rewardRecord.studentUnion})
+                                            #end
+                                        #end
+                                    </h3>
+                                #end
+                                <dl class="content-list">
+                                    #if( $!{resumeBaseInfo.bursarys.size()}>0)
+                                        <dt>奖学金</dt>
+                                        <dd>
+                                            #foreach($!bursary in $!{resumeBaseInfo.bursarys})
+                                                <p>
+                                                    #if($!{bursary.acquisitionTime}!=""&&$!{bursary.acquisitionTime})
+                                                        $dateTool.format("yyyy.MM",$!{bursary.acquisitionTime})<i class="gap">|
+                                                    #end
+                                                    #if($!{bursary.source}!=""&&$!{bursary.source})	
+                                                        </i>
+                                                        #dictionary('XJ','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{bursary.source})<i class="gap">|
+                                                    #end
+                                                    #if($!{bursary.level}!=""&&$!{bursary.level})
+                                                        </i>
+                                                        #dictionary('DJ','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{bursary.level})
+                                                    #end
+                                                </p>
+                                            #end
+                                        </dd>
+                                    #end 
+                                    #if($!{resumeBaseInfo.rewardRecord.campusActivitie}!=""&&$!{resumeBaseInfo.rewardRecord.campusActivitie})
+                                        <dt>校园活动</dt>
+                                        <dd>
+                                            <p>$!{resumeBaseInfo.rewardRecord.campusActivitie}</p>
+                                        </dd>
+                                    #end
+                                    #if($!{resumeBaseInfo.rewardRecord.otherIncentive}!=""&&$!{resumeBaseInfo.rewardRecord.otherIncentive})	 
+                                        <dt>其他奖励：</dt>
+                                        <dd>
+                                            <p>$!{resumeBaseInfo.rewardRecord.otherIncentive}</p>
+                                        </dd>
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    #if($!{resumeBaseInfo.internshipExperience.size()}>0)
+                        <!-- 实习经验 -->
+                        <div class="preview-item">
+                            <h2>实习经验</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #foreach($!internshipExperience in $!{resumeBaseInfo.internshipExperience})
+                                        #if ($!{internshipExperience.experienceType} == '0')
+                                            <dt>$dateTool.format("yyyy.MM",$!{internshipExperience.startDate})-$dateTool.format("yyyy.MM",$!{internshipExperience.endDate})
+                                                &nbsp;&nbsp;$!{internshipExperience.companyName}<i class="gap">|
+                                                </i>
+                                                $!{internshipExperience.jobTitle}</dt>
+                                                <dd>
+                                                    #if($!{internshipExperience.companyScale}!=""&&$!{internshipExperience.companyScale})	
+                                                        <p>公司规模：
+                                                            #dictionary('GM','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{internshipExperience.companyScale})
+                                                        </p>
+                                                    #end
+                                                    #if($!{internshipExperience.companyIndustry}!=""&&$!{internshipExperience.companyIndustry})	
+                                                        <p>公司行业：#dictionary('hy','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{internshipExperience.companyIndustry})
+                                                        </p>
+                                                    #end
+                                                    #if($!{internshipExperience.companyNature}!=""&&$!{internshipExperience.companyNature})	
+                                                        <p>公司性质：#dictionary('XZ','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{internshipExperience.companyNature})
+                                                        </p>
+                                                    #end
+                                                    #if($!{internshipExperience.department}!=""&&$!{internshipExperience.department})	
+                                                        <p>所在部门：$!{internshipExperience.department}</p>
+                                                    #end
+                                                    #if($!{internshipExperience.jobDescription}!=""&&$!{internshipExperience.jobDescription})	
+                                                        <p>工作描述：</p>
+                                                        <p>$!{internshipExperience.jobDescription}</p>
+                                                    #end
+                                                </dd>
+                                        #end
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                        <!-- 工作经验 -->
+                        <div class="preview-item">
+                            <h2>工作经验</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #foreach($!internshipExperience in $!{resumeBaseInfo.internshipExperience})
+                                        #if ($!{internshipExperience.experienceType} == '1')
+                                            <dt>$dateTool.format("yyyy.MM",$!{internshipExperience.startDate})-$dateTool.format("yyyy.MM",$!{internshipExperience.endDate})
+                                                &nbsp;&nbsp;$!{internshipExperience.companyName}<i class="gap">|
+                                                </i>
+                                                $!{internshipExperience.jobTitle}</dt>
+                                                <dd>
+                                                    #if($!{internshipExperience.companyScale}!=""&&$!{internshipExperience.companyScale})
+                                                        <p>公司规模：
+                                                            #dictionary('GM','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{internshipExperience.companyScale})
+                                                        </p>
+                                                    #end
+                                                    #if($!{internshipExperience.companyIndustry}!=""&&$!{internshipExperience.companyIndustry})
+                                                        <p>公司行业：#dictionary('hy','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{internshipExperience.companyIndustry})
+                                                        </p>
+                                                    #end
+                                                    #if($!{internshipExperience.companyNature}!=""&&$!{internshipExperience.companyNature})
+                                                        <p>公司性质：#dictionary('XZ','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{internshipExperience.companyNature})
+                                                        </p>
+                                                    #end
+                                                    #if($!{internshipExperience.department}!=""&&$!{internshipExperience.department})
+                                                        <p>所在部门：$!{internshipExperience.department}</p>
+                                                    #end
+                                                    #if($!{internshipExperience.jobDescription}!=""&&$!{internshipExperience.jobDescription})
+                                                        <p>工作描述：</p>
+                                                        <p>$!{internshipExperience.jobDescription}</p>
+                                                    #end
+                                                </dd>
+                                        #end
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    #if($!{resumeBaseInfo.projectExperiences.size()}>0)
+                        <!-- 项目经验 -->
+                        <div class="preview-item">
+                            <h2>项目经验</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #foreach($!projectExperience in $!{resumeBaseInfo.projectExperiences})                       
+                                        <dt>$dateTool.format("yyyy.MM",$!{projectExperience.startDate})-$dateTool.format("yyyy.MM",$!{projectExperience.endDate})
+                                            &nbsp;&nbsp;$!{projectExperience.projectName}<i class="gap">|
+                                            </i>
+                                            $!{projectExperience.jobName}</dt>
+                                            #if($!{projectExperience.projectDescription}!=""&&$!{projectExperience.projectDescription})
+                                                <dd>
+                                                    <p>工作描述：</p>
+                                                    <p>$!{projectExperience.projectDescription}</p>
+                                                </dd>
+                                            #end
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end	 
+                    #if($!{resumeBaseInfo.familyMembers.size()}>0)
+                        <!-- 家庭成员 -->
+                        <div class="preview-item">
+                            <h2>家庭成员</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    #foreach($!familyMember in $!{resumeBaseInfo.familyMembers})
+                                        <dt>$!{familyMember.name}（$!{familyMember.relation}）</dt>
+                                        <dd>
+                                            #if($!{familyMember.unit}!=""&&$!{familyMember.unit})
+                                                <p>工作单位：$!{familyMember.unit}</p>
+                                            #end
+                                            #if($!{familyMember.contactNumber}!=""&&$!{familyMember.contactNumber})
+                                                <p>联系电话：$!{familyMember.contactNumber}</p>
+                                            #end
+                                            #if($!{familyMember.duty}!=""&&$!{familyMember.duty})
+                                                <p>职务：$!{familyMember.duty}</p>
+                                            #end
+                                            #if($!{familyMember.email}!=""&&$!{familyMember.email})
+                                                <p>Email：$!{familyMember.email}</p>
+                                            #end
+                                        </dd>
+                                    #end
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    #if($!{resumeBaseInfo.otherInfos.size()}>0)
+                        <!-- 其他信息 -->
+                        <div class="preview-item">
+                            <h2>其他信息</h2>
+                            <div class="content">
+                                <dl class="content-list">
+                                    <dd>
+										#set($i=0)	
+                                        #foreach($!otherInfo in $!{resumeBaseInfo.otherInfos})
+											#if($i==0)
+                                            <p>期望工作城市：#dictionary('CS','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{otherInfo.hopeCity})
+                                            </p>
+                                            <p>是否有亲友在京东：#dictionary('ISORNOT','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{otherInfo.isRelationJd})
+											</p>
+                                            #if($!{otherInfo.infoSource}!=""&&$!{otherInfo.infoSource})
+                                                <p>何处知道招聘信息：#dictionary('ly','text','{appendEmptyOption:false,emptyOptionTitle:"nihao"}',$!{otherInfo.infoSource})
+                                                </p>
+                                            #end
+                                            <p>可以进入公司时间：$dateTool.format("yyyy.MM.dd",$!{otherInfo.expectedEnterTime})</p>
+											#end
+											 #set($i=$i+1)	
+                                        #end
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    #end
+                    #if($!{attachmentList.size()}>0)
+                        <!-- 上传附件 -->
+                        <div class="preview-item">
+                            <h2>上传附件</h2>
+                            <div class="content">
+                                <ul class="upload-list">
+                                    #set($i=1)
+                                    #set($j=1)
+                                    #set($z=1)
+                                    #foreach($attachment in $!{attachmentList})
+                                        #if($!{attachment.type}=="report")	
+                                            <li>
+                                                #if($i==1)
+                                                    <span class="upload-title">成绩单：</span>
+                                                #end
+                                                <a href="$!{attachment.path}"  target="_blank" class="upload-item">$!{attachment.title}</a>
+                                            </li>
+                                            #set($i=$i+1) 
+                                            #elseif($!{attachment.type}=="certificate")
+                                                <li>
+                                                    #if($j==1)
+                                                        <span class="upload-title">证书：</span>
+                                                    #end
+                                                    <a href="$!{attachment.path}"  target="_blank" class="upload-item">$!{attachment.title}</a>
+                                                </li>
+                                                #set($j=$j+1) 
+                                                #elseif($!{attachment.type}=="works")
+                                                    <li>
+                                                        #if($z==1)
+                                                            <span class="upload-title">证书：</span>
+                                                        #end
+                                                        <a href="$!{attachment.path}"  target="_blank" class="upload-item">$!{attachment.title}</a>
+                                                    </li>
+                                                    #set($z=$z+1) 
+                                        #end	
+                                    #end
+                                    <!--<li>
+                                    <span class="upload-title">成绩单：</span>
+                                    <a href="#" class="upload-item">成绩单.docx</a>
+                                    <a href="#" class="upload-item">成绩.png</a>
+                                    <a href="#" class="upload-item">成绩单.docx</a>
+                                    <a href="#" class="upload-item">成绩.png</a>
+                                    </li>
+                                    <li>
+                                    <span class="upload-title">证书：</span>
+                                    <a href="#" class="upload-item">证书-1.jpg</a>
+                                    <a href="#" class="upload-item">证书-2.jpg</a>
+                                    </li>
+                                    -->
+                                </ul>
+                            </div>
+                        </div>
+                    #end
+            </div>
+</body>
+</html>

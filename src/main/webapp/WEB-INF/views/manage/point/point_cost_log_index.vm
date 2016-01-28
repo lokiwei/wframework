@@ -1,0 +1,68 @@
+#set($layout = "layout/submitNew.vm")
+<div id="pointRecordCostLog">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">导入积分</span>
+					<input type="text" id="point" value="$!{pointRecord.point}" readOnly="true"/>
+				</div>
+			</div>
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">剩余积分</span>
+					<input type="text" id="availablePoint" value="$!{pointRecord.availablePoint}" readOnly="true"/>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="tabInfo">
+        <font color="red">注：消费类型为“前台消费”时，订单编号和订单商品两列显示为对应的订单消费信息；<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		消费类型为“后台消费”时，订单编号和订单商品两列显示为对应的积分Id
+		</font>
+		<table id="goodsLogtab" class="table table-striped table-bordered display dataTable" >
+			<tr style="font-family: '微软雅黑'; font-weight: bold;">
+				<td>订单编号</td>
+				<td>订单商品</td>
+				<td>消费类型</td>
+				<td>消费积分</td>
+				<td>消费时间</td>
+				<td>备注</td>
+			</tr>
+			#set($costPointTotal=0)
+			#foreach($cost in $!{pointCostList})
+			<tr>
+				<td>
+					#if($!{cost.costType}=="1")
+						$!{cost.order.orderNo}
+					#elseif($!{cost.costType}=="0")
+						$!{cost.orderId}
+					#end
+				</td>
+				<td>
+					#if($!{cost.costType}=="1")
+						$!{cost.order.title}
+					#elseif($!{cost.costType}=="0")
+						$!{cost.orderId}
+					#end
+				</td>
+				<td>#dictionary('POINT_COST_TYPE','out','{isDictType:false}',$!{cost.costType})</td>
+				<td>$!{cost.costPoint}</td>
+				
+				<td>$!{cost.createTimeStr}</td>
+				<td>$!{cost.remark}</td>
+			</tr>
+			#set($costPointTotal=$costPointTotal+${cost.costPoint})
+			#end
+			<tr style="font-family: '微软雅黑'; font-weight: bold;">
+				<td>小计</td>
+				<td></td>
+				<td></td>
+				<td>${costPointTotal}</td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>

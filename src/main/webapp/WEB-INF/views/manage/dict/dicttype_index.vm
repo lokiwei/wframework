@@ -1,0 +1,33 @@
+##################################
+## 数据字典-数据类别首页页面
+##author：dongjian
+##################################
+
+#set($layout = "layout/defaultNew.vm")
+<!-- CSS -->
+<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyle.css')" rel="stylesheet" type="text/css" />
+<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeIcons.css')" rel="stylesheet" type="text/css" />
+<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyleCustomer.css')" rel="stylesheet" type="text/css" />
+<!-- JavaScript -->
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.all-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.core-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.excheck-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exedit-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exhide-3.5.js')"></script>
+<script>
+##    var zNodes = $applications;
+</script>
+<!-- 数据字典-数据类别管理首页页面JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dicttype_index.js"></script>
+
+
+<div class="container-fluid">
+    <input type="hidden" id="tId" value=""/>
+    <div class="row-fluid">
+        <div class="span3">
+            <ul id="tree" class="ztree"></ul>
+        </div>
+        <div id="box-right" class="span9">
+        </div>
+    </div>
+</div>

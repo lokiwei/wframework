@@ -1,0 +1,77 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/home.css')"/>
+	<style>
+	input{
+    	border: 1px solid black;
+    	outline: none;
+	}
+	input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+    table tbody tr td{
+    	text-align:center;
+    }
+	</style>
+</head>
+<body style="background-color:white;">
+<form action="/web/static/forward/point/point_record_index" id="pointForm" name="pointForm" method="post">
+<table style="margin:0 auto;width:85%;" border="0">
+	<tr>
+		<td style="text-align:left;height:30px;border-bottom:1px solid black;"><h3>搜 索（我的订单）</h3></td>
+	</tr>
+	<tr>
+		<td style="text-align:center;height:10px;"></td>
+	</tr>
+	<tr>
+		<td style="text-align:left;">商品名称:
+			<input type="text" id="name" name="name" value="" required="true"  minlength="2" chinese="true"/>
+			<button type="button" style="height:19.7px;" onclick="listOrders();">搜索</button></td>
+	</tr>
+	<tr>
+	</tr>
+</table>
+</form>
+<table id="orderInfo" border="1" style="width:85%;margin:0 auto;">
+</table>
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/static/jsutils/dateformat.js')"></script>
+<script>
+	$(document).ready(function(){
+		listOrders();
+	});
+	
+	function listOrders(){
+		var val = $('#name').val();
+		jQuery.ajax({
+			url:'/web/static/forward/order/order_list',
+			type:'post',
+			data:{goodsTitle:val,accountErp:'weijinfeng6'},
+			dataType:'json',
+			success:function(data){
+				var info = '';
+				var header = '<tr><th style="width:300px;">商品名称</th><th>商品编号</th><th>订单编号</th><th>积分</th><th>兑换时间</th></tr>';
+				for(var i = 0;i<data.length;i++){
+					var order = data[i];
+					info+="<tr id='"+order.id+"'>"
+						+"	<td>"+order.title+"</td>"
+						+"	<td>"+order.goodsNo+"</td>"
+						+"	<td>"+order.orderNo+"</td>"
+						+"	<td>"+order.costBonuSpoint+"</td>"
+						+"	<td>"+new Date(order.exchangeTime.time).format('yyyy-MM-dd hh:mm:ss')+"</td>"
+						+"</tr>";
+				}
+				$('#orderInfo').html(header+info);
+			}
+		});
+	}
+</script>
+</body>
+</html>

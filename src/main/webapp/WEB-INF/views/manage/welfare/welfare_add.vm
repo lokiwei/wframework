@@ -1,0 +1,44 @@
+#set($layout = "layout/submitNew.vm")
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/kindeditor.js')"></script>
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/lang/zh_CN.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<link href="#springUrl('/static/webuploader/webuploader.css')" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="#springUrl('')/static/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/typeahead.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfare_upload.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfare_add.js"></script>
+
+<div id="addWelfareInfo">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">福利名称</span>
+					<input type="text" id="titleAdd" name="titleAdd" data-rule="required;" />
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">福利图片</span>
+					<a href="javascript:;" id="resume-upload" uploadType="imageFile">上传文件</a>
+					<br/><br/><img id="goods-upload-img" src="#springUrl('/campus/img/default-user.gif')" style="width:100px;" />
+					<input type="hidden" id="photoUrl" /><br/>
+					<font color="red">商品图片仅支持jpg、jpeg、png，推荐像素100x114，图片大小不得超过500K</font><br/><br/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">说明</span>
+					<textarea id="detail" name="detail" class="form-textarea"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/role_index.js?t=2"></script>
+
+<div class="filtrate-wrap">
+	<ul class="filtrate">
+		<li class="row">
+			<div class="txt">角色名称</div>
+			<div class="con">
+				<input class="title" id="roleName" type="text"/>
+			</div>
+		</li>
+		<li class="row">
+			<div class="txt">应用名称</div>
+			<div class="con">
+				<input class="title" id="applicationName" type="text"/>
+			</div>
+		</li>
+		<li class="row status">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="search" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="summary">
+	<div class="btn-red add" data-toggle="modal" data-target="#J-modal-plan">新建</div>
+	<div class="clear"></div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="sysoperation" width="100%">
+	</table>
+</div>
+
+<!--
+<div class="navbar" style="margin-top: 35px;">
+    <div class="navbar-inner">
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+            <form class="navbar-form pull-left">
+                <ul class="nav">
+                    <li><a href="javascript:void(0)">角色名称:</a></li>
+                    <li><input id="roleName" type="text" class="input-medium"></li>
+                    <li><a href="javascript:void(0)" >应用名称:</a></li>
+                    <li><input id="applicationName" type="text" class="input-medium"></li>
+                    <li style="margin-left: 10px;">
+                        <button id="search" type="button" class="btn">搜索</button>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display" id="sysoperation"
+       width="100%"></table>
+-->

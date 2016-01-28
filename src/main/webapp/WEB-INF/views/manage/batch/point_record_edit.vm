@@ -1,0 +1,46 @@
+#set($layout = "layout/submitJqNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/batch/point_record_edit.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/typeahead.js"></script>
+
+<div id="editPointRecord">
+	<input type="hidden" id="id" value="$!{pointRecord.id}"/>
+	<div class="modal-form">
+		<div class="form-row">
+    		<span class="form-tag">员工姓名</span>
+        	<input class="form-input" type="text" id="accountName" data-rule="required;" value="$!{pointRecord.accountName}">
+        	<p class="help-block"></p>
+    	</div>
+		<div class="form-row">
+    		<span class="form-tag">员工编号</span>
+        	<input class="form-input" type="text" id="pointRecordAccountNo" data-rule="required;" value="$!{pointRecord.accountNo}">
+        	<p class="help-block"></p>
+    	</div>
+		<div class="form-row">
+    		<span class="form-tag">ERP</span>
+        	<input class="form-input" type="text" id="accountId" data-rule="required;" value="$!{pointRecord.accountId}">
+        	<p class="help-block"></p>
+    	</div>
+    	<div class="form-row">
+            <span class="form-tag form-tag-float">调整类型</span>
+            <div class="form-checkbox">
+              #dictionary('POINT_IMPORT_TYPE ','select','{isDictType:false,attributes:{id:"pointImportType",name:"pointImportType"}}',$!{pointRecord.pointImportType})
+            </div>
+        </div>
+		<div class="form-row">
+            <span class="form-tag form-tag-float">积分类型</span>
+            <div class="form-checkbox">
+              #dictionary('POINTTYPE','select','{isDictType:false,attributes:{id:"pointType",name:"pointType",disabled:"disabled"}}',$!{pointRecord.pointType})
+            </div>
+        </div>
+        <div class="form-row">
+            <span class="form-tag form-tag-float">积分数量</span>
+            <div class="form-checkbox">
+              <input type="text" id="point" data-rule="required;digits;" value="$!{pointRecord.point}"/>
+            </div>
+        </div>
+        <div class="form-row">
+        	<span class="form-tag">说明</span>
+         	<textarea id="detailInfo" class="form-textarea" data-rule="required;">$!{pointRecord.detailInfo}</textarea>
+        </div> 
+	</div>
+</div>

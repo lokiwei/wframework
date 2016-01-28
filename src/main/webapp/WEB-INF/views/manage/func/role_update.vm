@@ -1,0 +1,35 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/role_update.js"></script>
+<div id="editRole">
+	 <input type="hidden"  id="editRoleId"  value="${role.id}"  />
+    <div class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label">编号</label>
+        <div class="controls">
+          <input type="text" id="editRoleCode" name="roleCode" value="${role.roleCode}"  data-rule="required;"/>
+          <input type="hidden" id="roleCodeOld" value="$!{role.roleCode}"/>
+          <span id="isRepeatRoleCode"></span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">名称</label>
+        <div class="controls">
+          <input type="text" id="editRoleName" name="roleName" value="${role.roleName}"  data-rule="required;"/>
+        </div>
+      </div>
+        <div id="roleApplicationDiv" class="control-group ">
+            <label class="control-label">应用名称</label>
+            <div class="controls">
+                <select id="applicationId" name='applicationId'  >
+                    <option value="">请选择</option>
+                    #foreach($!application in $!{applicationList})
+                        <option value="$!{application.Id}"   #if ($application.id==$role.applicationId) selected #end>$!{application.applicationName}</option>
+                    #end
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+

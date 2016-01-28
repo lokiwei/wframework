@@ -1,0 +1,32 @@
+##################################
+## 资源-资源管理主页面
+##author：xulin
+##################################
+#set($layout = "layout/defaultNew.vm")
+<head>
+	<!-- CSS -->
+	<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyle.css')" rel="stylesheet" type="text/css" />
+	<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeIcons.css')" rel="stylesheet" type="text/css" />
+	<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyleCustomer.css')" rel="stylesheet" type="text/css" />
+	<!-- Javascript -->
+	<script>
+		var zNodes = $applications;
+    </script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.all-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.core-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.excheck-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exedit-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exhide-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('')/js/manage/func/resource_index.js"></script>
+</head>
+<div class="container-fluid">
+    <input type="hidden" id="tId" value=""/>
+    <div class="row-fluid">
+        <div class="span3">
+            <ul id="tree" class="ztree"></ul>
+        </div>
+		<div class="span1"> </div>
+        <div class="span8" id="box-right">
+        </div>
+    </div>
+</div>

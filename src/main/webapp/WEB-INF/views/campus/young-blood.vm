@@ -1,0 +1,77 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+
+<!-- 主体内容 -->
+<div class="wrap">
+	<div id="y-blood-header" class="position-wrapper">
+		<h2 class="position-applicants">应届毕业生</h2>
+		<div class="position-group-info-wrapper">
+			<ul class="position-group-tab-wrapper">
+				<li class="position-group-tab-curr"><a href="#">京东集团</a></li>
+				<li><a href="#">京东商城</a></li>
+				<li><a href="#">京东金融</a></li>
+				<li><a href="#">拍拍网</a></li>
+			</ul>
+			<h3 class="position-group-info-title">京东集团</h3>
+			<div class="poisition-group-info-desc">
+				<p>京东（JD.com）是中国最大的自营式电商企业。京东为消费者提供愉悦的在线购物体验。通过内容丰富、人性化的网站（www.jd.com）和移动客户端，京东以富有竞争力的价格，提供具有丰富品类及卓越品质的商品和服务，并且以快速可靠的方式送达消费者。京东相信其拥有全国电商行业中最大的仓储设施。截至2014年12月31日，京东在全国范围内拥有7大物流中心，在40座城市运营了123个大型仓库，拥有3,210个配送站和自提点，覆盖全国范围内的1,862个区县，且全部自营。京东在134个区县提供当天送达的“211限时达”服务，并在全国另外866个区县提供次日送达的配送服务。京东集团包含京东商城集团、金融集团、京东智能、拍拍网及海外事业部五大板块。</p>
+			</div>
+			<h3 class="position-group-info-title hide">京东商城</h3>
+			<div class="poisition-group-info-desc hide">
+				<p>京东（JD.com）是中国最大的自营式电商企业，2014年在中国自营式电商市场的占有率为49%。2014年5月22日，京东在美国纳斯达克证券交易所挂牌交易，股票代码为“JD”，是中国第一家在纳斯达克成功上市的大型综合电子商务公司。京东自2004年成立以来，交易额增长大幅超过行业平均增速。2013年，在成立十周年之际，京东提出未来十年，将以“电子商务"为核心，在技术平台、物流平台及互联网金融等新的业务方向发力，形成“四驾马车”的格局，创造全供应链价值。</p>
+			</div>
+			<h3 class="position-group-info-title hide">京东金融</h3>
+			<div class="poisition-group-info-desc hide">
+				<p>京东金融是京东金融集团打造的“一站式”在线投融资平台，以“成为国内最值得信赖的互联网投融资平台”为使命，依托京东集团强大的资源，发挥整合和协同效应优势，将传统金融业务与互联网技术相结合，探索全新的互联网金融发展模式，致力于为个人和用户提供安全、高收益、定制化的金融服务， 让投资理财变得简单快乐。</p>
+			</div>
+			<h3 class="position-group-info-title hide">拍拍网</h3>
+			<div class="poisition-group-info-desc hide">
+				<p>拍拍网致力于打造一个卖家和买家互通的移动社交电商平台，通过提供包括服装服饰，母婴，食品和饮料，家居家装和消费电子产品等在内的丰富的产品，来全面满足消费者的需求。与此同时，拍拍也为第三方卖家提供数据挖掘和分析等增值服务，这些增值服务将帮助卖家对消费者和市场做出精准分析，并为其产品规划和开展精准营销提供支持。通过布局拍拍，京东正式进军移动社交电商领域，京东原有的电商生态也在B2C的基础上得到了进一步丰富。</p>
+			</div>
+		</div>
+		
+		<div class="position-no-result">
+			暂无应届生招聘职位，请查看其它职位界面
+		</div>
+	</div>
+</div>
+
+
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script>
+// 测试用脚本
+$(function(){
+	$('#y-blood-header .position-group-info-wrapper li').on('click', function(e){
+		var item = $(this);
+				
+		if(item.hasClass('position-group-tab-curr')){
+			return;
+		}
+		var index = item.index();
+		$('#y-blood-header .position-group-info-wrapper li').removeClass('position-group-tab-curr');
+		item.addClass('position-group-tab-curr');
+		//hd
+		$('#y-blood-header .position-group-info-title').addClass('hide');
+		$('#y-blood-header .position-group-info-title').eq(index).removeClass('hide');
+		//bd
+		$('#y-blood-header .poisition-group-info-desc').addClass('hide');
+		$('#y-blood-header .poisition-group-info-desc').eq(index).removeClass('hide');
+	});
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+##################################
+## 数据字典-数据类别管理修改页面
+##author：dongjian
+##################################
+#set($layout = "layout/submitNew.vm")
+
+<!-- 数据字典-数据类别管理修改JS -->
+<script type="text/javascript" src="#springUrl('')/js/manage/dict/dicttype_update.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<form id="dictTypeForm" method="POST" action="" enctype="multipart/form-data">
+    <input type="hidden" id="parentId" name="parentId" value="$!{dictType.parentId}" />
+    <input type="hidden" id="id" name="id" value="$!{dictType.id}">
+    <input type="hidden" id="dictTypeNameOld" value="$!{dictType.dictTypeName}"/>
+    <input type="hidden" id="applicationId" name="applicationId" value="$!{dictType.applicationId}" />
+    <div class="form-horizontal">
+        <div class="control-group" style="height: 40">
+            <label class="control-label" for="dictTypeName"><span class="mustInput">*</span>类别名称:</label>
+            <div class="controls">
+                <input type="text" id="dictTypeName" name="dictTypeName" value="$!{dictType.dictTypeName}" required data-rule="required;length[~32]">
+
+                <span id="isRepeatDictTypeName"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dictTypeCode"><span class="mustInput">*</span>类别编码:</label>
+            <div class="controls">
+                <input type="text" id="dictTypeCode" name="dictTypeCode" value="$!{dictType.dictTypeCode}" readonly="true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="description">类别描述:</label>
+            <div class="controls">
+                <textarea id="description" name="description" class="span8" rows="5" data-rule="length[~50]" >$!{dictType.description}</textarea>
+            </div>
+        </div>
+        <div>
+            <div class="control-group">
+                <div class="controls">
+                	<div id="updateDictType" class="btn-red btn-lg">保存</div>
+    				<div id="cancelDictType" class="btn-cancel btn-lg">取消</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

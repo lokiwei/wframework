@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META HTTP-EQUIV="Cache-control" CONTENT="no-cache">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <title>权限管理列表</title>
+    <link rel="stylesheet" href="#springUrl('/static/css/base.css')" type="text/css"/>
+    <link rel="stylesheet" href="#springUrl('/static/css/common.css')" type="text/css"/>
+    <link rel="stylesheet" href="#springUrl('/static/css/page.css')" type="text/css"/>
+    <link rel="stylesheet" href="#springUrl('/static/css/calendar.css')" type="text/css"/>
+    <link rel="stylesheet" href="#springUrl('/static/css/zTreeStyle.css')" type="text/css"/>
+    <!-- 导入购物车组件样式 -->
+    <link rel="stylesheet" href="#springUrl('/static/css/tag.css')" type="text/css"/>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static//js/DatePicker/WdatePicker.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqModal.js')"></script>
+    <!--<script type="text/javascript" src="#springUrl('/static/js/tick.js')"></script>-->
+    <!--校验-->
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.validate.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.metadata.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.blockUI.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.form.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/util.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/main.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery-calendar.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jqDnR.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.ztree.all-3.1.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.ztree.core-3.1.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.ztree.exedit-3.1.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/jquery.ztree.excheck-3.1.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/js/ajaxfileupload.js')"></script>
+
+
+</head>
+<style type="text/css">
+    *{margin:0;padding:0}
+    body{ text-align:center}
+    .login{ background:url(#springUrl('/static/images/erp_login_03.gif') repeat-x;margin:10% auto}
+    .login .tit{height:22px;line-height:22px;color:#fff;font-weight:bold;font-size:14px;padding-left:15px}
+    table{ border-collapse:collapse}
+    .login_box{border:1px solid #dddee0}
+    .login_box_a{ background:url(#springUrl('/static/images/erp_login_07.jpg') no-repeat;height:116px}
+    .login_box_b{ background:url(#springUrl('images/erp_login_09.gif') no-repeat;height:185px}
+    td{font-size:12px;color:#045885}
+    .table_user{margin:21px auto}
+    .but_login{ background:url(#springUrl('/static/images/erp_login_11.gif') no-repeat;border:0;width:57px;height:57px;}
+    .input_text{ background:url(#springUrl('/static/images/erp_login_14.gif');border:1px solid #107fb9;width:128px;height:20px}
+</style>
+<body>
+        <div id="content">
+            <div id="main">$screen_content</div>
+        </div>
+</body>
+</html>

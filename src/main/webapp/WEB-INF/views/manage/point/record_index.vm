@@ -1,0 +1,52 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/point/record_index.js"></script>
+<script>
+	var pauseTypes = eval($!{pauseTypeJson});
+</script>
+<div id="recordSearchform" class="filtrate-wrap">
+	<input type="hidden" id="loginUserErp" value="$!{loginUserErp}" />
+	<input type="hidden" id="isAdmin" value="$!{isAdmin}" />
+	<ul class="filtrate columns">
+		<li>
+			<div class="txt">员工编号</div>
+			<div class="con">
+				<input id="accountNo" value="" class="title" type="text" maxlength="45"/>
+			</div>
+		</li>
+		<li>
+			<div class="txt">员工ERP</div>
+			<div class="con">
+				<input id="accountErp" value="" class="title" type="text" maxlength="45"/>
+			</div>
+		</li>
+		<li>
+			<div class="txt">机构全称</div>
+			<div class="con">
+				<input id="accountOrg" value="" class="title" type="text"/>
+		</li>
+		<li class="status row">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="recordSearch" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="clear"></div>
+<div class="summary">
+	<!--
+	<div class="btn-red import" data-toggle="modal" data-target="#J-modal-plan">导入</div>
+	<div class="btn-red add" data-toggle="modal" data-target="#J-modal-plan">新建</div>
+	<div class="btn-gray dele">删除</div>
+	-->
+	<div class="btn-red export" data-toggle="modal" data-target="#J-modal-plan">导出数据</div>
+	<div class="btn-red import" data-toggle="modal" data-target="#J-modal-plan">导入数据</div>
+	<div class="btn-red start" data-toggle="modal" data-target="#J-modal-plan">批量恢复</div>
+	<div class="btn-gray pause" data-toggle="modal" data-target="#J-modal-plan">批量暂用</div>
+	<div class="clear"></div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="recordTable" width="100%">
+	</table>
+</div>

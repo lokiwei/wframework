@@ -1,0 +1,46 @@
+#set($layout = "layout/submitNew.vm")
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/kindeditor.js')"></script>
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/lang/zh_CN.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/typeahead.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfare_edit.js"></script>
+<link href="#springUrl('/static/webuploader/webuploader.css')" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="#springUrl('')/static/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfare_upload.js"></script>
+
+<div id="editWelfareInfo">
+
+       <input type="hidden" id="editId" name="editId"  value="${welfare.id}" >
+
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">福利名称</span>
+					<input type="text"  id="editTitle" data-rule="required;"  value="${welfare.title}"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">福利图片</span>
+					<a href="javascript:;" id="resume-upload" uploadType="imageFile">上传文件</a>
+					<br/><br/><img id="goods-upload-img" src="${welfare.photoUrl}" style="width:100px;" />
+					<input type="hidden" id="photoUrl" value="${welfare.photoUrl}"/><br/>
+					<font color="red">商品图片仅支持jpg、jpeg、png，推荐像素100x114，图片大小不得超过500K</font><br/><br/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">说明</span>
+					<textarea id="editDetail" name="editDetail" class="form-textarea" data-rule="required;" >${welfare.detail}</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

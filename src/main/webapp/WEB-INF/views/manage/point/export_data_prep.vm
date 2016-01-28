@@ -1,0 +1,40 @@
+#set($layout = "layout/defaultNew.vm")
+<div id="J-search" class="search">
+		<div class="grid grid-4">
+			<div class="col" style="width:100%;">
+				<div class="col-con">
+					<span class="txt">您准备导出的数据类型是：</span>
+					<font color="red" size="+1">$!{exportModelName}</font>
+				</div>
+			</div>
+			<div class="col" style="width:100%; padding-top:20px;">
+          		<div class="col-con">
+            		<span class="txt">导出数据量：</span>
+             		<font color="red" size="+1">$!{dataCount}</font>条
+          		</div>
+         	</div>
+		<input type="hidden" id="modelName" value="$!{modelName}"/>
+		<input type="hidden" id="startTime" value="$!{startTime}"/>
+		<input type="hidden" id="endTime" value="$!{endTime}"/>
+		<input type="hidden" id="pointType" value="$!{pointType}"/>
+		<input type="hidden" id="orgName" value="$!{pointType}"/>
+		</div>
+		<div class="grid grid-4" style="padding-top:20px;">
+		<div class="col" style="width:100%;">
+          		<div class="col-con">
+            		<span class="txt" ><font color="red">提示 : 系统按每个excel文件 $!{pageSize}条 数据切分，共分为  $!{pageCount}个 文件，请点击下面链接逐个下载</font></span>
+          		</div>
+         	</div>
+		</div>
+		<div class="grid grid-4" style="padding-top:20px;">
+		<div class="col" style="width:100%;">
+          		<div class="col-con">
+            		<span class="txt" >
+						#foreach($page in $pages)
+							<a href="javascript:void(0);" onclick="exportDown('$!{modelName}','$!{startTime}','$!{endTime}','$!{pointType}','$!{orgName}','$page')">【$page】</a>&nbsp;&nbsp;
+						#end
+					</span>
+          		</div>
+         	</div>
+		</div>
+</div>

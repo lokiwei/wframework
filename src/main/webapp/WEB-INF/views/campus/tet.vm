@@ -1,0 +1,272 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+<!-- 主体内容 -->
+<!-- 主体内容 -->
+<div>
+	<div class="wrap">
+		<div class="position-wrapper">
+			<h2 class="position-applicants">管理培训生</h2>
+			<div class="position-top-banner-wrapper position-top-banner-tet">
+				<div class="position-top-banner-img"><img src="#springUrl('/campus/img/tet.png')" alt="国际管培生"></div>
+				<!--edit by willhu 0317 -->
+				<!--<a href="http://www.letv.com/ptv/vplay/20757670.html" target="_blank" class="position-top-banner-video"><img src="../img/video.png" alt=""></a>-->
+				<!--<div class="position-top-banner-apply-btn"><a href="http://www.jd-campus.com/jingdong/jobfresh" target="_blank">立即申请</a></div>-->
+				<div class="position-top-banner-apply-btn"><a href="#">暂未开放申请</a></div>
+			</div>
+			<div class="position-program-intro-wrapper">
+				<h1>About <b>TET</b> Program</h1>
+				<div class="position-program-intro-l">
+					<p>京东管理培训生项目“京鹰会”——TET（Trainee Eagle Team）是公司针对优秀应届毕业生制定的旨在培养储备管理人员的人才发展项目。公司依照京东人才观及领导力模型，为管培生制定了详尽的发展方案，管培生的培养内容既包括了精心定制的培训课程、涉及到全流程的轮岗学习又包括了丰富的团队及文化活动。在培养的特定时期，公司还会委派优秀的管理人员担任管培生导师。京东管培项目自2007年立项以来，涌现了一大批价值观优秀、业务能力强，具有"战斗精神"的核心管理人才。加入京东，管培生将接受专业的职业辅导，拥有快速的职业发展通道，在成长中见证公司"精彩人生，始于京东"的郑重承诺。</p>
+				</div>
+				<div class="position-program-intro-r">
+					<img src="#springUrl('/campus/img/photo/tet-img-1.jpg')" alt="">
+				</div>
+			</div>
+
+			<div class="position-program-requirement-wrapper">
+				<!--edit by willhu 0317 -->
+				<h1 class="position-program-requirement-title"><em></em>岗位要求</h1>
+				<div class="position-program-requirement-content">
+					<!--<p>京东管理培训生项目“京鹰会”——TET（Trainee Eagle Team）是公司针对优秀应届毕业生制定的旨在培养储备管理人员的人才发展项目。京东管培生项目依照京东人才观及领导力模型，制定了详尽的发展方案，在3.5年培养周期的各阶段，公司都委派优秀的管理人员担任管培生导师。管培生培养内容既包括了精心定制的培训课程、涉及到全流程的轮岗学习又包括了丰富的团队及文化活动。</p>-->
+					<!--<p>京东管培项目自2007年立项以来，涌现了一大批价值观优秀、业务能力强，具有"战斗精神"的核心管理人才。加入京东，管培生将接受专业的职业辅导，拥有快速的职业发展通道，在成长中见证公司"精彩人生，始于京东"的郑重承诺。</p>-->
+					<!--<p>京东管培项目自2007年立项以来，涌现了一大批价值观优秀、业务能力强，具有"战斗精神"的核心管理人才。加入京东，管培生将接受专业的职业辅导，拥有快速的职业发展通道，在成长中见证公司"精彩人生，始于京东"的郑重承诺。</p>-->
+					<!--edit by willhu 0317 -->
+					<h3>岗位要求</h3>
+					<ol>
+						<li>1、2015应届本科或研究生，专业不限，经管、物流、供应链、计算机、土木工程、物业管理专业优先</li>
+						<li>2、扎实的专业背景，热爱电子商务行业</li>
+						<li>3、具有丰富的社会实践经验，具有社团、学生会或班级管理工作经验者优先</li>
+						<li>4、具备良好的沟通能力，善于团队合作，优秀的学习能力和管理潜力</li>
+						<br />
+						<li>工作地点：北京、上海、广州、成都、武汉、沈阳、西安、宿迁、深圳、南京、扬州等</li>
+					</ol>
+				</div>
+			</div>
+
+			<div class="position-program-member-wrapper">
+				<!--edit by willhu 0317 -->
+				<h1>JD TET Members</h1>
+				<!--edit by willhu 0317 -->
+				<div class="position-program-member-item-wrapper">
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/01yurui.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">余睿</div>
+							<div class="position-program-member-college">中国政法大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/02yewei.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">叶威</div>
+							<div class="position-program-member-college">北京理工大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/03chencheng.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">陈澄</div>
+							<div class="position-program-member-college">中国人民大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/04fantianyang.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">范天阳</div>
+							<div class="position-program-member-college">西安邮电学院</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/05wushuangxi.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">吴双喜</div>
+							<div class="position-program-member-college">北京师范大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/06jidongni.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">纪冬妮</div>
+							<div class="position-program-member-college">南开大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/07shencheng.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">沈成</div>
+							<div class="position-program-member-college">重庆大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/08yincheng.png')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">尹承</div>
+							<div class="position-program-member-college">四川大学</div>
+						</div>
+					</div>
+				</div>
+				<div class="position-program-member-detail-wrapper">
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/01yurui.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>余睿</h4>
+							<em><br>京东集团副总裁、华东区域分公司总经理</em>
+							<em>/ TET2</em>
+							<em>/ 中国政法大学</em>
+							<div>
+								<p>加入京东已近七年，从仓储到大家电、从华中区域分公司到华东区域分公司，京东给予了我足够大的成长舞台和发展空间。一路走来十分感恩公司的栽培与信任，也非常荣幸能够与这样一家朝阳行业中的朝阳公司共同成长与发展。作为一家创业型公司，京东非常欢迎勤勉踏实的优秀毕业生加入管培生的队伍，与众多优秀的同事携手拼搏、共同成长，实现自身进步的同时助力公司长足发展，成就国民企业，履行社会责任。只要你有拼劲儿、肯努力，在京东你将大有可为。又是一年毕业季，我们，在京东等你。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/02yewei.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>叶威</h4>
+							<em><br>通讯采销部-高级经理</em>
+							<em>/ TET3</em>
+							<em>/ 北京理工大学</em>
+							<div>
+								<p>在京东轮岗结束后，我选择了京东通讯采销部，并一直在该部门工作至今，今年是我在京东的第六个年头了。现在的工作是负责京东手机50%的销售额、全年近300亿的盘子，管理25人的采销团队。在此期间，主要负责了从iPhone3GS到iPhone6历代iPhone首发，三星Galaxy S和NOTE历代产品首发，并开创了京东和联通、移动、电信三大运营商的合作。京东是一个高速发展的平台，也是一个年轻有创造力的平台。工作近六年，对比了行业内大大小小的公司，我感到京东给人带来的历练是巨大的，无论是工作能力还是心智认知，都有了巨大的提升。6年前我和你一样，6年后期待你能做出最好的选择！</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/03chencheng.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>陈澄</h4>
+							<em><br>POP开放平台-高级经理</em>
+							<em>/ TET4</em>
+							<em>/ 中国人民大学</em>
+							<div>
+								<p>今年是我进入京东的第五年，我们常将五年做为一个坐标，一个阶段的起点或终点。回顾这五年的工作经历，最大的感触是幸运，幸运第一份工作就选择了一家伟大的公司，尽管那时的它还没有那么显山露水；幸运这家公司后来的每一次飞跃，都能与几万名兄弟姐妹一起见证——IPO上市、金融集团、拍拍网、海外业务、智能产业……下个五年、下下个五年，我们能做的，我们要做的，比能想象的还多。不是每个公司都有这么广阔的空间，不是每个选择回过头去都值得庆幸。京东，未来在这里，你在哪里。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/04fantianyang.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>范天阳</h4>
+							<em><br>图书音像采销部-高级经理</em>
+							<em>/ TET5</em>
+							<em>/ 西安邮电学院</em>
+							<div>
+								<p>从2011年7月加入京东起，京东已经陪我走过了三年多的职场生涯。从军训到轮岗，每一天都是新鲜的开始、充实的结束，在好奇与探索中学习着电商的发展，京东的业务模式。实际上，作为职业规划的第一步，首先要明确的就是——你的目标是什么？而在轮岗期的充分学习与了解，就是帮你更清晰地确定自己的目标！ 目标有了，一个管培生就会慢慢的沉淀下来，在定岗后有了属于自己的工作岗位、有了自己的岗位职责。 回想自己从当初的采购助理，一步一步成长为如今业务部门的负责人，很感谢公司为我创造了一个没有天花板的舞台，让我在一次次的自我反思中看到自己的成长，让我不但学到了业务、学到了管理，更收获到了一群志同道合的朋友和工作伙伴。我已经在京东这列快车上，按照京东的速度成长了三年，你呢，你准备好了吗？让我们一起见证京东一步一步走上国际舞台的巅峰，成为全球最值得信赖的“国民企业”。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/05wushuangxi.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>吴双喜</h4>
+							<em><br>IT数码采销部-高级经理</em>
+							<em>/ TET5</em>
+							<em>/ 北京师范大学</em>
+							<div>
+								<p>在京东起家的IT数码采销部门定岗3年了，从最初的打印机产品经理，到打印部门经理，到办公部门高级经理，我从管理自己一个人，到现在管理45个人，3年的时间，恍如隔世，自己的工作和生活都发生了很大的变化，唯一不变的仍然是自己那颗充满激情，期待奔跑的心。</p>
+								<p>很多人问我作为一个法律系毕业的研究生，辛辛苦苦考过了司法考试，为什么要来到京东做管培生，做一个跟专业无关的工作。其实年轻人，有时候需要的是一种激情，我的激情就是希望能去一个快速发展的公司，通过自己的努力实现快速成长，而不是进入到一个论资排辈的公司，煎熬自己的青春。 所以，青春和激情都在这里，而你在哪里？</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/06jidongni.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>纪冬妮</h4>
+							<em><br>组织与人才发展中心-人才开发与培养岗</em>
+							<em>/ TET6</em>
+							<em>/ 南开大学</em>
+							<div>
+								<p>记得在加入京东前，很多人问我为什么不去做同传，为什么不去外企。当时我的回答是，在外企，我可能只会是一颗完美的螺丝钉，即便完美，即便光鲜亮丽，但却总会觉得有一丝遗憾；而一家在前进中的民企，会有一种充满不确定性的魅力，需要我变剪刀的时候我就要变成剪刀，需要我变锤子的时候我必须变成锤子。这个行业，这个舞台，风起云涌，总会有挑战，也总伴随着成长和超越。管培生项目对应届生来说是一个很难得的机会，轮岗期间对整个集团和不同业务模块地接触及熟悉，能够打开你的视野，快速地成长起来。同时，在不同阶段，健全的培养机制总会适时地给你输入，助力你成为一名更优秀的职业经理人。加入CHO体系后，公司管理层对于文化的重视、身边同事们一心想把事做好的热忱、一线兄弟们的义无反顾让我深深感动，更坚信：有这样优秀的京东人，京东一定会一步一步、踏踏实实，走上世界的舞台，成为一家伟大的企业。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/07shencheng.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>沈成</h4>
+							<em><br>金融集团-产品渠道岗</em>
+							<em>/ TET7</em>
+							<em>/ 重庆大学</em>
+							<div>
+								<p>站在人生选择的岔路口，你是否坚定未来将要成为什么样的人，你是否也会问自己几个为什么？曾经的我也曾迷惘过，但是选择京东TET是坚定的，TET的人才培养项目给了我们足够的资源和时间，让我们以最快的速度进行脱变，真正的成为一名职业人；更重要的是给了我们再一次审视自己选择的机会，让你有理由和事实坚定自己的想法。只要你有梦想，这里就有你放飞梦想的舞台——你的梦我们一起为你守护！欢迎加入管培的大家庭，师兄师姐都在这里等你！</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/08yincheng.png')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>尹承</h4>
+							<em><br>金融集团-营销策划岗</em>
+							<em>/ TET8</em>
+							<em>/ 四川大学</em>
+							<div>
+								<p>在这8个月的京东时光里，我从一名青涩的学生，逐渐变成了一个有血有肉的京东人，这短暂而充实的8个月，公司给了我很多意料之中的机会和意料之外的惊喜。在这里我们与公司高管平等交流、与行业大佬接触、在核心部门轮岗、接受行业顶尖的职业培训等，我在这其中吸收养分，快速成长，理解京东的使命与价值观，懂得这份职业对于我们的意义。不仅如此，公司有非常多的管培生师兄师姐，会无私地给你分享职业经验，你会感觉，你是在一个团结与温暖的大家庭中成长进步。</p>
+								<p>我来到京东，经过了8个月的轮岗，知道了我想要什么，热爱什么，现在的我，做着最热爱的工作，虽然稚嫩且渺小，但我觉得每一天都过得干劲十足，我甚至觉得自己的每一次活动都可能影响着行业趋势，这种满足感与成就感会让我觉得收获了一个全新的自己。</p>
+								<p>总之，在京东，你可以全力以赴地朝梦想奔跑，京东管培就是一个拥有使命感的称谓，如果你与我们有一样的想法与信念，欢迎加入我们！</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="position-apply-now-wrapper">
+				<h1>Jumpstart your Dream with us!</h1>
+				<!--<a href="#" class="btn-red position-apply-now-btn">立即申请</a>-->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script type="text/javascript" src="#springUrl('/campus/js/applyment_result.js')"></script>
+<script>
+// 测试用脚本
+
+</script>
+
+</body>
+</html>

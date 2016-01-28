@@ -1,0 +1,70 @@
+##################################
+## 资源-查看页面
+##author：xulin
+##################################
+#set($layout = "layout/null.vm")
+<script  type="text/javascript">
+
+var displayStatus = "${resource.displayStatus}";
+
+/**
+ * 初始化操作
+ */
+$(function() {
+    $('#displayStatusSelect').attr('value', displayStatus);
+});
+</script>
+
+<form id="inputForm">
+    <div class="form-horizontal">
+	<div class="control-group" style="display:none">
+        <label class="control-label">父资源：</label>
+        <div class="controls">
+    	  <input type="text" id="parentId" name="parentId" value="$!{resource.parentId}" disabled />
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">资源编码：</label>
+        <div class="controls">
+    	  <input type="text" id="resourceCode" name="resourceCode" value="$!{resource.resourceCode}" disabled />
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">资源名称：</label>
+        <div class="controls">
+    	  <input type="text" id="resourceName" name="resourceName" value="$!{resource.resourceName}" disabled />
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">是否显示：</label>
+        <div class="controls">
+    	  <select id="displayStatusSelect" class="" disabled>
+              <option value="true" #if ($!{resource.displayStatus}==true) selected #end>是</option>
+              <option value="false" #if ($!{resource.displayStatus}==false) selected #end>否</option>
+		  </select>
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">URL：</label>
+        <div class="controls">
+    	  <input type="text" id="resourceUrl" name="resourceUrl" value="$!{resource.resourceUrl}" disabled />
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">排序序号：</label>
+        <div class="controls">
+    	  <input type="text" id="sortNo" name="sortNo" value="$!{resource.sortNo}" disabled />
+        </div>
+    </div>
+        <div class="control-group">
+            <label class="control-label">资源图标：</label>
+            <div class="controls">
+                <ul id="icoUl">
+                    #foreach($!ico in $!{icoList})
+                        <li  #if ($ico==$!{resource.resourceIcon}) style="background-color: rgba(255, 0, 0, 0.25);" #end><img  src="/static/admin/skin/icon/$!{ico}" style="width: 16px;height: 16px;"></li>
+                    #end
+                </ul>
+            </div>
+        </div>
+        </div>
+</form>

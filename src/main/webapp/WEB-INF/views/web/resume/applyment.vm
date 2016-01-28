@@ -1,0 +1,56 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/resume.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+    <script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+    <script src="#springUrl('/campus/js/libs/jquery.validate.js')"></script>
+    <script src="#springUrl('/campus/js/libs/messages_zh.js')"></script>
+    <script src="#springUrl('/campus/js/applyment.js')"></script>
+</head>
+<body>
+
+<!-- 通用顶栏 -->
+#parse("/common/head.vm")
+
+<!-- 页面主体 -->
+<div class="wrap">
+	<div class="position-wrapper">
+		<h2 class="position-applicants">应届毕业生</h2>
+		<div class="position-group-info-wrapper">
+			<ul class="position-group-tab-wrapper">
+				#foreach($company in $!companyList)
+					<li ><a href="javascript:void(0)" onclick="detail_load('$!{company.dictDataCode}')">$!{company.dictDataName}</a></li>
+				#end
+			</ul>
+			
+			<div id="detail"></div>
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+#parse("/common/footer.vm")
+
+
+<script>
+//点击公司名称,load不同的url
+	function detail_load(companyCode) {
+		var projectId = '$!{projectId}';
+		var recType = '$!{recType}' ;
+		var iDisplayStart = 0;
+		var iDisplayLength = 10 ;
+		var iSortingCols = 0 ;
+		var iColumns = 1 ;
+		var mDataProp_0 = "JO.ID";
+		var sEcho = "ssss";
+		$("#detail").load("/web/apply/detail?projectId=" + projectId + "&recType=" + recType + "&companyCode=" + companyCode + "&iDisplayStart=" + iDisplayStart + "&iDisplayLength=" + iDisplayLength + "&iSortingCols=" + iSortingCols + "&iColumns=" + iColumns + "&sEcho=" + sEcho);
+	}
+</script>
+
+</body>
+</html>

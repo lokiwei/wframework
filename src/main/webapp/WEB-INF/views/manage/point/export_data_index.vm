@@ -1,0 +1,46 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootstrap-typeahead.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/point/export_data_index.js"></script>
+<div id="J-search" class="search">
+		<br/><br/>
+		<input type="hidden" id="pointType" value="$!{pointType}"/>
+		<div class="grid grid-2">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">导出类型</span>
+					<select id="modelName" style="width:200px;">
+    					<option value="import">导入积分记录</option>
+    					<option value="cost">消费积分记录</option>
+						<option value="available">剩余积分记录</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="grid grid-2">
+			<div class="col">
+          		<div class="col-con" style="width:300px;">
+            		<span class="search-tag">机构全称</span>
+						<input id="orgName" name="orgName" type="text" class="endTime" style="width:200px;"/>
+          		</div>
+         	</div>
+		</div>
+		<div class="grid grid-2">
+			<div class="col">
+          		<div id="showTime" class="col-con" style="width:300px;">
+            		<span class="search-tag">时间</span>
+						<input id="exportTimeBegin" name="startTime" type="text" class="beginTime"       
+								onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" style="width:100px;"/>&nbsp;-&nbsp;
+						<input id="exportTimeEnd" name="exportTimeEnd" type="text" class="endTime"       
+								onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" style="width:100px;"/>
+          		</div>
+         	</div>
+		</div>
+		<ul class="filtrate columns">
+    		<li class="status row">
+    			<div class="txt"></div>
+    			<div class="con" style="padding-left:110px;">
+    				<div id="export" class="btn-red btn-lg">导出</div>
+    			</div>
+    		</li>
+		</ul>
+</div>

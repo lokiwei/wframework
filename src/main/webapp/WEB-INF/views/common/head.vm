@@ -1,0 +1,31 @@
+#set($layout = "layout/null.vm")
+<div class="mod_header">
+	<div class="mod_inner">
+    	<span><a href="#">ERP京东企业门户</a></span>
+    	<div class="user_status">
+      		<span>王彩暖</span><a href="loginOut">退出</a>
+    	</div>
+    	<ul class="links">
+      		<li><a href="http://erp.jd.com/">门户中心</a></li>
+      		<li class="on"><a href="http://erp.jd.com/process.tpsml">流程中心</a></li>
+      		<li><a href="http://erp.jd.com/knowledge.tpsml">知识中心</a></li>
+      		<li><a href="http://ssc.jd.com">人事服务</a></li>
+      		<li><a href="http://erp.jd.com/administrative.tpsml">行政在线</a></li>
+      		<li><a href="http://www.jd.com">京东商城</a></li>
+    	</ul>
+  	</div>
+</div>
+
+<div class="welfare_mod_header">
+	<div class="mod_inner clearfix">
+    	<h2 class="welfare_mod_header_tt"><a href="#">福利平台</a></h2>
+    	<div class="welfare_mod_header_integral">剩余积分：$!{pointCount}</div>
+    	<ul class="welfare_mod_header_links">
+        	<li id="indexHead" class="on"><a href="javascript:void(0);">首页</a></li>
+        	<li id="benifetGoods"><a href="javascript:void(0);">福利商品</a></li>
+        	<li id="companyBenifet"><a href="javascript:void(0);">公司福利</a></li>
+        	<li id="personCenter"><a href="javascript:void(0);">个人中心</a></li>
+        	<li id="about"><a href="javascript:void(0);">关于福利平台</a></li>
+   		</ul>
+	</div>
+</div>

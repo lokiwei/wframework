@@ -1,0 +1,19 @@
+<link href="#springUrl('/static/bootstrap/css/bootstrap.css')" rel="stylesheet" type="text/css"/>
+<!--<link href="#springUrl('/static/datatables/css/jquery.dataTables.css')" rel="stylesheet" type="text/css"/>-->
+<link href="#springUrl('/static/datatables/css/TableTools.css')" rel="stylesheet" type="text/css"/>
+<link href="#springUrl('/static/datatables/css/jquery.dataTables.bootstrap.css')" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootstrap.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootbox.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datatables/js/TableTools.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.bootstrap.js')"></script>
+   
+<script type="text/javascript" src="#springUrl('/static/common/js/Dialog.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/common/js/Tables.js')"></script>
+
+<!-- validate -->
+<script type="text/javascript" src="#springUrl('/static/common/js/jqBootstrapValidation.js')"></script>
+
+$screen_content

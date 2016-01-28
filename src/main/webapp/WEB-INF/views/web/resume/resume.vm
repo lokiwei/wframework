@@ -1,0 +1,1029 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+    <link href="#springUrl('/static/webuploader/webuploader.css')" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/resume.css')"/>
+	<!--<link rel="stylesheet" href="#springUrl('/campus/css/resume-pub.css')"/>-->
+	
+	<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+</head>
+<body>
+
+<!-- 通用顶栏 -->
+#parse("/common/head.vm")
+
+<!-- 简历头部 -->
+<div class="resume-header">
+	<div class="wrap">
+		<ul class="resume-header-l">
+			<li class="resume-my-resume resume-header-selected"><a href="#">我的简历</a></li>
+			<li class="seperator">|</li>
+			<li class="resume-my-application"><a href="/web/apply/myjob">我申请的职位</a></li>
+		</ul>
+		<div class="resume-header-r">
+			<div class="resume-progress-bar-wrapper">
+				<div class="resume-progress-bar" style="width: $!{fullAttr}%;"></div>
+			</div>
+			<div class="resume-progress-percent"><span>$!{fullAttr}</span>%<b>简历完整度</b></div>
+			<input type="hidden" name="haveJob" id="haveJob" value=$!{haveJob}>
+			<input type="hidden" name="haveAttachment" id="haveAttachment">
+		</div>
+	</div>
+</div>
+
+<!-- 简历主体 -->
+<div class="wrap resume-wrap">
+	<!-- 侧栏 -->
+	<div class="resume-sidebar J-resume-sidebar">
+		<!--<ul class="resume-sidebar-ul">
+			<li class="curr" data-validate="form"><a href="javascript:;"><i class="resume-nav-info"></i>个人信息<strong>*</strong></a></li>
+			
+			<li data-validate="list"><a href="javascript:;"><i class="resume-nav-edu"></i>教育背景<strong>*</strong></a></li>
+			
+			<li data-validate="form"><a href="javascript:;"><i class="resume-nav-language"></i>语言能力<strong>*</strong></a></li>
+			<li><a href="javascript:;"><i class="resume-nav-rewards"></i>奖励活动</a></li>
+			<li><a href="javascript:;"><i class="resume-nav-exp"></i>实习经验</a></li>
+			
+			<li data-validate="list"><a href="javascript:;"><i class="resume-nav-jobs"></i>工作经验</a></li>
+			<li><a href="javascript:;"><i class="resume-nav-family"></i>家庭成员</a></li>
+		
+			<li data-validate="form"><a href="javascript:;"><i class="resume-nav-other"></i>其他信息<strong>*</strong></a></li>
+			<li><a href="javascript:;"><i class="resume-nav-attachments"></i>上传附件</a></li>
+			#if($!{resumeBaseInfo.id}!="null")
+				<li id="resume-preview"><a href="javascript:;" onclick="javascript:resumePreview();" class="resume-preview">预览简历</a></li>
+			#else
+				<li id="resume-preview" class="hide"><a href="javascript:;" onclick="javascript:resumePreview();" class="resume-preview">预览简历</a></li>
+			#end	
+		</ul>
+		-->
+		<!--S 20150311-导航调整顺序，相应内容区域也要按照此顺序做调整 -->
+		<ul class="resume-sidebar-ul">
+			<li class="curr" data-validate="form"><a href="javascript:;"><i class="resume-nav-info"></i>个人信息<strong>*</strong></a></li>
+			<li data-validate="list"><a href="javascript:;"><i class="resume-nav-edu"></i>教育背景<strong>*</strong></a></li>
+			<!--S 20150311-add -->
+			<li data-validate="list"><a href="javascript:;"><i class="resume-nav-certificate"></i>专业证书</a></li>
+			<!--E 20150311-add -->
+			<li><a href="javascript:;"><i class="resume-nav-rewards"></i>奖励活动</a></li>
+			<li><a href="javascript:;"><i class="resume-nav-exp"></i>实习经验</a></li>
+			<!--S 20150311-add -->
+			<li><a href="javascript:;"><i class="resume-nav-project"></i>项目经验</a></li>
+			<!--E 20150311-add -->
+			<li data-validate="list"><a href="javascript:;"><i class="resume-nav-jobs"></i>工作经验</a></li>
+			<li data-validate="form"><a href="javascript:;"><i class="resume-nav-language"></i>语言能力<strong>*</strong></a></li>
+			<li><a href="javascript:;"><i class="resume-nav-family"></i>家庭成员</a></li>
+			<li data-validate="form"><a href="javascript:;"><i class="resume-nav-other"></i>其他信息<strong>*</strong></a></li>
+			<li><a href="javascript:;"><i class="resume-nav-attachments"></i>上传附件</a></li>
+			#if($!{resumeBaseInfo.id}!="null")
+				<li id="resume-preview"><a href="javascript:;" onclick="javascript:resumePreview();" class="resume-preview">预览简历</a></li>
+			#else
+				<li id="resume-preview" class="hide"><a href="javascript:;" onclick="javascript:resumePreview();" class="resume-preview">预览简历</a></li>
+			#end	
+		</ul>
+		<!--S 20150311-导航调整顺序，相应内容区域也要按照此顺序做调整 -->
+		
+		
+	</div>
+
+	<div id="J-resume-main" class="resume-main">
+		<!-- 个人信息 -->
+		<div id="J-info-part" class="resume-part resume-curr-part">
+			<div class="resume-main-tit">
+				个人信息 <span>（<i class="resume-required">*</i>必填）</span>
+			</div>
+			<div class="resume-main-content">
+				<form id="resumeBaseForm" action="/web/resume/handleBaseInfo" method="post">
+				<input type="hidden" name="id" id="baseId" value=$!{resumeBaseInfo.id}>
+				<input type="hidden" name="photoUrl" id="photoUrl" value=$!{resumeBaseInfo.photoUrl}>
+				<!-- 用户头像 -->
+				<div class="resume-user-photo">
+					#if($!{resumeBaseInfo.photoUrl}!="null"&&$!{resumeBaseInfo.photoUrl}!="")
+						<img id="resume-upload-img" style="width:102px;height: 116px;" src="$!{resumeBaseInfo.photoUrl}" alt="">
+					#else
+						<img id="resume-upload-img" style="width:102px;height: 116px;" src="#springUrl('/campus/img/default-user.gif')" alt="">
+					#end
+					<a href="javascript:;" id="resume-upload" >上传头像</a>
+					<p class="photo-notice">请上传500K以下照片<br>推荐像素100x114</p>
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>姓名</span>
+					<input type="text" id="name" name="name" class="resume-input" required="" maxlength="10" value='$!{resumeBaseInfo.name}'>	
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>性别</span>
+					#dictionary('sex','radio','{attributes:{id:"sex",name:"sex"}}',$!{resumeBaseInfo.sex})
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>出生日期</span>
+					<input type="text" id="birthdayString" name="birthdayString" class="resume-input" required=""  value="#if($!{resumeBaseInfo.birthday}) $dateTool.format("yyyy.MM.dd", $!{resumeBaseInfo.birthday}) #end" onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy.MM.dd',onpropertychange:removeFocus(this)})">
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>证件类型及号码</span>
+					#dictionary('ZJLX','select','{attributes:{id:"idType",name:"idType",class:"resume-select"}}',$!{resumeBaseInfo.idType})
+					<input type="text" id="idNo" name="idNo" class="resume-input resume-input-id" required=""  maxlength="20" value='$!{resumeBaseInfo.idNo}'>	
+				</div>
+				<div class="row">
+					<span class="resume-tag">民族</span>
+					#dictionary('MZ','select','{attributes:{id:"nationality",name:"nationality",class:"resume-select"}}',$!{resumeBaseInfo.nationality})
+				</div>
+				<div class="row">
+					<span class="resume-tag">身高</span>
+					<input type="text" id="height" name="height" class="resume-input-s" data-rule-digits="true" maxlength="5"  value='$!{resumeBaseInfo.height}'>
+					<label for="J-height" class="resume-label">CM</label>
+					<label id="J-height-error" class="error" for="J-height"></label>
+				</div>
+				<div class="row">
+					<span class="resume-tag">体重</span>
+					<input type="text" id="weight" name="weight" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.weight}'>
+					<label for="J-weight" class="resume-label">KG</label>
+						<label id="J-weight-error" class="error" for="J-weight"></label>
+				</div>
+				
+				<div class="row">
+					<span class="resume-tag">婚姻状况</span>
+					#dictionary('HYZK','radio','{attributes:{id:"maritalStatus",name:"maritalStatus"}}',$!{resumeBaseInfo.maritalStatus})
+				</div>
+				<div class="row">
+					<span class="resume-tag">政治面貌</span>
+					#dictionary('ZZMM','select','{attributes:{id:"politicsStatus",name:"politicsStatus",class:"resume-select"}}',$!{resumeBaseInfo.politicsStatus})
+				</div>			
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>所在城市</span>
+					#dictionary('CS','select','{appendEmptyOption:false,emptyOptionTitle:"",attributes:{id:"city",name:"city",class:"resume-select"}}',$!{resumeBaseInfo.city})
+				</div>
+				<div class="row">
+					<span class="resume-tag">个人评价</span>
+					<textarea name="selfEvaluation" id="selfEvaluation" class="resume-textarea"  maxlength="150" value="$!{resumeBaseInfo.selfEvaluation}"></textarea>
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>手机号码</span>
+					<input type="text" id="mobile" name="mobile" class="resume-input" required=""  data-rule-digits="true"  maxlength="11" value="$!{resumeBaseInfo.mobile}">	
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>Email</span>
+					<input type="email" id="email" name="email" class="resume-input" required=""  maxlength="30"  value="$!{resumeBaseInfo.email}">	
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>国籍</span>
+					<input type="text" id="country" name="country" class="resume-input" required=""  maxlength="15"  value="$!{resumeBaseInfo.country}">
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>紧急联系人</span>
+					<input type="text" id="emergencyContactPerson" name="emergencyContactPerson" class="resume-input" maxlength="10" required="" value="$!{resumeBaseInfo.emergencyContactPerson}">	
+				</div>
+				<div class="row">
+					<span class="resume-tag"><i class="resume-required">*</i>紧急联系方式</span>
+					<input type="text" id="emergencyContract" name="emergencyContract" class="resume-input" required="" maxlength="30" value="$!{resumeBaseInfo.emergencyContract}">	
+				</div>
+				<div class="row resume-submit">
+					<span class="resume-tag">&nbsp;</span>
+					<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+				</div>
+			</form>
+			</div>
+		</div>
+		<!-- 教育背景 -->
+		<div id="J-edu-part" class="resume-part">
+			<div class="resume-main-tit">
+				教育背景 <span>（<i class="resume-required">*</i>必填）</span>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+				<tr>
+					<th>起止时间</th>
+					<th>学校</th>
+					<th>专业</th>
+					<th>操作</th>
+				</tr>
+				#foreach($educationInfo in $!{resumeBaseInfo.educationInfos})
+				<tr>
+					<td>#if($!{educationInfo.startDate}) $dateTool.format("yyyy.MM", $!{educationInfo.startDate}) #end
+						-#if($!{educationInfo.endDate}) $dateTool.format("yyyy.MM", $!{educationInfo.endDate}) #end</td>
+					<td>$!{educationInfo.schoolName}</td>
+					<td>$!{educationInfo.professionDictName}</td>
+					<td>
+						<a href="javascript:;"  onClick="javascript:modifyInfo($!{educationInfo.id},'educationInfo');">修改</a>
+						<!-- a添加class btn-subform-delete -->
+						<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{educationInfo.id},$!{educationInfo.baseId},'educationInfo');">删除</a>
+					</td>
+    			</tr>				
+			    #end	
+			</tbody>
+			</table>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveEducationInfo" method="post">
+				<!--	<input type="hidden" name="baseId" id="baseId" value=$!{resumeBaseInfo.id}>	-->
+					<input type="hidden" name="id" id="educationInfoId">
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>起止时间</span>
+						<input type="text" id="startDateString" name="startDateString" required="" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,maxDate:'#F{$dp.$D(\'endDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">
+						<label class="resume-label">至</label>
+						<input type="text" id="endDateString" name="endDateString" required="" class="resume-input-date" required=""  onfocus="WdatePicker({readOnly:false,minDate:'#F{$dp.$D(\'startDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>学校</span>
+						<!--#dictionary('XX','select','{appendEmptyOption:false,emptyOptionTitle:"nihao",attributes:{id:"school",name:"school",class:"resume-select"}}',' ')-->
+						<input type="text" id="schoolName" name="schoolName"  required="" class="resume-input">	
+						<input type="hidden" id="school" name="school">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>专业</span>
+						#dictionary('zy','select','{appendEmptyOption:true,emptyOptionTitle:"",attributes:{id:"professionType",name:"professionType",class:"resume-select"}}')
+						<!--#dictionary('zy01','select','{appendEmptyOption:false,emptyOptionTitle:"请选择",attributes:{id:"profession",name:"profession",class:"resume-select"}}')-->
+						<select name="profession" id="profession" class="resume-select" required=""></select>
+					</div>
+					
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>专业名称</span>
+						<input type="text" id="professionName" name="professionName"  required="" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>学历</span>					
+						#dictionary('XL','select','{appendEmptyOption:false,emptyOptionTitle:"",attributes:{id:"educationBackground",name:"educationBackground",class:"resume-select"}}','XL02')
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>是否最高学历</span>
+						#dictionary('ISORNOT','radio','{attributes:{id:"isHighestEducation",name:"isHighestEducation"}}')
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>学位</span>					
+						#dictionary('XW','select','{appendEmptyOption:false,emptyOptionTitle:"",attributes:{id:"degree",name:"degree",class:"resume-select"}}','XW01')
+					</div>
+					<div class="row">
+						<span class="resume-tag">主修课程</span>
+						<textarea name="majorCourse" id="majorCourse" class="resume-textarea"></textarea>
+					</div>
+					<div class="row">
+						<span class="resume-tag">证明人</span>
+						<input type="text" id="certifier" name="certifier" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag">证明人联系方式</span>
+						<input type="text" id="certifierContactInfo" name="certifierContactInfo" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>海外学习经验</span>
+						#dictionary('ISORNOT','radio','{attributes:{id:"overseasExperience",name:"overseasExperience"}}','0')
+					</div>
+					<div class="row">
+						<!-- a添加class J-validate-continue -->
+						<a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- 专业证书 -->
+		<div id="J-certificate-part" class="resume-part">
+			<div class="resume-main-tit">
+				专业证书 <span>（<i class="resume-required">*</i>必填，如无专业证书请直接点“下一步”）</span>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>证书名称</th>
+					<th>获奖时间</th>
+					<th>操作</th>
+				</tr>
+			   #foreach($resumeCertificate in $!{resumeBaseInfo.resumeCertificates})
+				<tr>
+					<td>$!{resumeCertificate.certificateTitle}</td>
+					<td>#if($!{resumeCertificate.acquisitionTime}) $dateTool.format("yyyy.MM", $!{resumeCertificate.acquisitionTime}) #end</td>
+					<td>
+						<a href="javascript:;"  onClick="javascript:modifyInfo($!{resumeCertificate.id},'certificate');">修改</a>
+						
+						<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{resumeCertificate.id},$!{resumeCertificate.baseId},'certificate');">删除</a>
+    				</td>
+				</tr>
+			    #end
+				</tbody>
+			</table>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveCertificate" method="post">
+				 <input type="hidden" name="id" id="certId">
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>证书名称</span>
+						<input type="text" id="certificateTitle" name="certificateTitle" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag">获奖时间</span>
+						<input type="text" id="certAcquisitionTimeString" name="acquisitionTimeString" class="resume-input-date"  onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">	
+					</div>
+					<div class="row">
+						<span class="resume-tag">证书描述</span>
+						<textarea name="certificateDesc" id="certificateDesc" class="resume-textarea"></textarea>
+					</div>
+					<div class="row">
+						<a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;" class="btn-red btn-nex">下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- 奖励活动 -->
+	<!--	<div id="J-reward-part" class="resume-part">
+			<div class="resume-main-tit">
+				奖励活动 <span>（<i class="resume-required">*</i>必填，如无奖励请直接点“下一步”）</span>
+			</div>
+			<div class="resume-main-content">
+				<form id="rewardRecordForm" method="post">
+					<input type="hidden" name="id" id="id" value=$!{resumeBaseInfo.rewardRecord.id}>
+					<div class="row row-wrap">
+						<span class="resume-tag">担任班级学生会干部</span>				
+						#dictionary('GB','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"studentUnion",name:"studentUnion",class:"resume-select"}}',$!{resumeBaseInfo.rewardRecord.id})					
+					</div>
+					<div class="row row-wrap">
+						<span class="resume-tag">校内活动</span>
+						<textarea name="campusActivitie" id="campusActivitie" class="resume-textarea">$!{resumeBaseInfo.rewardRecord.campusActivitie}</textarea>
+					</div>
+					<div class="row row-wrap">
+						<span class="resume-tag">其他奖励</span>
+						<textarea name="otherIncentive" id="otherIncentive" class="resume-textarea">$!{resumeBaseInfo.rewardRecord.otherIncentive}</textarea>
+					</div>
+				</form>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>来源</th>
+					<th>奖励内容</th>
+					<th>获奖时间</th>
+					<th>操作</th>
+				</tr>		
+				#foreach($bursary in $!{resumeBaseInfo.bursarys})
+				<tr>
+					<td>$!{bursary.sourceName}</td>
+					<td>$!{bursary.level}</td>
+					<td>#if($!{bursary.acquisitionTime}) $dateTool.format("yyyy.MM", $!{bursary.acquisitionTime}) #end</td>
+					<td>
+						<a href="javascript:;"  onClick="javascript:modifyInfo($!{bursary.id},'bursary');">修改</a>
+						
+						<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{bursary.id},$!{bursary.baseId},'bursary');">删除</a>
+    				</td>
+				</tr>
+			    #end
+			</tbody></table>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveBursary" method="post">	
+					<input type="hidden" name="id" id="bursaryId">
+					<div class="row">
+						<span class="resume-tag">来源</span>						
+						#dictionary('XJ','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"source",name:"source",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">奖励内容</span>		
+						<input type="text" id="level" name="level" class="resume-input" maxlength="50">
+					</div>
+					<div class="row">
+						<span class="resume-tag">获奖时间</span>
+						<input type="text" id="acquisitionTimeString" name="acquisitionTimeString" class="resume-input"  onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy.MM'})">			
+					</div>
+					<div class="row">
+						<a href="javascript:;" class="resume-list-btn  J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red">保存并下一步</a>
+					</div>
+				</form>
+			</div>
+					</div>-->
+		
+		<!-- 奖励活动 -->
+		<!--S 20150311-“奖学金”与“担任班级学生会干部”顺序调换 -->
+		<div id="J-reward-part" class="resume-part">
+			<div class="resume-main-tit">
+				奖励活动 <span>（<i class="resume-required">*</i>必填，如无奖励请直接点“下一步”）</span>
+			</div>
+			<div class="resume-main-content">
+				<form  id="rewardRecordForm" action="post">
+					<!--S 20150311-更改为多选 -->
+					<div class="row row-wrap">
+						<span class="resume-tag">担任班级学生会干部</span>
+						<div class="resume-taglist">
+							<ul>
+							#set($i=0)	
+							#foreach($rewardRecord in $!{resumeBaseInfo.rewardRecords})
+								<li>
+                                 #set($attributes = '{appendEmptyOption:true,emptyOptionTitle:"",attributes:{id:"rewardRecords['+$i+'].studentUnion",name:"rewardRecords['+$i+'].studentUnion",class:"resume-select"}}')								 
+									#dictionary('GB','select',$attributes,$!{rewardRecord.studentUnion})								
+									<input type="text" id="rewardRecords[$i].dutyDescription" name="rewardRecords[$i].dutyDescription" class="resume-input" value="$!{rewardRecord.dutyDescription}" placeholder="职责描述">
+									<!--标示添加行有效-->	
+									<input type="hidden" id="rewardRecords[$i].status" name="rewardRecords[$i].status" value="1">	
+									<input type="hidden" id="rewardRecords[$i].id" name="rewardRecords[$i].id" value="$!{rewardRecord.id}">		
+									<!--<a href="javascript:;"  onClick="javascript:deleteInfo(0);">删除</a>-->
+								#if($i==0)
+									<a href="javascript:;"  onClick="javascript:addInfo();">增加</a>
+									#else
+									<a href="javascript:;"  onClick="javascript:deleteRecord(this);">删除</a>
+								#end
+								</li>
+							 #set($i=$i+1)	
+                			#end
+							#if($i==0)
+								<li>
+									#dictionary('GB','select','{appendEmptyOption:true,emptyOptionTitle:"",attributes:{id:"rewardRecords[0].studentUnion",name:"rewardRecords[0].studentUnion",class:"resume-select"}}',$!{resumeBaseInfo.rewardRecord.id})					
+									<input type="text" id="rewardRecords[0].dutyDescription" name="rewardRecords[0].dutyDescription" class="resume-input" placeholder="职责描述">
+									<!--标示添加行有效-->	
+									<input type="hidden" id="rewardRecords[0].status" name="rewardRecords[0].status" value="1">	
+									<!--<a href="javascript:;"  onClick="javascript:deleteInfo(0);">删除</a>-->
+									<a href="javascript:;"  onClick="javascript:addInfo(0);">增加</a>
+								</li>
+							#end								
+							</ul>
+						</div>
+					</div>
+					<!--E 20150311-更改为多选 -->
+				</form>
+			</div>
+			<div class="resume-subtitle subtitle-first">奖学金</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>来源</th>
+					<th>奖励内容</th>
+					<th>获奖时间</th>
+					<th>操作</th>
+				</tr>		
+				#foreach($bursary in $!{resumeBaseInfo.bursarys})
+				<tr>
+					<td>$!{bursary.sourceName}</td>
+					<td>$!{bursary.level}</td>
+					<td>#if($!{bursary.acquisitionTime}) $dateTool.format("yyyy.MM", $!{bursary.acquisitionTime}) #end</td>
+					<td>
+						<a href="javascript:;"  onClick="javascript:modifyInfo($!{bursary.id},'bursary');">修改</a>
+						
+						<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{bursary.id},$!{bursary.baseId},'bursary');">删除</a>
+    				</td>
+				</tr>
+			    #end
+			</tbody></table>	
+			<div class="resume-main-content">											
+				<form action="/web/resume/saveBursary" method="post">	
+					<input type="hidden" name="id" id="bursaryId">
+					<div class="row">
+						<span class="resume-tag">来源</span>						
+						#dictionary('XJ','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"source",name:"source",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">奖励内容</span>		
+						<input type="text" id="level" name="level" class="resume-input" maxlength="50">
+					</div>
+					<div class="row">
+						<span class="resume-tag">获奖时间</span>
+						<input type="text" id="acquisitionTimeString" name="acquisitionTimeString" class="resume-input"  onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">			
+					</div>
+					<div class="row">
+						<a href="javascript:;" class="resume-list-btn  J-validate-continue">继续添加</a>
+					</div>					
+				</form>				
+			</div>
+			<div class="resume-subtitle"></div>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveRewardRecord" method="post">
+					<div class="row row-wrap">
+						<span class="resume-tag">校内活动</span>
+						<textarea name="campusActivitie" id="campusActivitie" class="resume-textarea">$!{resumeBaseInfo.rewardRecord.campusActivitie}</textarea>
+					</div>
+					<div class="row row-wrap">
+						<span class="resume-tag">其他奖励</span>
+						<textarea name="otherIncentive" id="otherIncentive" class="resume-textarea">$!{resumeBaseInfo.rewardRecord.otherIncentive}</textarea>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;" class="btn-red btn-nex">下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!--E 20150311-“奖学金”与“担任班级学生会干部”顺序调换 -->
+
+		<!-- 实习经验 -->
+		<div id="J-exp-part" class="resume-part">
+			<div class="resume-main-tit">
+				实习经验 <span>（<i class="resume-required">*</i>必填，如无实习经验请直接点“下一步”）</span>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>起止时间</th>
+					<th>公司</th>
+					<th>职位</th>
+					<th>操作</th>
+				</tr>				
+				#foreach($internshipExperience in $!{resumeBaseInfo.internshipExperience})
+					#if($!{internshipExperience.experienceType}==0)
+    				<tr>
+    					<td>#if($!{internshipExperience.startDate}) $dateTool.format("yyyy.MM", $!{internshipExperience.startDate}) #end
+							-#if($!{internshipExperience.endDate}) $dateTool.format("yyyy.MM", $!{internshipExperience.endDate}) #end</td>
+    					<td>$!{internshipExperience.companyName}</td>
+    					<td>$!{internshipExperience.jobTitle}</td>
+    					<td>
+    						<a href="javascript:;" onClick="javascript:modifyInfo($!{internshipExperience.id},'internship');">修改</a>
+    						<!-- a添加class btn-subform-delete -->
+							<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{internshipExperience.id},$!{internshipExperience.baseId},'internship');">删除</a>
+    					</td>
+    				</tr>
+					#end
+			    #end
+			</tbody></table>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveInternshipExp?type=0" method="post">
+					<input type="hidden" name="experienceType" id="internshipexperienceType" value='0'>
+					<input type="hidden" name="id" id="internshipId">	
+					<div class="row">						
+						<span class="resume-tag"><i class="resume-required">*</i>起止时间</span>
+						<input type="text" id="internshipstartDateString" name="startDateString" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,maxDate:'#F{$dp.$D(\'internshipendDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">
+						<label class="resume-label">至</label>
+						<input type="text" id="internshipendDateString" name="endDateString" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,minDate:'#F{$dp.$D(\'internshipstartDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">	
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>公司名称</span>
+						<input type="text" id="companyName" name="companyName" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag">公司规模</span>
+						#dictionary('GM','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"companyScale",name:"companyScale",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">公司性质</span>						
+						#dictionary('XZ','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"companyNature",name:"companyNature",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">公司行业</span>						
+						#dictionary('hy','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"companyIndustry",name:"companyIndustry",class:"resume-select"}}')																
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>所在部门</span>
+						<input type="text" id="department" name="department" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>职位名称</span>
+						<input type="text" id="jobTitle" name="jobTitle" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag">工作描述</span>
+						<textarea name="jobDescription" id="jobDescription" class="resume-textarea"></textarea>
+					</div>
+					<div class="row">
+						<span class="resume-tag">证明人</span>
+						<input type="text" id="internshipCertifier" name="certifier" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag">证明人联系方式</span>
+						<input type="text" id="internshipCertifierContactInfo" name="certifierContactInfo" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>是否在京东实习</span>
+						#dictionary('ISORNOT','radio','{attributes:{id:"isWorkJd",name:"isWorkJd"}}','0')
+					</div>
+					<div class="row">
+						<!-- a添加class J-validate-continue -->
+						<a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:;" class="btn-red btn-nex">下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- 项目经验 -->
+		<!--S 20150311-add -->
+		<div id="J-project-part" class="resume-part">
+			<div class="resume-main-tit">
+				项目经验 <span>（<i class="resume-required">*</i>必填，如无项目经验请直接点“下一步”）</span>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>起始时间</th>
+					<th>项目名称</th>
+					<th>职位</th>
+					<th>操作</th>
+				</tr>
+				#foreach($projectExperience in $!{resumeBaseInfo.projectExperiences})				
+    				<tr>
+    					<td>#if($!{projectExperience.startDate}) $dateTool.format("yyyy.MM", $!{projectExperience.startDate}) #end
+							-#if($!{projectExperience.endDate}) $dateTool.format("yyyy.MM", $!{projectExperience.endDate}) #end</td>
+    					<td>$!{projectExperience.projectName}</td>
+    					<td>$!{projectExperience.jobName}</td>
+    					<td>
+    						<a href="javascript:;" onClick="javascript:modifyInfo($!{projectExperience.id},'projectExp');">修改</a>
+    						<!-- a添加class btn-subform-delete -->
+							<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{projectExperience.id},$!{projectExperience.baseId},'projectExp');">删除</a>
+    					</td>
+    				</tr>				
+			    #end
+			</tbody></table>
+
+			<div class="resume-main-content">
+        <form action="/web/resume/saveProjectExp" method="post">
+		  <input type="hidden" name="id" id="projectExpId">	
+    		<div class="row">						
+    			<span class="resume-tag"><i class="resume-required">*</i>起止时间</span>
+    			<input type="text" id="projectStartDateString" name="startDateString" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,maxDate:'#F{$dp.$D(\'projectEndDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">
+    			<label class="resume-label">至</label>
+    			<input type="text" id="projectEndDateString" name="endDateString" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,minDate:'#F{$dp.$D(\'projectStartDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">	
+    		</div>	
+          <div class="row">
+            <span class="resume-tag"><i class="resume-required">*</i>项目名称</span>
+            <input type="text" id="projectName" name="projectName" class="resume-input" required="">
+          </div>
+          <div class="row">
+            <span class="resume-tag"><i class="resume-required">*</i>职位名称</span>
+            <input type="text" id="jobName" name="jobName" class="resume-input" required="">
+          </div>
+          <div class="row">
+            <span class="resume-tag">项目描述</span>
+            <textarea name="projectDescription" id="projectDescription" class="resume-textarea"></textarea>
+          </div>
+          <div class="row">
+            <span class="resume-tag">证明人</span>
+            <input type="text" id="proCertifier" name="certifier" class="resume-input">
+          </div>
+          <div class="row">
+            <span class="resume-tag">证明人联系方式</span>
+            <input type="text" id="proCertifierContactInfo" name="certifierContactInfo" class="resume-input">
+          </div>
+          <div class="row">
+            <!-- a添加class J-validate-continue -->
+            <a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+          </div>
+          <div class="row resume-submit">
+            <span class="resume-tag">&nbsp;</span>
+            <a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+			 &nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="javascript:;" class="btn-red btn-nex">下一步</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--E 20150311-add -->
+
+		<!-- 工作经验 -->
+		<div id="J-jobs-part" class="resume-part">
+			<div class="resume-main-tit">
+				工作经验 <span>（<i class="resume-required">*</i>必填，如无工作经验请直接点“下一步”）</span>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>起止时间</th>
+					<th>公司</th>
+					<th>职位</th>
+					<th>操作</th>
+				</tr>
+				#foreach($internshipExperience in $!{resumeBaseInfo.internshipExperience})
+					#if($!{internshipExperience.experienceType}==1)
+    				<tr>
+    					<td>#if($!{internshipExperience.startDate}) $dateTool.format("yyyy.MM", $!{internshipExperience.startDate}) #end
+							-#if($!{internshipExperience.endDate}) $dateTool.format("yyyy.MM", $!{internshipExperience.endDate}) #end</td>
+    					<td>$!{internshipExperience.companyName}</td>
+    					<td>$!{internshipExperience.jobTitle}</td>
+    					<td>
+    						<a href="javascript:;" onClick="javascript:modifyInfo($!{internshipExperience.id},'work')";>修改</a>
+    						<!-- a添加class btn-subform-delete -->
+							<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{internshipExperience.id},$!{internshipExperience.baseId},'work');">删除</a>
+    					</td>
+    				</tr>
+					#end
+			    #end
+			</tbody></table>
+
+			<div class="resume-main-content">
+				<form action="/web/resume/saveInternshipExp?type=1" method="post">
+				
+					<input type="hidden" name="experienceType" id="workexperienceType" value='1'>	
+					<input type="hidden" name="id" id="workId">		
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>起止时间</span>
+						<input type="text" id="workstartDateString" name="startDateString" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,maxDate:'#F{$dp.$D(\'workendDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">
+						<label class="resume-label">至</label>
+						<input type="text" id="workendDateString" name="endDateString" class="resume-input-date" required="" onfocus="WdatePicker({readOnly:true,minDate:'#F{$dp.$D(\'workstartDateString\')}',dateFmt:'yyyy.MM',onpropertychange:removeFocus(this)})">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>公司名称</span>
+						<input type="text" id="workcompanyName" name="companyName" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag">公司规模</span>
+						#dictionary('GM','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"workcompanyScale",name:"companyScale",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">公司性质</span>
+						#dictionary('XZ','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"workcompanyNature",name:"companyNature",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">公司行业</span>
+						#dictionary('hy','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"workcompanyIndustry",name:"companyIndustry",class:"resume-select"}}')																					
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>所在部门</span>
+						<input type="text" id="workdepartment" name="department" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>职位名称</span>
+						<input type="text" id="workjobTitle" name="jobTitle" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag">工作描述</span>
+						<textarea name="jobDescription" id="workjobDescription" class="resume-textarea"></textarea>
+					</div>
+					<div class="row">
+						<span class="resume-tag">证明人</span>
+						<input type="text" id="workcertifier" name="certifier" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag">证明人联系方式</span>
+						<input type="text" id="workcertifierContactInfo" name="certifierContactInfo" class="resume-input">					
+					</div>
+					<div class="row">
+						<!-- a添加class J-validate-continue -->
+						<a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;
+			            <a href="javascript:;" class="btn-red btn-nex">下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<!-- 语言能力 -->
+		<div id="J-language-part" class="resume-part">
+			<div class="resume-main-tit">
+				语言能力 <span>（<i class="resume-required">*</i>必填）</span>
+			</div>
+			<div class="resume-main-content">
+				<form id="englishForm" method="post">
+					<!--<input type="hidden" name="baseId" id="baseId" value=$!{resumeBaseInfo.id}>-->
+					<input type="hidden" name="id" id="englishAbilityId" value=$!{resumeBaseInfo.englishAbility.id}>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>英语等级及分数</span>
+						#dictionary('yy','select','{appendEmptyOption:false,emptyOptionTitle:"请选择",attributes:{id:"englishLevel",name:"englishLevel",class:"resume-select"}}',$!{resumeBaseInfo.englishAbility.englishLevel})					
+						<input type="text"   required="" id="englishScore" name="englishScore" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.englishAbility.englishScore}'>
+					</div>
+					<div class="row">
+						<span class="resume-tag">TOEFL</span>
+						<input type="text" id="toefl" name="toefl" class="resume-input-s" data-rule-digits="true" maxlength="5"  value='$!{resumeBaseInfo.englishAbility.toefl}'>
+					</div>
+					<div class="row">
+						<span class="resume-tag">GRE</span>
+						<input type="text" id="gre" name="gre" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.englishAbility.gre}'>
+					</div>
+					<div class="row">
+						<span class="resume-tag">GMAT</span>
+						<input type="text" id="gmat" name="gmat" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.englishAbility.gmat}'>
+					</div>
+					<div class="row">
+						<span class="resume-tag">IELTS</span>
+						<input type="text" id="ielts" name="ielts" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.englishAbility.ielts}'>
+					</div>
+					<div class="row">
+						<span class="resume-tag">TOEIC</span>
+						<input type="text" id="toeic" name="toeic" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.englishAbility.toeic}'>
+					</div>
+					<div class="row">
+						<span class="resume-tag">SAT</span>
+						<input type="text" id="sat" name="sat" class="resume-input-s" data-rule-digits="true" maxlength="5" value='$!{resumeBaseInfo.englishAbility.sat}'>
+					</div>
+				</form>
+			</div>
+			<div class="resume-subtitle">其他外语</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>外语语种</th>
+					<th>证书</th>
+					<th>能力</th>
+					<th>操作</th>
+				</tr>				
+				#foreach($foreignLanguage in $!{resumeBaseInfo.foreignLanguages})
+				<tr>
+					<td>$!{foreignLanguage.foreignLanguageName}</td>
+					<td>$!{foreignLanguage.certificate}</td>
+					<td>$!{foreignLanguage.listeningSpeakingAbilityName}</td>
+					<td>
+						<a href="javascript:;" onClick="javascript:modifyInfo($!{foreignLanguage.id},'foreignLanguage');">修改</a>
+						<!-- a添加class btn-subform-delete -->
+						<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{foreignLanguage.id},$!{foreignLanguage.baseId},'foreignLanguage');">删除</a>
+    				</td>
+				</tr>
+			    #end					
+			</tbody></table>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveForeignLanguage" method="post">
+					<input type="hidden" name="id" id="foreignLanguageId">	
+					<div class="row">
+						<span class="resume-tag">外语语种</span>			
+						#dictionary('wy','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"foreignLanguage",name:"foreignLanguage",class:"resume-select"}}')					
+					</div>
+					<div class="row">
+						<span class="resume-tag">证书</span>
+						<input type="text" id="certificate" name="certificate" class="resume-input" maxlength="30">
+					</div>
+					<div class="row">
+						<span class="resume-tag">读写能力</span>
+						#dictionary('NL','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"literacy",name:"literacy",class:"resume-select"}}')										
+					</div>
+					<div class="row">
+						<span class="resume-tag">听说能力</span>
+						#dictionary('NL','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"listeningSpeakingAbility",name:"listeningSpeakingAbility",class:"resume-select"}}')						
+					</div>
+					<div class="row">
+						<a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+					     &nbsp;&nbsp;&nbsp;&nbsp;
+			            <a href="javascript:;" class="btn-red btn-nex">下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- 家庭成员 -->
+		<div id="J-family-part" class="resume-part">
+			<div class="resume-main-tit">
+				家庭成员 <span>（<i class="resume-required">*</i>必填，如无家庭成员请直接点“下一步”）</span>
+			</div>
+			<table class="resume-exp-table" border="0" cellpadding="0" cellspacing="0">
+				<tbody><tr>
+					<th>姓名</th>
+					<th>关系</th>
+					<th>工作单位</th>
+					<th>联系电话</th>
+					<th>操作</th>
+				</tr>
+				#foreach($familyMember in $!{resumeBaseInfo.familyMembers})
+					<tr>
+					<td>$!{familyMember.name}</td>
+					<td>$!{familyMember.relation}</td>
+					<td>$!{familyMember.unit}</td>
+					<td>$!{familyMember.duty}</td>
+					<td>
+						<a href="javascript:;" onClick="javascript:modifyInfo($!{familyMember.id},'familyMember');">修改</a>
+						<!-- a添加class btn-subform-delete -->
+						<a class="btn-subform-delete" href="javascript:;" onClick="javascript:deleteInfo($!{familyMember.id},$!{familyMember.baseId},'familyMember');">删除</a>
+    				</td>
+				</tr>
+			    #end	
+			</tbody></table>
+
+			<div class="resume-main-content">
+				<form action="/web/resume/saveFamilyMember" method="post">
+					
+					<input type="hidden" name="id" id="familyMemberId">	
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>姓名</span>
+						<input type="text" id="familyMemberName" name="name" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>关系</span>
+						<input type="text" id="relation" name="relation" class="resume-input" required="">
+					</div>
+					<div class="row">
+						<span class="resume-tag">工作单位</span>
+						<input type="text" id="unit" name="unit" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag">职务</span>
+						<input type="text" id="duty" name="duty" class="resume-input">
+					</div>
+					<div class="row">
+						<span class="resume-tag">联系电话</span>
+						<input type="text" id="contactNumber" name="contactNumber"  data-rule-digits="true" class="resume-input">
+					</div>
+					<div class="row">
+						<!-- a添加class J-validate-continue -->
+						<a href="javascript:;" class="resume-list-btn J-validate-continue">继续添加</a>
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;
+			            <a href="javascript:;" class="btn-red btn-nex">下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- 其他信息 -->
+		<div id="J-other-part" class="resume-part">
+			<div class="resume-main-tit">
+				其他信息 <span>（<i class="resume-required">*</i>必填）</span>
+			</div>
+			<div class="resume-main-content">
+				<form action="/web/resume/saveOtherInfo" method="post">
+					
+					<input type="hidden" name="id" id="id" value=$!{resumeBaseInfo.otherInfo.id}>
+				<!--	<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>申请类别</span>
+						<input type="radio" id="J-other-graduate-yes" name="J-other-graduate" value="0" class="resume-radio" checked="">
+						<label for="J-other-graduate-yes" class="resume-label">2015年毕业</label>
+						<input type="radio" id="J-other-graduate-no" name="J-other-graduate" value="1" class="resume-radio">
+						<label for="J-other-graduate-no" class="resume-label">非2015年毕业</label>
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>毕业月份</span>
+						<input type="text" id="J-other-date" name="J-other-date" class="resume-input" required="">
+						<input type="text" id="expectedEnterTime" name="expectedEnterTime" class="resume-input" required="" onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy.MM.dd'})">						
+					</div>-->
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>期望工作城市</span>
+					    <input type="text" id="hopeCity" name="hopeCity" class="resume-input" required="" value="$!{resumeBaseInfo.otherInfo.hopeCity}" >						
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>是否有亲友在京东</span>
+						#if($!{resumeBaseInfo.otherInfo.isRelationJd}!="null"&&$!{resumeBaseInfo.otherInfo.isRelationJd}!="")								
+						    
+							#dictionary('ISORNOT','radio','{attributes:{id:"isRelationJd",name:"isRelationJd"}}',$!{resumeBaseInfo.otherInfo.isRelationJd})					
+						#else								
+						    #dictionary('ISORNOT','radio','{attributes:{id:"isRelationJd",name:"isRelationJd"}}','0')					
+						#end
+					</div>
+					<div class="row">
+						<span class="resume-tag">招聘信息来源</span>					
+						#dictionary('ly','select','{appendEmptyOption:true,emptyOptionTitle:"请选择",attributes:{id:"infoSource",name:"infoSource",class:"resume-select"}}',$!{resumeBaseInfo.otherInfo.infoSource})				
+					</div>
+					<div class="row">
+						<span class="resume-tag"><i class="resume-required">*</i>可入职时间</span>
+						<input type="text" id="expectedEnterTimeString" name="expectedEnterTimeString" class="resume-input" required="" value="#if($!{resumeBaseInfo.otherInfo.expectedEnterTime}) $dateTool.format("yyyy.MM.dd", $!{resumeBaseInfo.otherInfo.expectedEnterTime}) #end" onfocus="WdatePicker({readOnly:true,dateFmt:'yyyy.MM.dd',onpropertychange:removeFocus(this)})">	
+					</div>
+					<div class="row resume-submit">
+						<span class="resume-tag">&nbsp;</span>
+						<a href="javascript:;" class="btn-red btn-save-next">保存并下一步</a>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!--S 上传附件 -->
+		#parse("/web/resume/resume-jss.vm")
+		<!--E 上传附件 -->
+	</div>
+</div>
+
+<!-- footer -->
+#parse("/common/footer.vm")
+<script src="#springUrl('/campus/js/libs/jquery.validate.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script src="#springUrl('/campus/js/libs/messages_zh.js')"></script>
+<script src="#springUrl('/campus/js/resume.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/jsutils/dateformat.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datepicker/WdatePicker.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/web/resume/upload_head.js"></script>
+<script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootstrap-typeahead.js')"></script>
+<script>
+// 测试用脚本，请删除
+//替换id
+//function replaceID(arr){
+//	//items
+//	var item, id, format, temp;
+//	for(var i=0, len=arr.length; i<len; i++){
+//		item = $(arr[i]);
+//		id = item.attr('id');
+//		if(!id || id.match('J-')){
+//			continue;
+//		}
+//		temp = id.replace('u','').match(/[A-Z]*[a-z]*/g);
+//		format = 'J';
+//		if(temp){
+//			for(var j=0, jlen=temp.length-1; j<jlen; j++){
+//				format += '-'+temp[j].toLowerCase();
+//			}
+//		}else{
+//			format = 'J-'+id;
+//		}
+//		item.attr({
+//			// 'name': format,
+//			'id': format
+//		});
+//		if(item.attr('name')){
+//				item.attr({
+//				'name': format,
+//			});
+//		}
+//		console.log(id,format);
+//	}
+//}
+//var arr = $('div');
+// replaceID(arr);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+#set($layout = "layout/null.vm")
+<!-- JavaScript -->
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.all-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.core-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.excheck-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exedit-3.5.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exhide-3.5.js')"></script>
+
+<!-- CSS -->
+<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyle.css')" rel="stylesheet" type="text/css" />
+<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeIcons.css')" rel="stylesheet" type="text/css" />
+<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyleCustomer.css')" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="#springUrl('')/js/manage/func/authExpression_org_tree.js"></script>
+<div class="zTreeDemoBackground left">
+    <ul id="orgTree" class="ztree" style="overflow:visible; "></ul>
+</div>

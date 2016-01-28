@@ -1,0 +1,82 @@
+#set($layout = "layout/submitNew.vm")
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/kindeditor.js')"></script>
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/lang/zh_CN.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/typeahead.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfarePrivilege_edit.js"></script>
+<script>
+	var bizState = eval($!{bizStateJson});
+	var bizWork = eval($!{bizWorkJson});
+</script>
+
+<div id="editWelfarePrivilegeInfo">
+
+       <input type="hidden" id="editPrivilegeId" name="editPrivilegeId"  value="${welfarePrivilege.id}" >
+
+	<div class="content">
+	<!--
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">机构名称</span>
+					#dictionary('ORGANIZATION_NAME','select','{appendEmptyOption:false,isDictType:false,attributes:{id:"organizationName",name:"organizationName"}}') 
+					<input type="hidden" id="hiddenOrganizationName" value="${welfarePrivilege.organizationName}"/>
+				</div>
+			</div>
+		</div>
+		-->
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">职级</span>
+					#dictionary('jobLevel','checkbox','{isDictType:false,attributes:{name:"jobLevel"}}')
+					<input type="hidden" id="hiddenJoblevel" value="${welfarePrivilege.jobLevel}"/>
+				</div>
+			</div>
+		</div>
+		<!--
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">性别</span>
+					#dictionary('sex','select','{appendEmptyOption:false,isDictType:false,attributes:{id:"sex",name:"sex"}}') 
+					<input type="hidden" id="hiddenSex" value="${welfarePrivilege.sex}"/>
+				</div>
+			</div>
+		</div>
+		-->
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">性别</span>
+					<input type="radio" id="male" name="sex" value="男" checked>
+					<span>男</span>
+					<input type="radio" id="female" name="sex" value="女">
+					<span>女</span>
+					<input type="hidden" id="hidenSex" name="hidenSex" value="${welfarePrivilege.sex}"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">司龄</span>
+					#dictionary('SERVINGAGE','checkbox','{isDictType:false,attributes:{name:"servingAge"}}')
+				    <input type="hidden" id="hiddenServingAge" value="${welfarePrivilege.servingAge}"/>
+				    <p id="servingspan" class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">岗位状态</span>
+					#dictionary('WORK_STATE','checkbox','{isDictType:false,attributes:{name:"workState"}}')
+				    <input type="hidden" id="hiddenWorkState" value="${welfarePrivilege.workState}"/>
+				    <p id="workspan" class="help-block"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

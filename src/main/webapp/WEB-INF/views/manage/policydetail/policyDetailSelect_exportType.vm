@@ -1,0 +1,16 @@
+#set($layout = "layout/submitNew.vm")
+<div id="policySelectExportType">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div style="padding-left:80px;position:relative;min-height:38px;">
+					<span>请选择导出类型</span></br></br>
+					<input type="radio" id="isSelectType0" name="isSelectType" value="0" checked>
+					<span>导出所有搜索记录</span>&nbsp;&nbsp;
+					<input type="radio" id="isSelectType1" name="isSelectType" value="1">
+					<span>导出已勾选的记录</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,44 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/template/templateEmail_index.js"></script>
+
+<div id="templateEmailSearchform" class="filtrate-wrap">
+<input type="hidden" id="sendType" value="$!{sendType}"/>
+	<ul class="filtrate columns">
+		<li>
+			<div class="txt">模板标题</div>
+			<div class="con">
+				<input id="templateTitle" type="text" value="" class="title"/>
+			</div>
+		</li>
+		<li>
+			<div class="txt">模板编号</div>
+			<div class="con">
+				<input id="templateNo" type="text" value="" class="title"/>
+			</div>
+		</li>
+		<li>
+			<div class="txt">创建时间</div>
+			<div class="con">
+				<input style="width:150PX;" id="createStartTime" type="text" name="createStartTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+            	-
+            	<input style="width:150PX;" id="createEndTime" type="text" name="createEndTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+			</div>
+		</li>
+		<li class="row status">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="templateEmailSearch" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="summary">
+	<div class="btn-red add" data-toggle="modal" data-target="#J-modal-plan">新建</div>
+	<div class="btn-gray dele">删除</div>
+	<div class="clear"></div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="templateEmailTable" width="100%">
+	</table>
+</div>

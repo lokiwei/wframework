@@ -1,0 +1,57 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>京东招聘</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link href="http://www.360buy.com/favicon.ico" rel="shortcut icon">
+    <!-- UED BEGIN-->
+    <link rel="stylesheet" href="#springUrl('/campus/js/libs/bootstrap-css/css/bootstrap.min.css')"/>
+    <link href="#springUrl('/campus/js/libs/dataTables/jquery.dataTables.css')" rel="stylesheet" type="text/css"/>
+    <link href="#springUrl('/campus/css/admin-recInter.css')" rel="stylesheet" type="text/css"/>
+    <link href="#springUrl('/campus/css/admin-resume.css')" rel="stylesheet" type="text/css"/>
+    <!-- UED END-->
+    
+    <link href="#springUrl('/static/loading/loading.css')" rel="stylesheet" type="text/css"/>
+    <link href="#springUrl('/static/nvalidator/jquery.validator.css')" rel="stylesheet" type="text/css"/>
+    
+    <!-- UED BEGIN-->
+    <script type="text/javascript" src="#springUrl('/campus/js/libs/jquery.js')"></script>
+	<script type="text/javascript" src="#springUrl('/campus/js/libs/dataTables/jquery.dataTables.js')"></script>
+	<script type="text/javascript" src="#springUrl('/campus/js/libs/bootstrap-css/js/bootstrap.min.js')"></script>
+    <!-- UED END-->
+    
+    <script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootbox.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/bootstrap/js/Dialog.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/TableTools.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/jsutils/dateformat.js')"></script>
+    
+    <script type="text/javascript" src="#springUrl('/static/jquery/jquery.1.8.2.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/bootstrap/js/bootstrap.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.min.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datatables/js/jquery.dataTables.bootstrap.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/jsutils/json2.js')"></script>
+	<script type="text/javascript" src="#springUrl('/js/manage/common/common.js')"></script>
+	<SCRIPT type="text/javascript">
+		var springUrl = "#springUrl('')";   //路径全局变量
+		function loadUrl(url){
+			window.location=url;
+		}
+		$(function(){
+			$("#J-search .collapse-opt").on("click",function(){
+				$("#J-search").toggleClass("search-collapse");
+			});
+		});
+	</SCRIPT>
+
+</head>
+
+<body>
+</body>
+</html>
+
+$screen_content
+<script type="text/javascript" src="#springUrl('/static/loading/loading.js')"></script>

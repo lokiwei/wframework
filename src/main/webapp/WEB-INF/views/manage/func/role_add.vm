@@ -1,0 +1,39 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/role_add.js?t=1"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div id="addRole">
+    <div class="form-horizontal">
+      <div id="roleCodeDiv" class="control-group ">
+        <label class="control-label"><span class="mustInput">*</span>编号</label>
+        <div class="controls">
+          <input type="text" id="newRoleCode" name="roleCode" data-rule="required;" />
+          <span id="isRepeatRoleCode"></span>
+        </div>
+      </div> 
+      <div id="roleNameDiv" class="control-group ">
+        <label class="control-label"><span class="mustInput">*</span>名称</label>
+        <div class="controls">
+          <input type="text" id="newRoleName" name="roleName" data-rule="required;" />
+        </div>
+      </div>
+        <div id="roleApplicationDiv" class="control-group ">
+            <label class="control-label">应用名称</label>
+            <div class="controls">
+                <select id="applicationId" name='applicationId'  >
+                    <option value="">请选择</option>
+                    #foreach($!application in $!{applicationList})
+                        <option value="$!{application.Id}" >$!{application.applicationName}</option>
+                    #end
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+

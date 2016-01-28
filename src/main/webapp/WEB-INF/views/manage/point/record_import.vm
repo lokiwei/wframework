@@ -1,0 +1,14 @@
+#set($layout = "layout/submitJqNew.vm")
+<script type="text/javascript" src="#springUrl('/static/jquery/jquery.form.js')"></script>
+
+<form id="upload_form" enctype="multipart/form-data" action="/manage/point/record_import" method="post">
+<div id="importRecord">
+	<div class="modal-form">
+		<div class="form-row">
+			<span class="form-tag">导入员工积分</span>
+			<input type="file" id="file1" size="100px" name="file1" value="选择文件" accept=".xls,.xlsx" data-rule="required;">
+			<!-- <a style="color:red;" target="_blank" href="http://storage.jd.com/doc.xiaoyuan.com/%E5%91%98%E5%B7%A5%E4%BF%A1%E6%81%AF%E6%A8%A1%E6%9D%BF.xlsx">>>员工信息模板</a> -->
+        </div>
+	</div>
+</div>
+</form>

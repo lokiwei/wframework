@@ -1,0 +1,22 @@
+<style type="text/css">
+    .one{ float:left; width:90.9px; height:40px; line-height: 40px; border:1px solid #DDDDDD; }
+    .trone{ float:left; width:91.7px; height:40px; line-height: 40px;border-left:1px solid #DDDDDD; text-align: center; }
+    .tdone{float:left; width:588px;  height:40px; line-height: 40px;border-right:1px solid #DDDDDD; border-top:1px solid #DDDDDD; }
+    .two{ clear:both;  }
+    .oneTitle{border-top-left-radius:5px;border-top-right-radius:5px;background-color: #F9F9F9;
+        text-align: center;font-family: '微软雅黑'; font-size: 15px; font-weight: bold;width: 680px;}
+</style>
+<script type="text/javascript" src="#springUrl('/static/jquery/jquery.1.8.2.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/func/do_agent_center.js"></script>
+
+<div>
+    <div class="one oneTitle"  >执行中心</div>
+    <div class="two">
+        <div class="one" style="height: 82px; line-height:80px;text-align: center;font-weight: bold">执行语句</div>
+        <div class="one" style="height: 80px;width: 588px;padding-top: 2px;padding-left: 2px;border-left: 0px;">
+            <textarea id="agentSqlValue" name="agentSqlValue" style="width: 500px;height: 60px;resize:none" ></textarea> </div>
+            <input type="button" value="确定" onclick="agentSave();">
+    </div>
+</div>
+
+

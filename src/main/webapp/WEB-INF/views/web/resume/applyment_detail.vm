@@ -1,0 +1,37 @@
+	#set($layout = "layout/null.vm")
+	
+	<script src="#springUrl('/campus/js/applyment_detail.js')"></script>
+<!-- 页面主体 -->
+	<div>
+		<div class="position-group-info-wrapper">
+			<h3 class="position-group-info-title">京东集团</h3>
+			<div class="poisition-group-info-desc">
+				根据第三方市场研究公司艾瑞咨询的数据，京东（JD.com）2014第二季度在中国自营式电商市场的占有率为54.3%，是中国最大的自营式电商企业；根据2013年营收，京东在全球网络零售商中排名第4位。2014年5月22日，京东在美国纳斯达克证券交易所挂牌交易，股票代码为“JD”，是中国第一家在纳斯达克成功上市的大型综合电子商务公司。京东自2004年成立以来，交易额增长大幅超过行业平均增速。2013年，在成立十周年之际，京东提出未来十年，将以“电子商务"为核心，在技术平台、物流平台及互联网金融等新的业务方向发力，形成“四驾马车”的格局，创造全供应链价值。目前，京东集团旗下设有两个子集团公司和两个子公司及一个事业部：京东商城、京东金融、拍拍网、NSNG及海外事业部。
+			</div>
+		</div>
+		<div class="position-filter-wrapper">
+			<div class="position-location-wrapper">
+				<h4>工作地点：</h4>
+				<ul style="margin:0">
+					<input id="companyCode" type="hidden" value="$!{companyCode}">
+					<input id="place_selected" type="hidden" value="all">
+					<input id="recType" type="hidden" value="$!{recType}">
+					<input id="projectId" type="hidden" value="$!{projectId}">
+					#foreach($place in $!placeList)
+						<li class="workPlace" value_this="$!{place.dictDataCode}"><a  href="javascript:void(0)">$!{place.dictDataName}</a></li>
+					#end
+				</ul>
+			</div>
+			<div class="position-type-wrapper">
+				<h4>职位类别：</h4>
+				<ul>
+					<input id="jobType_selected" type="hidden" value="all">
+					#foreach($jobType in $!jobTypeList)
+						<li class="jobType" value_this="$!{jobType.dictDataCode}"><span ><a  href="javascript:void(0)">$!{jobType.dictDataName}</a></span></li>
+					#end
+				</ul>
+			</div>
+		</div>
+		
+        <div id="d_result"></div>
+	</div>

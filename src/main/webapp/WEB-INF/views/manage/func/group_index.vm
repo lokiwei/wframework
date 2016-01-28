@@ -1,0 +1,59 @@
+##################################
+## 工作组-工作组管理主页面
+##author：liubo
+##################################
+	<!-- CSS -->
+	<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyle.css')" rel="stylesheet" type="text/css" />
+	<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeIcons.css')" rel="stylesheet" type="text/css" />
+	<link href="#springUrl('/static/zTree/css/zTreeStyle/zTreeStyleCustomer.css')" rel="stylesheet" type="text/css" />
+	<!-- Javascript -->
+	<script>
+		var zNodes = $applications;
+    </script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.all-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.core-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.excheck-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exedit-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('/static/zTree/js/jquery.ztree.exhide-3.5.js')"></script>
+	<script type="text/javascript" src="#springUrl('')/js/manage/func/group_index.js"></script>
+	
+<style>
+    .select {
+        width: 120px;
+    }
+</style>
+
+<input type="hidden" id="tId" value=""/>
+<input type="hidden" id="groupId" name="groupId"/>
+<input type="hidden" id="parentId" name="parentId" value="$!{group.parentId}" />
+<input type="hidden" id="applicationId" value="" />
+<div class="container-fluid">
+
+    <div class="row-fluid">
+        <div class="span3" >
+            <ul id="groupTree" class="ztree"></ul>
+        </div>
+        <div id="box-right" style="margin-left: 20px;width: 75.1%;float: left;">
+            <div class="navbar" style="margin-top: 0px;">
+                <div class="navbar-inner">
+                    <div class="nav-collapse collapse navbar-responsive-collapse">
+                        <form class="navbar-form pull-left">
+                            <ul class="nav">
+                                <li><a href="#">工作组名称:</a></li>
+                                <li><input id="groupName" type="text" class="select"></li>
+                                <li>&nbsp;</li>
+                                <li>
+                                    <button id="search" type="button" class="btn">搜索</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+			<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display"
+               id="userGroupTable" width="100%">
+			</table>
+        </div>
+        
+    </div>
+</div>

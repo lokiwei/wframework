@@ -1,0 +1,70 @@
+#set($layout = "layout/submitNew.vm")
+<link href="#springUrl('/static/webuploader/webuploader.css')" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="#springUrl('')/static/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/goods/goods_upload.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/goods/xuniGoods_edit.js"></script>
+
+<input type="hidden" id="id" value="${goods.id}"/>
+<div id="updateXuniGoods">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">商品名称</span>
+					<input type="text" id="titleAdd" name="titleAdd" value="${goods.title}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">商品图片</span>
+					<a href="javascript:;" id="resume-upload" uploadType="imageFile">上传文件</a>
+					<br/><br/><img id="goods-upload-img" src="${goods.photoUrl}" style="width:100px;" />
+					<input type="hidden" id="photoUrl" value="${goods.photoUrl}"/><br/>
+					<font color="red">商品图片仅支持jpg、jpeg、png，推荐像素100x114，图片大小不得超过500K</font><br/><br/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">积分</span>
+					<input type="text" id="bonuSpointAdd" name="bonuSpointAdd" value="${goods.bonuSpoint}" 
+						required data-rule="required; integer; range[0~]"/>
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">库存</span>
+					不限
+					<input type="hidden" id="isLimit" value="0"/>
+					<p class="help-block"></p>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">是否首页显示</span>
+					<input type="radio" id="recommendDisplay0" name="recommendDisplay" value="0" checked>
+					<span>否</span>
+					<input type="radio" id="recommendDisplay1" name="recommendDisplay" value="1">
+					<span>是</span>
+					<input type="hidden" id="hidenRecommendDisplay" name="hidenRecommendDisplay" value="${goods.recommendDisplay}"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">商品详情</span>
+					<textarea id="detailInfo" name="detailInfo" style="width:700px;height:300px;">${goods.detailInfo}</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,24 @@
+#set($layout = "layout/default.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/group_add.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+    }
+</style>
+<div id="addGroup">
+    <div class="form-horizontal">
+    	<input type="hidden" id="group_id" name="parentId" value="$!{group.id}" />
+		<input type="hidden" id="applicationId" name="applicationId" value="$!{group.applicationId}" />
+      <div id="groupNameDiv" class="control-group ">
+        <label class="control-label"><span class="mustInput">*</span>工作组名称:</label>
+        <div class="controls">
+           <input type="text" id="a_name" name="groupName" data-rule="required;"/>
+        </div>
+      </div> 
+       
+    </div>
+</div>
+  
+
+

@@ -1,0 +1,43 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/func/userRole_inner.js"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/func/userRole_add.js"></script>
+<style>
+    .mustInput{
+        color: red;
+        vertical-align: middle;
+        float: left;
+        font-size:14px
+    }
+    #info{width:840px; }
+    #info ul{float:left;width:400px;margin:0px 5px 5px 5px;}
+    #info ul li{width:400px;margin:0px 5px 5px 5px;}
+</style>
+
+<div style="margin-left: 3px;" id="addUserRole">
+    <div class="row-fluid form-inline">
+        <input type="hidden" id="applicationId" value="$!{applicationId}"/>
+        <span class="mustInput">*</span><span class="select_label">主体对象类型:</span>
+        <div class="select_box">
+            <span class="select_txt">请选择</span>
+            <div class="option" id="subjectType">
+                <a value="" >请选择</a>
+                <a value="User" onclick=" selectSysUser()">用户</a>
+                <a value="Organization" onclick="selectOrgnaztion()">组织机构</a>
+                <a value="Position" onclick="selectSysPosition()">岗位</a>
+                #if($!{applicationId})
+                    <a value="Group" onclick="selectSysWorkGroup()">工作组</a>
+##                    <a value="AuthExpression" onclick="selectSysExpression()">权限表达式</a>
+                #end
+                </div>
+        </div>
+    </div>
+</div>
+ <div >
+        <div style="font-size:14px;border-bottom: solid 1px #DDDDDD;margin: 10px 0px 10px 3px;">
+            <span class="mustInput">*</span>主体对象值：</div>
+     <div id="info" >
+         <ul></ul>
+         <ul></ul>
+     </div>
+</div>
+

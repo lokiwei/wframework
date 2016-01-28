@@ -1,0 +1,64 @@
+#set($layout = "layout/submitNew.vm")
+<script type="text/javascript" src="#springUrl('')/js/manage/task/scheduleJob_edit.js"></script>
+
+<input type="hidden" id="id" value="${scheduleJob.id}"/>
+<div id="updateScheduleJob">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">任务名称</span>
+					<input type="text" id="jobNameAdd" name="jobNameAdd" value="${scheduleJob.jobName}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">任务分组</span>
+					<input type="text" id="jobGroupAdd" name="jobGroupAdd" value="${scheduleJob.jobGroup}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">运行时间表达式</span>
+					<input type="text" id="cronExpressionAdd" name="cronExpressionAdd" value="${scheduleJob.cronExpression}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">任务调用类</span>
+					<input type="text" id="beanClassAdd" name="beanClassAdd" value="${scheduleJob.beanClass}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">任务调用方法</span>
+					<input type="text" id="methodNameAdd" name="methodNameAdd" value="${scheduleJob.methodName}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">Spring ID</span>
+					<input type="text" id="springIdAdd" name="springIdAdd" value="${scheduleJob.springId}" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">任务描述</span>
+					<textarea id="description" name="description" style="width:350px;height:130px;">${scheduleJob.description}</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

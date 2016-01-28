@@ -1,0 +1,65 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>京东福利平台</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    
+    <link rel="stylesheet" href="#springUrl('/campus/js/libs/bootstrap-css/css/bootstrap.min.css')"/>
+    <link rel="stylesheet" href="#springUrl('/campus/css/admin-base.css')"/>
+	<link rel="stylesheet" type="text/css" href="#springUrl('/static/admin/skin/css/style.css')" media="all" />
+    <link href="#springUrl('/static/loading/loading.css')" rel="stylesheet" type="text/css"/>
+    
+    
+    <script type="text/javascript" src="#springUrl('/campus/js/libs/jquery.js')"></script>
+    <script type="text/javascript" src="#springUrl('/campus/js/libs/dataTables/jquery.dataTables.js')"></script>
+    <script type="text/javascript" src="#springUrl('/campus/js/admin-main.js')"></script>
+    <script type="text/javascript" src="#springUrl('/static/datepicker/WdatePicker.js')"></script>
+    <SCRIPT type="text/javascript">
+    	var springUrl = "#springUrl('')";   //路径全局变量
+    	$(function(){
+    		$("#left").load("#springUrl('')/manage/left?applicationId=1");
+    		$("#user").load("#springUrl('')/manage/header");
+			//$("#workPanel").load("#springUrl('')/manage/resume/count_index");
+    	});
+    	
+    	function changeAppPath(path){
+        	$("#location").html(path);
+		}
+    </SCRIPT>
+</head>
+
+<body>
+<div id="J-main-wrapper" class="wrapper">
+	<!--S sidebar -->
+	<div id="J-sidebar" class="sidebar">
+		<div class="system">
+			<div class="logo"><img src="#springUrl('/campus/img/admin/logo.png')" alt=""></div>
+			<div class="nav-system">
+				<p class="nav-item">福利平台后台</p>
+			</div>
+		</div>
+		<div id="left"></div>
+		<div id="J-collapse-opt" class="collapse-opt">
+      		<span class="icon-con"><i class="icon-arrow-left"></i></span>
+    	</div>
+	</div>
+	<!--E sidebar -->
+	<!--S main -->
+  	<div class="main">
+    	<span class="main-line"></span>
+    		<div class="wrap">
+    			<div id="user" class="user"></div>
+    			<div id="location" class="location"></div>
+    			<div id="workPanel"></div>
+    		<div>
+    	<div class="footer">Copyright © 2004-2015 京东JD.com 版权所有</div>
+  	</div>
+  	<!--E main -->
+</div>
+<script type="text/javascript" src="#springUrl('/static/loading/loading.js')"></script>
+</body>
+</html>

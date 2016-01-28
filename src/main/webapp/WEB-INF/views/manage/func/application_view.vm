@@ -1,0 +1,83 @@
+#set($layout = "layout/submitNew.vm")
+<div>
+<form id="addApplication"  >
+    <div class="form-horizontal">
+	<div class="control-group">
+        <label class="control-label">应用编码：</label>
+        <div class="controls">
+    	  <input type="text" id="applicationCode" name="applicationCode" disabled value="$!{application.applicationCode}" />
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">应用名称：</label>
+        <div class="controls">
+    	  <input type="text" id="applicationName" name="applicationName" disabled value="$!{application.applicationName}" />
+        </div>
+    </div>
+        <div class="control-group">
+            <label class="control-label">应用类型：</label>
+            <div class="controls">
+                <input type="text" id="applicationType" name="applicationType" disabled value="$!{application.applicationType}"   />
+            </div>
+        </div>
+    <div class="control-group">
+        <label class="control-label">是否开启：</label>
+        <div class="controls">
+    	  <select id="isOpen" name='isOpen' disabled >
+			<option value="1"  #if($!application.isOpen=='1') selected #end>是</option>
+			<option value="0"  #if($!application.isOpen=='0') selected #end>否</option>
+		  </select>
+		</div>
+    </div>
+        <div class="control-group">
+            <label class="control-label">开启时间：</label>
+            <div class="controls">
+                <input id="openDate"
+                       class="input ml0 w80 mr5" type="text"  name="openTime"  disabled
+                       value="#if($!application.openDate) $dateTool.format("yyyy-MM-dd", $!{application.openDate}) #end"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">ip地址：</label>
+            <div class="controls">
+                <input type="text" id="ipAddress" name="ipAddress" disabled value="$!{application.ipAddress}"  />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">端口：</label>
+            <div class="controls">
+                <input type="text" id="ipPort" name="ipPort" disabled value="$!{application.ipPort}"  />
+            </div>
+        </div>
+	<div class="control-group">
+        <label class="control-label">URL：</label>
+        <div class="controls">
+    	  <input type="text" id="applicationUrl" name="url" disabled value="$!{application.url}" />
+        </div>
+    </div>
+	<div class="control-group">
+        <label class="control-label">管理员：</label>
+        <div class="controls"> #if(!$application.realName) 无 #end
+                #if($application.realName) $!{application.realName} #end
+        </div>
+    </div>
+        <div class="control-group">
+            <label class="control-label">管理员角色：</label>
+            <div class="controls">
+                <select id="applicationRoleId" name='roleId' disabled >
+                    <option value="">请选择</option>
+                    #foreach($!role in $!{roleList})
+                        <option value="$!{role.Id}"  #if ($application.managerRoleId==$role.Id) selected #end>$!{role.roleName}</option>
+                    #end
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">描述：</label>
+            <div class="controls">
+                <textarea  disabled id="description" name="description">$!{application.description} </textarea>
+            </div>
+        </div>
+
+</div>
+</form>

@@ -1,0 +1,48 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/policydetail/policyDetailManage_index.js"></script>
+
+<div id="policyManageSearchform" class="filtrate-wrap">
+	<ul class="filtrate columns">
+		<li>
+			<div class="txt">订单编号</div>
+			<div class="con">
+				<input id="currentOrderNo" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">商品编号</div>
+			<div class="con">
+				<input id="currentGoodsNo" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">投保人姓名</div>
+			<div class="con">
+				<input id="currentName" value="" class="title" type="text" />
+			</div>
+		</li>
+		<li>
+			<div class="txt">兑换时间</div>
+			<div class="con">
+				<input style="width:150PX;" id="createStartTime" type="text" name="createStartTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+            	-
+            	<input style="width:150PX;" id="createEndTime" type="text" name="createEndTime" readonly="true" value="" onFocus="WdatePicker({readOnly:true,dateFmt:'yyyy-MM-dd HH:mm:ss'})"/>
+			</div>
+		</li>
+		<li class="status row">
+			<div class="txt"></div>
+			<div class="con">
+				<div id="policyManageSearch" class="btn-red btn-lg">查询</div>
+			</div>
+		</li>
+		<li class="clear"></li>
+	</ul>
+</div>
+<div class="summary">
+	<div class="btn-red export" data-toggle="modal" data-target="#J-modal-plan">导出保单记录</div>
+	<div class="clear">&nbsp;</div>
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="policyManageTable" width="100%">
+	</table>
+</div>

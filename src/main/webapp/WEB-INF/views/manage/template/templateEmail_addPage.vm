@@ -1,0 +1,42 @@
+#set($layout = "layout/submitNew.vm")
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/kindeditor.js')"></script>
+<script charset="utf-8" src="#springUrl('/static/kindeditor-4.1.10/lang/zh_CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/template/templateEmail_add.js"></script>
+
+<div id="addTemplateEmail">
+	<div class="content">
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">模板编码</span>
+					<input type="text" id="noAdd" name="noAdd" data-rule="required;"/>
+					<span id="isRepeatNo"></span>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">模板标题</span>
+					<input type="text" id="titleAdd" name="titleAdd" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">邮件主题</span>
+					<input type="text" id="emailSubjectAdd" name="emailSubjectAdd" data-rule="required;"/>
+				</div>
+			</div>
+		</div>
+		<div class="grid">
+			<div class="col">
+				<div class="col-con">
+					<span class="search-tag">内容</span>
+					<textarea id="emailContent" name="emailContent" style="width:700px;height:300px;">&lt;strong&gt;HTML 内容&lt;/strong&gt;</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

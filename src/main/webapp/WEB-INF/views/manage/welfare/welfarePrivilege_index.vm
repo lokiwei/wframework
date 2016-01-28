@@ -1,0 +1,36 @@
+#set($layout = "layout/defaultNew.vm")
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.min.js')"></script>
+<script type="text/javascript" src="#springUrl('/static/datetimepicker/bootstrap-datetimepicker.zh-CN.js')"></script>
+<script type="text/javascript" src="#springUrl('')/js/manage/welfare/welfarePrivilege_index.js"></script>
+
+<div id="recordSearchform" class="filtrate-wrap">
+
+ <input type="hidden" id="welfareId" name="welfareId"  value="${welfare.id}" >
+    <table>
+ 	<tr>
+ 		<td rowspan="2"><img id="photoUrl" src="${welfare.photoUrl}" style="width:100px;" /></td>
+ 		<td>福利名称  : ${welfare.title}</td>
+ 	</tr>
+	<tr>
+ 		<td>福利说明  : ${welfare.detail}</td>
+ 	</tr>
+ 	</table>
+	<li class="clear"></li>
+</div> 
+<div class="btn-gray welfare_privilege">福利权限</div>
+<div class="btn-gray welfare_person">福利人员</div>
+<div class="clear"></div>
+<div class="summary" style="display:block;"> 
+	<div class="btn-red add_privilege" data-toggle="modal" data-target="#J-modal-plan">新增福利权限</div>
+	<div class="btn-red add_person" data-toggle="modal" data-target="#J-modal-plan">新增人员权限</div>
+	<div class="btn-gray dele">删除</div>
+	<div class="clear"></div>
+	<div id="div1" style="display:block;">
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="welfarePrivilegeTable1" width="100%">
+	</table>
+	</div>
+	<div id="div2" style="display:none;">
+	<table cellpadding="0"  cellspacing="0" border="0" class="dataTable" id="welfarePrivilegeTable2" width="100%">
+	</table>
+	</div>
+</div>

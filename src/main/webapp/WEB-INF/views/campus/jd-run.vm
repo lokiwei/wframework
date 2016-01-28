@@ -1,0 +1,350 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/position.css')"/>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+
+<!-- 主体内容 -->
+<div>
+	<div class="wrap">
+		<div class="position-wrapper">
+			<h2 class="position-applicants">京锐计划</h2>
+			<div class="position-top-banner-wrapper position-top-banner-jd-run">
+				<div class="position-top-banner-img"><img src="#springUrl('/campus/img/jd-run.png')" alt="精锐计划"></div>
+				<!--
+				<div class="position-top-banner-apply-btn">
+					#if(!$!{jobId})
+						<a href="#">暂未开放申请</a>
+					#else
+					<a href="#" onclick="toApply('$!{jobId}','$!{jobName}')" id="apply_now1">立即申请</a>
+					#end
+				</div>
+               #if((!$!{jobId})&&$!{recruitMsg}&&$!{recruitMsg}!="jdrun")
+				<div style="color: #fff; padding-top:15px;  font-size: 14px;">
+					【$!{recruitMsg}】
+				</div>
+				#end
+				-->
+			</div>
+			<div id="jdrun-job-header" class="position-filter-wrapper position-filter-wrapper-jdrun">
+				<div class="position-type-wrapper">
+					<h4 style="width:165px;">选择您感兴趣的方向：</h4>
+					<ul>
+						<li class="position-type-curr"><span><a href="javascript:void(0)" onclick="detail_load('$!{jobZW05.id}','$!{jobZW05.jobName}')">营销方向 </a></span></li>
+						<li><span><a href="javascript:void(0)" onclick="detail_load('$!{jobZW04.id}','$!{jobZW04.jobName}')">运营方向 </a></span></li>
+						<li><span><a href="javascript:void(0)" onclick="detail_load('$!{jobZW02.id}','$!{jobZW02.jobName}')">研发方向 </a></span></li>
+						<li><span><a href="javascript:void(0)" onclick="detail_load('$!{jobZW08.id}','$!{jobZW08.jobName}')">金融方向 </a></span></li>
+						<li><span><a href="javascript:void(0)" onclick="detail_load('$!{jobZW09.id}','$!{jobZW09.jobName}')">职能方向 </a></span></li>
+					</ul>
+					<!--<a class="position-detail-apply-btn btn-red position-detail-jdrun-btn" href="#" onclick="load_apply()">立即申请</a>-->
+					<a class="position-detail-apply-btn btn-red position-detail-jdrun-btn" href="#" onclick="">暂未开放申请</a>
+					<input type="hidden" id="currentJobId" value="$!{jobZW05.id}"/>
+					<input type="hidden" id="currentJobName" value="$!{jobZW05.jobName}"/>
+				</div>
+				<div class="position-type-bd">
+					<p class="curr">营销方向包括京东的各大品类的采销事业部、市场营销部、POP开放平台、O2O业务部等重要业务部门。</p>
+					<p>运营方向包括京东的仓储部、配送部、客服中心等供应链管理部门，运营方向的强大优势是京东的核心竞争力之一。</p>
+					<p>研发方向主要是京东全平台的网络系统维护与开发的技术部门，主要包括商城研发部、移动研发部、云平台和各大体系的专项研发部门等。</p>
+					<p>金融方向主要包括京东集团子公司京东金融中的各个体系部门，作为一个互联网理财综合服务平台，京东金融现有多种互联网金融新型业务形态。</p>
+					<p>职能方向主要是为各个业务部门提供支持的相关部门，包括人力资源管理中心、京东大学、组织与人才发展中心、行政部等为公司业务发展保驾护航的重要支持部门。</p>
+				</div>
+			</div>
+		    <!--edit by weilihua 0319 -->
+			<div class="position-program-intro-wrapper">
+				<h1>About <b>JD RUN</b> Program</h1>
+				<!--edit by weilihua 0323 -->
+				<div class="position-program-intro-l position-program-intro-run">
+					<p>京东集团精品人才储备和培养项目--“京锐计划”JD RUN 2015年暑期实习项目学员招募已正式启动。项目计划邀请海内外顶尖院校的70位优秀人才来到京东北京总部进行为期6周（2015年7月初—8月中旬）的暑期实习，近距离了解互联网行业！</p>
+					<p>接触核心板块，结识业务精英；</p>
+					<p>加入多元团队，组队参加挑战；</p>
+					<p>接受优质培训，体验京东配送；</p>
+					<p>享受优厚待遇，获得全职工作。</p>
+					<p>京锐计划JD RUN致力于提供一个优质的实习平台，让更多的优秀学子有机会体验京东的核心业务、了解京东的价值主张，同时也为京东集团的未来发展储备一批精锐之师。</p>
+				</div>
+				<div class="position-program-intro-r">
+					<img src="#springUrl('/campus/img/photo/jdrun-img-1.png')" height="270" alt="">
+				</div>
+			</div>
+
+			<!-- 项目特色 -->
+			<div class="position-program-requirement-wrapper position-program-requirement-wrapper-run">
+				<h1 class="position-program-requirement-title"><em></em>项目特色</h1>
+				<div class="position-program-requirement-content">
+					<h4>"What is R U N ？"</h4>
+					<h5>Role Experiencing</h5>
+					<ol>
+						<li>1、京东集团营销、运营、研发、金融、职能等不同模块的百余岗位向JD RUN项目学员全面开放，入选项目后根据学员的个人意愿和岗位需求双向匹配。</li>
+						<li>2、学员有机会接触京东核心业务工作，并有业务精英亲自帮带，零距离了解电子商务和互联网行业。</li>
+						<li>3、京东的极速配送一直为大家津津乐道，项目学员将有机会亲身参与京东配送站工作，了解极速配送背后的运营逻辑。</li>
+					</ol>
+					<h5>Union for Challenges</h5>
+					<ol>
+						<li>1、项目招募面向海内外著名高等学府，学历涵盖本科、硕士、博士和MBA，多元化的群体能够给学员提供一个多元化的思维碰撞的平台。</li>
+						<li>2、学员正式入选项目团队并完成统一培训后，将内部组队参加基于用户体验的项目挑战，培养商业嗅觉、锤炼合作能力。挑战赛将由京东高管担任评审，优胜队将赢得工作机会与项目大奖双重激励。</li>
+					</ol>
+					<h5>Nonstop Support</h5>
+					<ol>
+						<li>1、JD RUN项目为全部学员提供互联网思维、职业生涯辅导、JD TALK-业界大牛案例分享等系列优质培训课程，助力学员赢在职场起跑线。</li>
+						<li>2、在实习期内，学员将有机会与京东管理培训生TET项目成员以及京东国际人才IMT项目成员进行经验交流，进一步了解职场前辈们的职业选择和奋斗经历。</li>
+						<li>3、项目为学员提供具有行业竞争力的实习薪酬、午餐和晚餐补贴、商业保险，同时为非北京高校的学员安排全程住宿，学员实习期间享受正式员工的内购福利。</li>
+						<li>4、实习期表现优异且对京东有强烈兴趣的同学，项目组将综合学员个人意愿和学历背景推荐给京东不同的人才项目或工作岗位，包括京东管理培训生TET项目和京东国际人才IMT项目，让大家有机会在毕业季前斩获京东的offer，成为京东人才池中的一员。</li>
+					</ol>
+				</div>
+			</div>
+			
+			<!-- 岗位要求 -->
+			<div class="position-program-requirement-wrapper position-program-requirement-wrapper-run">
+				<h1 class="position-program-requirement-title"><em></em>岗位要求</h1>
+				<div class="position-program-requirement-content">
+					<h3>岗位要求</h3>
+					<ol>
+						<li>1. 2016年及以后毕业的本科、硕士、博士和MBA在读生，不限专业；</li>
+						<li>2. 热爱电商和互联网行业，有强烈的进取心和积极开放的心态，乐于接受挑战；</li>
+						<li>3. 强烈的责任意识、优秀的沟通能力和团队合作精神，抗压能力和适应能力强；</li>
+						<li>4. 扎实的专业素养，丰富的社会实践经验。有学生会和社团等组织的管理经验者优先。</li>
+					</ol>
+				</div>
+			</div>
+			
+			<!--edit by weilihua 0320 -->
+			<div class="position-program-member-wrapper">
+				<h1>JD RUN1 Members</h1>
+				<div class="position-program-member-item-wrapper">
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph11.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">牛士龙</div>
+							<div class="position-program-member-college">华南理工大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph12.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">戴卓</div>
+							<div class="position-program-member-college">大连理工大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph13.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">庞誉</div>
+							<div class="position-program-member-college">吉林大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph14.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">杨梦莹</div>
+							<div class="position-program-member-college">四川大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph15.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">杨鹏一</div>
+							<div class="position-program-member-college">东北财经大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph16.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">王中方</div>
+							<div class="position-program-member-college">四川大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph17.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">史功明</div>
+							<div class="position-program-member-college">天津大学</div>
+						</div>
+					</div>
+					<div class="position-program-member-item">
+						<img src="#springUrl('/campus/img/photo/ph18.jpg')" alt="">
+						<div class="position-program-member-info">
+							<em></em>
+							<div class="position-program-member-name">马逍</div>
+							<div class="position-program-member-college">中欧商学院</div>
+						</div>
+					</div>
+				</div>
+				<div class="position-program-member-detail-wrapper">
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph11.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>牛士龙</h4>
+							<em>/ 华南理工大学</em>
+							<div>
+								<p>由于个人对于刘总的敬仰，一直以来，十分关注京东的点点滴滴。与此同时，我也有校友在京东做管培，我与他们经常会有关于京东的交流，通过他们的介绍，我对京东很是神往，内心很希望有一天能在这个公司工作。</p>
+								<p>完成面试后几天我收到了邮件，确定成为京锐计划学员之一，很开心。立即推掉其他还没有去的面试。全身心的的投入到暑期的准备工作中去。到京东后我被分到了自有品牌部的页面营销岗位。除了岗位工作内容之外，在自主选择的基础上，京锐实习生被按照不同的知识背景被划分了不同的小组。每个组领到了一个项目，最终会有一个项目汇报和展示。在实习期间，在做好本职工作的同时，我们通过做项目有机会得以历练。参加形式多样的交流会，同各个职能的同事们沟通，也让我认识了更多牛人，开阔了眼界。</p>
+								<p>感谢JD RUN项目，把来自国内外的36位小伙伴们相聚到一起。好的项目离不开优秀的团队。京锐实习生们都能够感受到，JD RUN项目成功的背后有一支优秀的团队运作。正是他们的优秀的工作，这么精彩的项目得以顺利的进行，是他们让京锐的小伙伴们有了一个难忘而充实的夏天。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph12.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>戴卓</h4>
+							<em>/ 大连理工大学</em>
+							<div>
+								<p>JD RUN是2014年暑假，我申请的唯一一个暑期实习项目。五月初，我无意中在微博上看到“京东招聘”发布的该项目公告，马上着手做简历进行投递。经过网上笔试后，等待面试的过程是漫长的，几乎每天我都去微博和应届生论坛查看有关JD RUN计划的消息。收到offer邮件，难耐激动的心情，虽然只在京东工作一个半月，但时时刻刻都被这个有力量的集体所感染，甚至为这里的开放度和宽容度感到不可思议，有人说，职场如战场，而在京东，至少这个仗，打得很舒服。舒服之感来源于什么呢，第一是开放和平等。第二是对人的尊重。第三是对生活的热爱。 和优秀的人做有趣的事情，与青春的公司共同成长！</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph13.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>庞誉</h4>
+							<em>/ 吉林大学</em>
+							<div>
+								<p>一次偶然的机会，我在央视二频道看到了纪录片《商战》，庆幸自己身处于又一次时代的浪潮之颠，而京东用它那过人的远见与胆识角逐在这一场全新商业格局的战场中，从一次次自我迭代的过程中，创造了一个又一个的奇迹。苦心寻找实习机会的我，看到了“2014京锐计划”的招募通知，JD RUN京锐计划提供了感受京东核心业务，参加互联网项目挑战赛等环节，让我心生向往。到了京东之后，这里拥有舒适现代化的办公环境，快速且和谐的办公氛围，还有那艳如朝阳的京东红，这一切都是那么的陌生又是那样的熟悉。我感到JD RUN是最接地气儿的实习，京东客户为先的精神自上而下的贯穿于整个公司的执行运转当中；同时，它有最完善的培养体系，除了日常在部门能够零距离的接触行业，京锐项目还每周为我们准备丰富的专业技能培训讲座，给予我们与企业高层、往届优秀管培生面对面交流的机会，帮助我们培养行业嗅觉；另外，我们享受到了五星级级别的实习待遇。京锐项目组还帮助京外实习生解决住房问题，享受酒店级的住房待遇，京锐项目组无微不至的照顾让我们感受到了家的温馨，也让我们感受到企业以“人”至上的工作宗旨。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph14.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>杨梦莹</h4>
+							<em>/ 四川大学</em>
+							<div>
+								<p>还没来到京东之前，听进入京东管理培训生的学长聊京东的企业价值观，顿时对京东的“客户为先，诚信，团队，创新，激情”充满认同感，心向往之。后来经过一系列面试，能通过并顺利进入京东感觉极为幸运，并且自己也更加自信。在自有品牌部实习短短1个半月，无论是部门业务知识，还是京锐项目知识，都受益匪浅：掌握了页面营销基本知识、基本促销手段等，很快便能上手工作，自己也通过创新思路做了相关产品页面建议，提高了相关产品销量，颇有成就感。通过数据统计和产品测试，对自有品牌部日百产品的销售情况有了更深层次的了解。另外，因为京锐项目，也有了和公司其他部门同事交流的宝贵机会，对电商，尤其是B2C服装领域的整体流程有了更深层次的了解，也更深地了解了产品、运营、售后等诸多岗位的具体工作内容。 再一次感谢京东，感谢JD RUN所有的人们！</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph15.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>杨鹏一</h4>
+							<em>/ 东北财经大学</em>
+							<div>
+								<p>Why JD.COM？众所周知，京东作为互联网行业中电商的翘楚，毋庸置疑，能够在这样的大公司里实习对于个人的成长锻炼都是一次难得的机会。</p>
+								<p>在京东实习的这段时间来，首先我要很感谢自己的实习导师、HR美女姐姐们以及共同奋战的实习小伙伴们，无论从工作上还是从生活上，他们都提供了无微不至的关怀与帮助！其次，在京东，“客户为先”的价值观深深烙印在心里，我相信这也是京东在电商领域地位屹立而不倒的关键原因！最后，能够成为京锐实习生，你不仅仅能够得到业务实习岗的锻炼，同样公司还会为你提供商业项目挑战赛，全方位塑造不一样的你！</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph16.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>王中方</h4>
+							<em>/ 四川大学</em>
+							<div>
+								<p>从一开始对于京东3C产品的信赖到对京东大打价格战的好奇再到对京东在美国上市的自豪，包括对刘总个人的欣赏，一直以来，我对京东有着特殊的感情，直到JD RUN的到来。在面试中，我学到了很多知识，也对于京东这家刚刚在美国上市的互联网公司有着更多的期待和想象空间。</p>
+								<p>一段漫长的等待过后，我收到了“京锐计划”的实习生offer，七月的北京，时而风雨交加，时而烈日炎炎。我和来自全世界各地的小伙伴们一起，加入京东，感受如龙卷风般的JD Speed、如沐春风的JD Style、广阔如海的JD Stage，最后我们顺利结业，都收获了自己想要的JD Success。 JD RUN总体而言是一个锻炼大家综合素质的人力资源项目，非常适合我们这种尚在校园中的小白。在这其中，平常的工作令我增长实干经验，穿插的培训更给我的工作提供方法论指导。最重要的是，通过JD RUN，我和其中相当一部分人结成了很好的朋友，我们一起上下班，一起工作，一起娱乐，一起生活，而且我从他们身上学到了很多有价值的东西！</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph17.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>史功明</h4>
+							<em>/ 天津大学</em>
+							<div>
+								<p>电子商务企业中，京东一直是我比较关注的快速发展的企业，作为忠实用户（五年钻石用户），其优质的物流服务深深打动了我。作为物流专业学生，我希望自己未来职业生涯中，做一个深挖物流专业领域的复合人才，因此选择京锐实习生岗位时，我果断选择了运营体系中的物流方向，最后也有幸成为仓储物流部唯一一名实习生。</p>
+								<p>在实习期间，我对京东文化和企业价值观从简单的五个词语上升到一个全新的层次，我总结出业务实习中获得的重要能力关键词：“沟通”，完全信息的沟通能够提高个人效率，少加班，多办事；“标准”，目标行动一致的重要工具，不以规矩，不成方圆。京锐计划的一个半月是令我万分留恋的，那些人，那些事，成为了我从校园走向社会的一个难忘的人生节点。感谢京东，感谢京锐，相聚有时，后会有期。</p>
+							</div>
+						</div>
+					</div>
+					<div class="position-program-member-detail-item">
+						<b></b>
+						<div class="position-program-member-detail-l">
+							<img src="#springUrl('/campus/img/photo/ph18.jpg')" alt="">
+						</div>
+						<div class="position-program-member-detail-r">
+							<h4>马逍</h4>
+							<em>/ 中欧商学院</em>
+							<div>
+								<p>我一直笑称JD RUN是“史上最有趣的混合N打实习项目”。因为它混合五彩缤纷的工作、项目、活动；混合本科、研究生、MBA各年龄段的俊男靓女；混合来自各个专业的优秀人才。谢谢JD RUN给了我认识互联网、走进电商的机会，两个月的京东生活，让我目不暇接，让我更了解京东是怎样飞速奔跑在互联网大时代的最前线。谢谢JD RUN给了我热情洋溢的部门同事和年轻敢拼的组员，我们不仅在工作上默契配合、互相帮助，更建立了坚固的友情。谢谢JD RUN给了每一个人足够的包容和自由去实现每一个想法，就像京东人才观说的一样，优秀就有舞台。作为首届JD RUNner，欢迎更多的京东范儿来加入世界的京东！</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--edit by weilihua 0323 -->
+			<div class="position-run-tip">
+				<p>本站是京东集团“京锐计划”&nbsp;&nbsp;JD&nbsp;&nbsp;RUN&nbsp;&nbsp;2015年暑期实习项目学员招募唯一申请平台，网申时间截止2015年4月12日。</p>
+				<p>京锐计划&nbsp;&nbsp;JD&nbsp;&nbsp;RUN&nbsp;&nbsp;2015！这一季，期待与你在京东相遇，共同跑出灿烂的夏天！</p>
+			</div>
+			
+			<div class="position-apply-now-wrapper">
+				<h1>Run with JD this Summer!</h1>
+					<!--<a href="#" class="btn-red position-apply-now-btn">立即申请</a>-->
+					<!--
+					#if(!$!{jobId})
+						<a href="#" class="btn-red position-apply-now-btn">暂未开放申请</a>
+					#else
+					<a href="#" id="apply_now2" onclick="toApply('$!{jobId}','$!{jobName}')" class="btn-red position-apply-now-btn">立即申请</a>
+					#end
+					-->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script type="text/javascript" src="#springUrl('/campus/js/applyment_result.js')"></script>
+<script>
+// 测试用脚本
+$(function(){
+	$(".position-filter-wrapper-jdrun li").on("click",function(){
+		var a=$(this);
+		if(!a.hasClass("position-type-curr")){
+			$(".position-filter-wrapper-jdrun li").removeClass("position-type-curr"),a.addClass("position-type-curr");
+			var b=$(".position-filter-wrapper-jdrun .position-type-bd"),c=a.index();
+			b.find("p").removeClass("curr"),b.find("p").eq(c).addClass("curr")
+		}
+	});
+});
+
+function detail_load(jobId,jobName){
+	$('#currentJobId').val(jobId);
+	$('#currentJobName').val(jobName);
+}
+
+function load_apply(){
+	var jobId = $('#currentJobId').val();
+	var jobName = $('#currentJobName').val();
+	toApply(jobId,jobName);
+}
+
+</script>
+
+</body>
+</html>

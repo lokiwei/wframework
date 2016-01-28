@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东招聘</title>
+	<link rel="stylesheet" href="#springUrl('/campus/css/base.css')"/>
+	<link rel="stylesheet" href="#springUrl('/campus/css/faq.css')"/>
+</head>
+<body>
+<!-- 通用顶栏 -->
+#parse('/common/head.vm')
+
+<!-- 主体内容 -->
+<div class="faq-wrapper">
+	<div id="J-faq-header" class="faq-header">
+		<div class="wrap faq-nav">
+			<!-- class有  faq-curr  则为当前选中 -->
+			<ul>
+				<li class="faq-curr">京锐计划</li>
+				<li>管理培训生</li>
+				<li>国际人才</li>
+				<li>应届生</li>
+			</ul>
+			<div class="title-line">
+				<span class="txt">招聘流程</span>
+				<span class="line"></span>
+			</div>
+		</div>
+		<!--S hd-京锐计划 -->
+		<div class="wrap faq-hd-item fa-hd-short">
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-resume"></i>
+				<p class="txt"><span class="num">1.</span>简历投递</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-filter"></i>
+				<p class="txt"><span class="num">2.</span>简历筛选</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-online-test"></i>
+				<p class="txt"><span class="num">3.</span>在线测试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-telphone"></i>
+				<p class="txt"><span class="num">4.</span>电话面试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview-last"></i>
+				<p class="txt"><span class="num">5.</span>终面</p>
+			</div>
+		</div>
+		<!--E hd-京锐计划 -->
+		<!--S hd-管理培训生 -->
+		<div class="wrap faq-hd-item hide">
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-preach"></i>
+				<p class="txt"><span class="num">1.</span>宣讲会</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-exam"></i>
+				<p class="txt"><span class="num">2.</span>笔试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview"></i>
+				<p class="txt"><span class="num">3.</span>一面</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview"></i>
+				<p class="txt"><span class="num">4.</span>二面</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-online-test"></i>
+				<p class="txt"><span class="num">5.</span>在线测试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview-last"></i>
+				<p class="txt"><span class="num">6.</span>终面</p>
+			</div>
+		</div>
+		<!--E hd-管理培训生 -->
+		<!--S hd-国际人才 -->
+		<div class="wrap faq-hd-item fa-hd-short hide">
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-resume"></i>
+				<p class="txt"><span class="num">1.</span>简历投递</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-filter"></i>
+				<p class="txt"><span class="num">2.</span>简历筛选</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview"></i>
+				<p class="txt"><span class="num">3.</span>一面</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-online-test"></i>
+				<p class="txt"><span class="num">4.</span>在线测试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview-last"></i>
+				<p class="txt"><span class="num">5.</span>终面</p>
+			</div>
+		</div>
+		<!--E hd-国际人才 -->
+		<!--S hd-应届毕业生 -->
+		<div class="wrap faq-hd-item hide">
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-preach"></i>
+				<p class="txt"><span class="num">1.</span>宣讲会</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-exam"></i>
+				<p class="txt"><span class="num">2.</span>笔试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview"></i>
+				<p class="txt"><span class="num">3.</span>一面</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview"></i>
+				<p class="txt"><span class="num">4.</span>二面</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-online-test"></i>
+				<p class="txt"><span class="num">5.</span>在线测试</p>
+			</div>
+			<div class="faq-header-arrow"></div>
+			<div class="faq-header-ico">
+				<i class="faq-header-ico-interview-last"></i>
+				<p class="txt"><span class="num">6.</span>终面</p>
+			</div>
+		</div>
+		<!--E hd-应届毕业生 -->
+	</div>
+	<div id="J-faq-bd" class="faq-content">
+		<div class="wrap title-line">
+			<span class="txt">FAQ</span>
+			<span class="line"></span>
+		</div>
+		<!--S bd-京锐计划 -->
+		<div class="wrap faq-bd-item">
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">京锐计划与其他公司的实习项目相比最大的优势是什么？</h2>
+					<p class="faq-answer">答： 京锐计划JD RUN 项目致力于从以下几个方面为学员提供更为优质的实习机会与平台：更核心的业务接触机会（核心岗位，精英帮带），更大的自主选择空间（百余岗位可选，挑战队伍可选），更大量的优质资源支持（专业培训、高管和大牛分享会），更全面的能力锤炼（与优秀人才共事，组队参加挑战），更优厚的福利待遇（有竞争力的实习薪酬，内购福利，非北京高校学员提供全程住宿），更高比例的转正机会（第一届的转正比例约为30%，本届不设上限）。项目组愿以最大的诚意邀请最优秀的人才体验京东的核心业务，了解京东的价值主张，与京东一起让生活变得简单快乐。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">申请京锐计划一定要在线投递简历吗？</h2>
+					<p class="faq-answer">答：是的。通过本系统在线提交简历是京锐计划项目组春季招募接受申请的唯一途径。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">职位申请提交成功后可以再次修改简历吗？</h2>
+					<p class="faq-answer">答：在您职位申请提交成功后就不可以再对简历进行修改啦，如果您确实疏漏或者错填了重要信息，您可以在“我申请的职位”中取消您的申请，修改完成后再行提交申请，但是HR姐姐真心不建议这样操作，因为项目组会对收到的简历进行实时筛选，如果您本来已经可以进入下一轮，取消申请您可能就错失良机啦，所以在提交申请之前请务必仔细检查确认您的信息填写无误才好。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">在本系统中注册简历成功后，能否申请京东的其他全职工作？</h2>
+					<p class="faq-answer">答：很抱歉，目前系统还不能实现这样的操作，本次只支持非应届毕业的同学申请京锐计划。但是您在本系统中注册简历后您的申请资料就进入了京东的人才库，今后若有适合您的全职岗位，我们也会另行邀请您加入京东的大家庭。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">我所学的专业跟电商和互联网完全不相关，也可以申请京锐计划吗？</h2>
+					<p class="faq-answer">答：我们不能说京锐计划是这个星球上最棒的实习项目，但是京锐计划一定是欢迎这个星球上的任何专业的同学，只要你愿意了解京东，我们一定敞开欢迎的怀抱，再不要担心专业的问题啦，快快把您的简历砸过来吧。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">在线测试的题型是什么样子的？</h2>
+					<p class="faq-answer">答：题目偏重商业场景，全部为单项选择题，共28道，要在40分钟内完成哦。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">线上测评需要在指定的地点参加吗？</h2>
+					<p class="faq-answer">答：不需要那么麻烦，同学们只需使用电脑，连接上稳定的网络，通过获取的链接在任何地方都可以在线参加测评。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">在线测评对电脑配置有要求吗？</h2>
+					<p class="faq-answer">答：测评系统对电脑配置没有特殊要求，但为了保证您能正常访问，需要大家使用IE9及以上版本的IE浏览器。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">测评进行中网络出现问题导致答题中断怎么办？</h2>
+					<p class="faq-answer">答：若答题进行中网络出现问题导致中断，您可以等网络恢复后，重新登录作答，之前的答题记录会被保存。但重新登录的机会有且仅有两次，所以请同学们务必在网络稳定的环境下作答。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">如果测评过程中遇到其他意外情况，该联系谁？</h2>
+					<p class="faq-answer">答：请拔打线上测评24小时客户服务热线：400-650-6886。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">每轮面试都是什么形式？</h2>
+					<p class="faq-answer">答：为方便同学们，会以电话面试为主，但如果您方面到京东北京总部进行面试，京东也热烈欢迎哦。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">终面后多久能收到OFFER？</h2>
+					<p class="faq-answer">答：若您通过了全部筛选程序，您将会在5月初收到京锐计划春招的正式offer。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">实习期间的工作方式是怎样的？</h2>
+					<p class="faq-answer">答：项目组会根据您的志愿和不同方向的岗位需求进行双向匹配，每个部门的工作方式有所不同。但可以保证的是，京锐计划能够给大家提供直接接触核心业务工作内容的机会。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">京锐计划实习生的待遇如何？</h2>
+					<p class="faq-answer">答：京锐计划为学员提供具有行业竞争力的实习薪酬、午餐和晚餐补贴、商业保险，同时为非北京高校的学员安排全程住宿，学员实习期间享受正式员工的内购福利。我们给你的真的都是我们能给的最好的，你还在等什么？</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">可否选择除北京外的京东其他区域分公司进行实习?</h2>
+					<p class="faq-answer">答：考虑到整体项目体验，本次京锐计划只提供北京总部的实习机会，对京东区域分公司的实习机会感兴趣的小伙伴，欢迎关注“京东招聘”(微博&微信)，留意我们发布的相关信息。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">京锐计划提供培训的具体内容是什么?</h2>
+					<p class="faq-answer">答：京锐计划为全部学员提供互联网思维、职业生涯辅导、JD TALK-业界大牛案例分享等系列优质培训课程，助力学员赢在职场起跑线。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">项目挑战赛都有哪些项目可以选择？</h2>
+					<p class="faq-answer">答：怎么能问人家这么隐私的问题呢？还是告诉大家一个重要的线索吧，挑战项目都是基于用户体验而设计的，都是需要组队参加的呦！培养商业嗅觉，锤炼合作能力，收获项目大奖，赢取工作机会，想想会不会有点儿小激动呢？</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">京锐实习生录取为正式员工的几率大吗？</h2>
+					<p class="faq-answer">答：告诉大家一个小秘密，第一届京锐计划实习生收到京东全职岗位offer的比例约为30%。本届京锐计划的这项比例只有下限，没有上限。只要你足够优秀，只要你是那个合适的TA，我们完全没有不送上offer的理由，就是这么任性！京东在这里，你在哪里？</p>
+				</div>
+			</div>
+		</div>
+		<!--E bd-京锐计划 -->
+		<!--S bd-管理培训生 -->
+		<div class="wrap faq-bd-item hide">
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">请问今年的校园招聘在全国招聘的地点？</h2>
+					<p class="faq-answer">答：2015年京东将在北京、成都、沈阳、深圳、南京、上海、西安、广州、宿迁、武汉、扬州等城市提供岗位。欢迎2015年毕业的同学积极申请。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">请总体介绍一下笔试及面试的流程和时间安排？</h2>
+					<p class="faq-answer">答：我们会在3月至4月进行简历筛选、宣讲会、笔试及面试安排，具体时间和地点我们会实时在网站页面及京东校招微信发布，请同学们及时关注更新信息。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">本次招聘面向哪些专业类别的学生？其他类别专业的学生是否完全没机会？</h2>
+					<p class="faq-answer">答：本次春招没有严格的专业限制，发展潜力和个人能力才是招聘时最重要的衡量标准。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">我是2014届的毕业生，我能参加这次这次校园招聘吗？</h2>
+					<p class="faq-answer">答：本次校园招聘仅针对2015届应届毕业生，非应届毕业生可以关注京东社会招聘的信息，"京东社招"的微信及官方网站都会及时更新岗位信息。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">此次春招不在我所在的城市进行宣讲是否也可以投简历？</h2>
+					<p class="faq-answer">答：我们欢迎各地同学踊跃投递简历，投递简历不受宣讲城市限制。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">在网申提交简历的时候，有没有需要特别注意的地方？</h2>
+					<p class="faq-answer">答：建议最好使用IE浏览器进行申请，并请保证申请内容和简历真实全面的反应您的实际情况，建议详细填写简历信息才能获得HR姐姐的关注哦。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">简历提交之后，我还能进行修改吗？能看到自己提交的信息吗？</h2>
+					<p class="faq-answer">答：交简历后请随时在网上查询您的状态，查看投递状态的方法是进入<a href="http://www.jd-campus.com" target="_blank">http://www.jd-campus.com</a>点击校园招聘导航下的"我的投递反馈"，选择"校园招聘职位"。点击职位信息的右侧"编辑"按钮，可以修改和查看自己提交的信息。
+投递职位之后简历可以随时查看。在状态为"未提交"或"未处理"时您可以对自己的简历进行修改；"未提交"指简历 填写没有提交成功，仍可进行修改，直至递交成功；当状态变成"已处理"之后，表明您的简历已经被筛选过，同时，您也不可以再修改简历内容，只能修改您的联 系方式。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">为什么填写完简历点击提交后，系统提示我的身份证已经申请了另外一个职位？</h2>
+					<p class="faq-answer">答：此情况产生是由于您填写的身份证号码已经在京东本次招聘的简历库中存在，请重复确认您的身份证号码。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">提交简历之后，什么时候能收到结果通知（是否通过筛选），通知的形式？</h2>
+					<p class="faq-answer">答：我们将通过邮件，短信，电话等多种形式来通知各位同学，请同学们确保简历上所留的电话及邮箱能够准确联系到您。</p>
+				</div>
+			</div>
+			
+			
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">笔试或面试后均会得到结果通知吗？</h2>
+					<p class="faq-answer">答：每轮只有通过笔试或面试的同学才会得到通知。</p>
+				</div>
+			</div>
+			
+				<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">面试之后，什么时候会收到录用结果的通知。通知的形式？</h2>
+					<p class="faq-answer">答：通知信会以邮件和短信的形式通知各位同学，请及时通过邮件确认信息。</p>
+				</div>
+			</div>		
+			
+		</div>
+		<!--E bd-管理培训生 -->
+		<!--S bd-国际人才 -->
+		<div class="wrap faq-bd-item hide">
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">什么是京东 IMT项目？</h2>
+					<p class="faq-answer">答：随着京东国际化的发展需求，在“京鹰计划”TET项目8年成功运营经验的基础上，京东集团国际人才项目IMT（International Management Talent）应运而生。项目主要面向世界顶尖商学院的优秀MBA毕业生，通过10个月的核心体系轮岗实践，高层领导者一对一辅导等培养方式，为集团未来的国际化发展储备一批优秀的管理者。IMT项目自2013年正式启动，第一届入选的6位IMT成员，分别来自宾夕法尼亚大学沃顿商学院、麻省理工大学斯隆商学院、加州大学伯克利分校哈斯商学院、伦敦商学院、欧洲工商管理学院等国际一流学府，未来我们也期待更多的顶尖商学院的优秀学子加入IMT的团队，共同开拓广阔的未来。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">京东IMT项目的招聘对象是？</h2>
+					<p class="faq-answer">答：世界顶尖商学院的优秀MBA毕业生。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">IMT项目与其他公司的人才培养项目相比优势是什么？</h2>
+					<p class="faq-answer">答：加入IMT项目，您将直接接触公司核心业务，并体验到高层领导者一对一辅导的培养方式。京东为IMT量身打造为期3年的高专业、高挑战、高弹性培养计划，提供10个月核心业务体系轮岗选择，使IMT全面认识了解电商行业；通过参加挑战性项目，锻炼综合实力，使IMT在晋升通道上快速发展，为成为领导者、进军国际市场做准备。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">项目人才选拔的流程是什么？</h2>
+					<p class="faq-answer">答：首先您需要在线通过系统提交简历，经过筛选合格者将进入第一轮面试，一面后您需要接受专业、全面的测评，最后进入终面。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">IMT项目的持续时长是多久？</h2>
+					<p class="faq-answer">答：京东为您私人订制为期3年的培养计划，提供10个月核心业务体系轮岗制度。 京东对IMT项目的资源支持是持续的，长期的，京东会以最诚挚的态度和最强大的支持力为IMT成员提供切实有效的培养计划，并将其打造成为企业国际化发展中的优秀的管理者！</p>
+				</div>
+			</div>
+		</div>
+		<!--E bd-国际人才 -->
+		<!--S bd-应届毕业生 -->
+		<div class="wrap faq-bd-item  hide">
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">请问今年的校园招聘在全国招聘的人数和地点？</h2>
+					<p class="faq-answer">答：2015年京东将在北京、成都、沈阳、深圳、南京、上海、西安、广州、宿迁、武汉、扬州等城市提供数百个岗位。
+						欢迎2015年毕业的同学积极申请。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">请总体介绍一下笔试及面试的流程和时间安排？</h2>
+					<p class="faq-answer">答：我们会在9月至10月进行简历筛选、宣讲会、笔试及面试安排，具体时间和地点我们会实时在网站页面及京东校
+						招微信发布，请同学们及时关注更新信息。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">本次招聘面向哪些专业类别的学生？其他类别专业的学生是否完全没机会？</h2>
+					<p class="faq-answer">答：某些岗位会对技术背景有一定的要求，但是没有严格的专业限制，发展潜力和个人能力才是招聘时最重要的衡量
+						标准。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">我是2014届的毕业生，我能参加这次这次校园招聘吗？</h2>
+					<p class="faq-answer">答：本次校园招聘仅针对2015届应届毕业生，非应届毕业生可以关注京东社会招聘的信息，"京东社招"的微信及官
+						方网站都会及时更新岗位信息。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">此次秋招不在我所在的城市进行宣讲、笔试和面试，是否也可以投简历？</h2>
+					<p class="faq-answer">答：我们欢迎各地同学踊跃投递简历，希望大家在投递简历的同时，根据自己的情况选择就近城市（因行程原因，
+						我们只在指定城市安排笔试和面试）参加笔试、面试，以便我们安排。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">在网申提交简历的时候，有没有需要特别注意的地方？</h2>
+					<p class="faq-answer">答：建议最好使用IE浏览器进行申请，并请保证申请内容和简历真实全面的反应您的实际情况，建议详细填写简历信
+						息才能获得HR姐姐的关注哦。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">简历提交之后，我还能进行修改吗？能看到自己提交的信息吗？</h2>
+					<p class="faq-answer">答：交简历后请随时在网上查询您的状态，查看投递状态的方法是进入<a href="http://www.jd-campus.com" target="_blank">http://www.jd-campus.com</a>点击校园招聘导航下的"我的投递反馈"，
+						选择"校园招聘职位"。点击职位信息的右侧"编辑"按钮，可以修改和查看自己提交的信息。
+						投递职位之后简历可以随时查看。在状态为"未提交"或"未处理"时您可以对自己的简历进行修改；"未提交"指简历填
+						写没有提交成功，仍可进行修改，直至递交成功；当状态变成"已处理"之后，表明您的简历已经被筛选过，同时，您
+						也不可以再修改简历内容，只能修改您的联系方式。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">为什么填写完简历点击提交后，系统提示我的身份证已经申请了另外一个职位？</h2>
+					<p class="faq-answer">答：此情况产生是由于您填写的身份证号码已经在京东本次招聘的简历库中存在，请重复确认您的身份证号码。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">提交简历之后，什么时候能收到结果通知（是否能参加笔试），通知的形式？</h2>
+					<p class="faq-answer">答：我们将通过邮件，短信，电话等多种形式来通知各位同学，请同学们确保简历上所留的电话及邮箱能够准确联系
+						到您。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">笔试或面试后均会得到结果通知吗？</h2>
+					<p class="faq-answer">答：每轮只有通过笔试或面试的同学才会得到通知。</p>
+				</div>
+			</div>
+			<div class="faq-list">
+				<span class="faq-list-ico"><i>问</i></span>
+				<div class="faq-info">
+					<h2 class="faq-question">面试之后，什么时候会收到录用结果的通知。通知的形式？</h2>
+					<p class="faq-answer">答：通知信会以邮件和短信的形式通知各位同学，请及时通过邮件确认信息。</p>
+				</div>
+			</div>
+		</div>
+		<!--E bd-应届毕业生 -->
+	</div>
+</div>
+<!-- footer -->
+#parse('/common/footer.vm')
+<script src="#springUrl('/campus/js/libs/jquery.js')"></script>
+<script src="#springUrl('/campus/js/main.js')"></script>
+<script>
+// 测试用脚本
+$(function(){
+	var faq = {
+		init: function(){
+			var me = this;
+			me.bindHandler();
+		},
+		bindHandler: function(){
+			var me = this;
+			$('#J-faq-header .faq-nav li').on('click', function(e){
+				var item = $(this);
+				if(item.hasClass('faq-curr')){
+					return;
+				}
+				var index = item.index();
+				$('#J-faq-header .faq-nav li').removeClass('faq-curr');
+				item.addClass('faq-curr');
+				//hd
+				$('#J-faq-header .faq-hd-item').addClass('hide');
+				$('#J-faq-header .faq-hd-item').eq(index).removeClass('hide');
+				//bd
+				$('#J-faq-bd .faq-bd-item').addClass('hide');
+				$('#J-faq-bd .faq-bd-item').eq(index).removeClass('hide');
+			});
+		}
+	}
+	//init
+	faq.init();
+})
+</script>
+
+</body>
+</html>

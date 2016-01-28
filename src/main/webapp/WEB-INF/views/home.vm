@@ -1,0 +1,63 @@
+#set($layout = "layout/null.vm")
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="为员工提供更好的公司福利" />
+    <meta name="keywords" content="员工福利" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>福利平台</title>
+	<link rel="stylesheet" type="text/css" href="#springUrl('/static/fuli/gb/css/gb.css')" combo-use="/static/fuli/gb/css/gb.min_07984dae.css">
+	<link rel="stylesheet" type="text/css" href="#springUrl('/static/fuli/gb/css/kendo.css')" combo-use="#springUrl('/static/fuli/gb/css/kendo.min_1f18c36a.css')">
+	<link rel="stylesheet" href="#springUrl('/static/fuli/css/index.css')"/>
+	<link rel="stylesheet" type="text/css" href="#springUrl('/static/fuli/css/index.css')" combo-use="#springUrl('/static/fuli/css/index.min_98563b70.css')">
+</head>
+<body ontouchstart>
+	<div class="mod_container">
+	<!-- 通用顶栏 -->	
+	#parse("/common/head.vm")
+	
+	<!-- 主体内容 -->
+	<div id="center" style="height:auto;">
+	</div>	
+	<!-- footer -->
+	#parse("/common/index-footer.vm")
+	</div>
+	<!-- global:js -->
+  <!-- endglobal -->
+
+<script src="#springUrl('/static/fuli/gb/js/jquery.js')"></script>
+<script>
+	window.onresize = function(){
+    	$("#center").css("min-height",($(window).height()-284)+'px');
+	}
+	$(function () {
+		$("#center").css("min-height",($(window).height()-284)+'px');
+		var url = '/web/static/forward/goods/goods_index';
+		$("#center").load(url);
+		initTab();
+		
+	}());
+	
+	function initTab(){
+	$(".welfare_mod_header_links").find("li").click(function () {
+		$(this).addClass("on");
+    	$(this).siblings().each(function(){
+    		$(this).removeClass("on");
+    	});
+    	var id = $(this).attr("id");
+    	
+    	if("indexHead"==id){
+    		$("#center").load('/web/static/forward/goods/goods_index');
+    	}else if("about"==id){
+    		$("#center").load('/web/static/forward/goods/about');
+    	}
+    });
+	}
+</script>
+</body>
+</html>
